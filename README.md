@@ -30,6 +30,6 @@ In the same Pages project → **Custom domains** → add your own domain (e.g. `
 - WhatsApp number used throughout: `66803140043` (+66 80 314 0043).
 
 ## Known placeholders / things to confirm before going fully live
-- Motorcycle/car daily rental rates are not published on the site (only deposit examples) — the AI Business Brief notes prices change by season/model and should be confirmed before publishing fixed numbers.
-- Jet Ski pricing/partner details are real (Phuket Jet Ski Club contract), but the contract is seasonal (1 May – 31 Oct 2026) and has a license/insurance number mismatch between the contract and the partner's marketing flyer — see `Island_Rides_Tours_Activities_SOP.docx` for details.
-- No photos yet — card thumbnails currently use icon placeholders (`.card-photo`). Swap in real photos from `Bike Collection/` and `Car Photo/` when ready.
+- Motorcycle (8 models) and car (Ford Ranger Raptor) fleet cards now show real photos and real pricing, sourced from the shop's own rate card and marketing flyers (`Bike Collection/`, `Car Photo/`). Rate card was dated for March 2026 — reconfirm current pricing periodically since rates shift with season/stock.
+- Yamaha NMAX/Aerox 155 and Honda ADV 350 have real photos but no listed price on the rate card photographed — cards say "Message for price" instead of guessing a number.
+- Jet Ski pricing/partner details are real (Phuket Jet Ski Club contract), but the contract is seasonal (1 May – 31 Oct 2026) and has a license/insurance number mismat
