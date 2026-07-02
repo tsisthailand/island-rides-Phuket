@@ -54,6 +54,7 @@
       <p>Popular island tours around Phuket, run by trusted operators.</p>
     </div>
     <div class="card-grid" id="tours-grid"></div>
+    <div class="disclaimer" style="margin-top:6px;">Phi Phi and James Bond Island tours are operated by Sawanu Travel by speed catamaran, departing Royal Phuket Marina. Prices shown reflect their promotional rate valid 1 Jul&ndash;30 Sep 2026.</div>
   </section>
 
   <section class="section" id="jet-ski">
@@ -132,12 +133,12 @@
 
 <script>
   const TOURS = [
-    { id: "TOUR-001", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "Phi Phi Island Tour by Speedboat",
-      duration: "Full day (08:00-17:00)", desc: "Phi Phi, Maya Bay, Viking Cave, Khai Island, snorkeling.",
-      included: "Hotel pickup, lunch, snorkel gear, guide", priceAdult: 2200, priceChild: 1500, unit: "adult" },
-    { id: "TOUR-002", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "James Bond Island Tour",
-      duration: "Full day", desc: "Phang Nga Bay, James Bond Island, cave, canoeing.",
-      included: "Hotel pickup, lunch, canoeing, guide", priceAdult: 2000, priceChild: 1400, unit: "adult" },
+    { id: "TOUR-001", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", photo: "phiphi.jpg", name: "Phi Phi - Bamboo Island by Speed Catamaran",
+      duration: "Full day", desc: "Phi Phi, Pileh Lagoon, Viking Cave, Maya Bay, Bamboo Island by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
+      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
+    { id: "TOUR-002", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "James Bond Island by Speed Catamaran",
+      duration: "Full day", desc: "Phang Nga Bay, James Bond Island (Ko Tapu), cave, by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
+      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
     { id: "TOUR-003", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "Coral / Khai Island Snorkeling Tour",
       duration: "Half day", desc: "Snorkeling at Coral Island and Khai Island.",
       included: "Hotel pickup, snorkel gear, drinks", priceAdult: 1200, priceChild: 800, unit: "adult" },
@@ -163,8 +164,9 @@
       const card = document.createElement("div");
       card.className = "card";
       const childPrice = t.priceChild ? `<div class="price-child">Child: ${t.priceChild.toLocaleString()} THB</div>` : "";
+      const photoHtml = t.photo ? `<img src="${t.photo}" alt="${t.name}">` : t.icon;
       card.innerHTML = `
-        <div class="card-photo">${t.icon}</div>
+        <div class="card-photo">${photoHtml}</div>
         <div class="card-body">
           <h3>${t.name}</h3>
           <div class="duration">${t.duration}</div>
