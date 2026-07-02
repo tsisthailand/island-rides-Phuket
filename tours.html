@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Island Tours | Island Rides Phuket</title>
+<link rel="icon" type="image/png" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 <style>
   .price-unit { font-size: 11.5px; color: #5b6b7a; }
@@ -29,7 +31,8 @@
   </div>
 
   <header class="site">
-    <div class="logo"><a href="index.html">ISLAND RIDES <span>PHUKET</span></a></div>
+    <div class="logo"><a href="index.html"><img src="logo.png" alt="Island Rides Phuket logo">ISLAND RIDES <span>PHUKET</span></a></div>
+    <button class="nav-toggle" aria-label="Menu">&#9776;</button>
     <nav class="site">
       <a href="index.html">Home</a>
       <a href="motorcycle-rental.html">Motorcycle</a>
@@ -210,6 +213,15 @@
 
     window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg, "_blank");
   });
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var navSite = document.querySelector('nav.site');
+  if (navToggle && navSite) {
+    navToggle.addEventListener('click', function () { navSite.classList.toggle('open'); });
+    navSite.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { navSite.classList.remove('open'); });
+    });
+  }
 </script>
 </body>
 </html>
