@@ -18,6 +18,52 @@
 <link rel="icon" type="image/png" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .bike { cursor:pointer; }
+  .bike .card-photo { position:relative; }
+  .bike .zoom { position:absolute; z-index:2; bottom:10px; left:50%; transform:translate(-50%,6px); background:rgba(15,42,71,.85); color:#fff; font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:999px; opacity:0; transition:.2s; white-space:nowrap; }
+  .bike:hover .zoom, .bike:focus .zoom { opacity:1; transform:translate(-50%,0); }
+  @media (hover:none) { .bike .zoom { opacity:1; transform:translate(-50%,0); } }
+  .bike:focus { outline:3px solid rgba(31,166,160,.45); outline-offset:2px; }
+  .bm { position:fixed; inset:0; z-index:1000; display:none; align-items:center; justify-content:center; padding:20px; }
+  .bm.open { display:flex; }
+  .bm-back { position:absolute; inset:0; background:rgba(8,26,46,.7); backdrop-filter:blur(3px); }
+  .bm-box { position:relative; background:#fff; border-radius:24px; width:100%; max-width:980px; max-height:calc(100vh - 40px); overflow:auto; display:grid; grid-template-columns:1.2fr 1fr; box-shadow:0 30px 80px rgba(0,0,0,.35); animation:bmIn .22s ease; }
+  @keyframes bmIn { from { opacity:0; transform:translateY(14px) scale(.98); } }
+  .bm-x { position:absolute; top:12px; right:12px; z-index:3; width:40px; height:40px; border-radius:50%; border:none; background:rgba(15,42,71,.08); font-size:24px; line-height:1; cursor:pointer; color:var(--navy); }
+  .bm-x:hover { background:rgba(15,42,71,.16); }
+  .bm-gal { position:relative; background:#FBF6F4; display:flex; flex-direction:column; justify-content:center; padding:24px; }
+  .bm-gal > img { width:100%; aspect-ratio:900/430; object-fit:cover; object-position:center bottom; border-radius:14px; }
+  .bm-nav { position:absolute; top:45%; width:40px; height:40px; border-radius:50%; border:none; background:#fff; box-shadow:0 4px 14px rgba(0,0,0,.15); font-size:26px; line-height:1; cursor:pointer; color:var(--navy); }
+  .bm-nav.prev { left:12px; } .bm-nav.next { right:12px; }
+  .bm-thumbs { display:flex; gap:8px; justify-content:center; margin-top:14px; flex-wrap:wrap; }
+  .bm-thumbs img { width:64px; height:44px; object-fit:cover; border-radius:8px; cursor:pointer; opacity:.55; border:2px solid transparent; }
+  .bm-thumbs img.on { opacity:1; border-color:var(--orange); }
+  .bm-info { padding:30px 28px 26px; display:flex; flex-direction:column; }
+  .bm-type { color:var(--turquoise); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+  .bm-info h2 { font-size:28px; font-weight:800; line-height:1.15; margin-top:4px; padding-right:36px; }
+  .bm-year { color:var(--gray-600); font-size:14px; margin-top:4px; }
+  .bm-about { margin-top:14px; font-size:14.5px; color:var(--navy); }
+  .bm-prices { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
+  .bm-price { background:#FFF4EA; border-radius:14px; padding:12px 14px; }
+  .bm-price b { display:block; font-family:var(--font-head); font-size:24px; font-weight:800; color:var(--orange); line-height:1.1; }
+  .bm-price span { font-size:12.5px; color:var(--gray-600); }
+  .bm-price.ask { grid-column:1/-1; }
+  .bm-price.ask b { font-size:19px; }
+  .bm-list { list-style:none; margin:18px 0 20px; display:grid; gap:8px; }
+  .bm-list li { font-size:13.5px; color:var(--gray-600); padding-left:26px; position:relative; }
+  .bm-list li::before { content:"\2713"; position:absolute; left:0; top:1px; width:18px; height:18px; border-radius:50%; background:rgba(31,166,160,.14); color:var(--turquoise); font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .bm-list b { color:var(--navy); }
+  .bm-book { margin-top:auto; display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; font-family:var(--font-head); font-weight:700; padding:14px; border-radius:999px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.35); }
+  .bm-note { font-size:12px; color:var(--gray-600); text-align:center; margin-top:10px; }
+  body.bm-lock { overflow:hidden; }
+  @media (max-width:760px) {
+    .bm { padding:0; align-items:flex-end; }
+    .bm-box { grid-template-columns:1fr; border-radius:22px 22px 0 0; max-height:92vh; }
+    .bm-gal { padding:16px; } .bm-info { padding:20px 20px 24px; } .bm-info h2 { font-size:23px; }
+  }
+</style>
+
 </head>
 <body>
   <div class="topbar">
@@ -50,87 +96,87 @@
     <div class="section-head">
       <span class="tag">Our Fleet</span>
       <h2>Real bikes, real photos</h2>
-      <p>All models below are from our own fleet in Chalong. Prices are from our current rate card &mdash; always confirm today&#8217;s availability on WhatsApp.</p>
+      <p>All models below are from our own fleet in Chalong. Tap a bike to see photos and details. Prices are from our current rate card &mdash; always confirm today&#8217;s availability on WhatsApp.</p>
     </div>
     <div class="card-grid">
-      <div class="card">
-        <div class="card-photo"><img src="click125.jpg" alt="Honda Click 125"></div>
+      <div class="card bike" data-bike="click125" tabindex="0" role="button" aria-label="View Honda Click 125 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="click125.jpg" alt="Honda Click 125"></div>
         <div class="card-body">
           <h3>Honda Click 125</h3>
           <div class="year">2023 model</div>
           <div class="price-row"><div class="price">150<small>/day</small></div><div class="price-child">4,500 THB/month</div></div>
           <div class="included">Deposit: &#8776; 3,000&ndash;4,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20125" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20125" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="click160.jpg" alt="Honda Click 160"></div>
+      <div class="card bike" data-bike="click160" tabindex="0" role="button" aria-label="View Honda Click 160 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="click160.jpg" alt="Honda Click 160"></div>
         <div class="card-body">
           <h3>Honda Click 160</h3>
           <div class="year">2023&ndash;2026 model</div>
           <div class="price-row"><div class="price">200<small>/day</small></div><div class="price-child">6,000 THB/month</div></div>
           <div class="included">Deposit: &#8776; 3,000&ndash;4,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20160" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="nmax-aerox.jpg" alt="Yamaha NMAX / Aerox 155"></div>
+      <div class="card bike" data-bike="nmax" tabindex="0" role="button" aria-label="View Yamaha NMAX / Aerox 155 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="nmax-aerox.jpg" alt="Yamaha NMAX / Aerox 155"></div>
         <div class="card-body">
           <h3>Yamaha NMAX / Aerox 155</h3>
           <div class="year">2023 model</div>
           <div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>
           <div class="included">Ask us on WhatsApp for current rate &amp; deposit</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Yamaha%20NMAX%2FAerox%20155" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Yamaha%20NMAX%2FAerox%20155" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="pcx160.jpg" alt="Honda PCX 160"></div>
+      <div class="card bike" data-bike="pcx160" tabindex="0" role="button" aria-label="View Honda PCX 160 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="pcx160.jpg" alt="Honda PCX 160"></div>
         <div class="card-body">
           <h3>Honda PCX 160</h3>
           <div class="year">2025 model</div>
           <div class="price-row"><div class="price">276<small>/day</small></div><div class="price-child">8,000 THB/month</div></div>
           <div class="included">Deposit: &#8776; 5,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20PCX%20160" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20PCX%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="adv160.jpg" alt="Honda ADV 160"></div>
+      <div class="card bike" data-bike="adv160" tabindex="0" role="button" aria-label="View Honda ADV 160 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="adv160.jpg" alt="Honda ADV 160"></div>
         <div class="card-body">
           <h3>Honda ADV 160</h3>
           <div class="year">2025&ndash;2026 model</div>
           <div class="price-row"><div class="price">333<small>/day</small></div><div class="price-child">10,000 THB/month</div></div>
           <div class="included">Deposit: &#8776; 5,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20160" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="adv350.jpg" alt="Honda ADV 350"></div>
+      <div class="card bike" data-bike="adv350" tabindex="0" role="button" aria-label="View Honda ADV 350 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="adv350.jpg" alt="Honda ADV 350"></div>
         <div class="card-body">
           <h3>Honda ADV 350</h3>
           <div class="year">2025&ndash;2026 model</div>
           <div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>
           <div class="included">Deposit: &#8776; 7,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20350" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20350" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="forza350.jpg" alt="Honda Forza 350"></div>
+      <div class="card bike" data-bike="forza350" tabindex="0" role="button" aria-label="View Honda Forza 350 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="forza350.jpg" alt="Honda Forza 350"></div>
         <div class="card-body">
           <h3>Honda Forza 350</h3>
           <div class="year">2025 model</div>
           <div class="price-row"><div class="price">533<small>/day</small></div><div class="price-child">16,000 THB/month</div></div>
           <div class="included">Deposit: &#8776; 7,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Forza%20350" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Forza%20350" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-photo"><img src="xadv750.jpg" alt="Honda X-ADV 750"></div>
+      <div class="card bike" data-bike="xadv750" tabindex="0" role="button" aria-label="View Honda X-ADV 750 details">
+        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="xadv750.jpg" alt="Honda X-ADV 750"></div>
         <div class="card-body">
           <h3>Honda X-ADV 750</h3>
           <div class="year">2024&ndash;2026 model, with Akrapovic</div>
           <div class="price-row"><div class="price">1,300<small>/day</small></div><div class="price-child">39,000 THB/month</div></div>
           <div class="included">Deposit: &#8776; 20,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20X-ADV%20750" target="_blank" rel="noopener">Check Availability</a>
+          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20X-ADV%20750" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
         </div>
       </div>
     </div>
@@ -174,6 +220,30 @@
     <a class="btn btn-orange" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20check%20motorcycle%20rental%20availability" target="_blank" rel="noopener">Chat on WhatsApp</a>
   </div>
 
+
+  <div class="bm" id="bm" aria-hidden="true">
+    <div class="bm-back" data-close></div>
+    <div class="bm-box" role="dialog" aria-modal="true" aria-labelledby="bm-name">
+      <button class="bm-x" data-close aria-label="Close">&times;</button>
+      <div class="bm-gal">
+        <img id="bm-img" src="" alt="">
+        <button class="bm-nav prev" aria-label="Previous photo">&#8249;</button>
+        <button class="bm-nav next" aria-label="Next photo">&#8250;</button>
+        <div class="bm-thumbs" id="bm-thumbs"></div>
+      </div>
+      <div class="bm-info">
+        <div class="bm-type" id="bm-type"></div>
+        <h2 id="bm-name"></h2>
+        <div class="bm-year" id="bm-year"></div>
+        <p class="bm-about" id="bm-about"></p>
+        <div class="bm-prices" id="bm-prices"></div>
+        <ul class="bm-list" id="bm-list"></ul>
+        <a class="bm-book" id="bm-book" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Check availability on WhatsApp</a>
+        <p class="bm-note">Rates change with season and stock. We confirm today&#8217;s price on WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+
   <footer class="site">
     <div class="fname">ISLAND RIDES PHUKET</div>
     <div class="services">Motorbike &middot; Car &middot; Island &amp; Adventure Tours &middot; Visa Assistance &middot; Driver License Service &middot; Ferry Tickets</div>
@@ -194,5 +264,60 @@
   </footer>
 
 <script src="nav.js" defer></script>
+<script>
+  var BIKES = [{"id": "click125", "name": "Honda Click 125", "year": "2023 model", "cc": "125cc", "type": "Automatic scooter", "photos": ["click125.jpg"], "day": "150", "month": "4,500", "deposit": "3,000–4,000 THB or passport", "about": "Light and easy to ride. Great for getting around town and the beaches.", "big": false}, {"id": "click160", "name": "Honda Click 160", "year": "2023–2026 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["click160.jpg"], "day": "200", "month": "6,000", "deposit": "3,000–4,000 THB or passport", "about": "A little more power than the Click 125, still light and easy to park.", "big": false}, {"id": "nmax", "name": "Yamaha NMAX / Aerox 155", "year": "2023 model", "cc": "155cc", "type": "Automatic scooter", "photos": ["nmax-aerox.jpg"], "day": null, "month": null, "deposit": "Ask us on WhatsApp", "about": "Comfortable seat and storage, good for two people and longer rides around the island.", "big": false}, {"id": "pcx160", "name": "Honda PCX 160", "year": "2025 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["pcx160.jpg"], "day": "276", "month": "8,000", "deposit": "≈ 5,000 THB or passport", "about": "Smooth, comfortable and roomy. A favourite for monthly rentals.", "big": false}, {"id": "adv160", "name": "Honda ADV 160", "year": "2025–2026 model", "cc": "160cc", "type": "Adventure scooter", "photos": ["adv160.jpg"], "day": "333", "month": "10,000", "deposit": "≈ 5,000 THB or passport", "about": "Adventure style with a tall screen and strong suspension for Phuket's hills.", "big": false}, {"id": "adv350", "name": "Honda ADV 350", "year": "2025–2026 model", "cc": "350cc", "type": "Adventure scooter", "photos": ["adv350.jpg"], "day": null, "month": null, "deposit": "≈ 7,000 THB or passport", "about": "Big-scooter power for touring. Allowed to Phang Nga and Krabi.", "big": true}, {"id": "forza350", "name": "Honda Forza 350", "year": "2025 model", "cc": "350cc", "type": "Maxi scooter", "photos": ["forza350.jpg"], "day": "533", "month": "16,000", "deposit": "≈ 7,000 THB or passport", "about": "Premium maxi scooter, very comfortable for two and for long trips.", "big": true}, {"id": "xadv750", "name": "Honda X-ADV 750", "year": "2024–2026 model, with Akrapovic", "cc": "750cc", "type": "Adventure bike", "photos": ["xadv750.jpg"], "day": "1,300", "month": "39,000", "deposit": "≈ 20,000 THB or passport", "about": "Our flagship. Big power, Akrapovic exhaust, built for road trips.", "big": true}];
+  (function () {
+    var m = document.getElementById('bm'), cur = null, idx = 0;
+    function el(id) { return document.getElementById(id); }
+    function show(i) {
+      idx = (i + cur.photos.length) % cur.photos.length;
+      el('bm-img').src = cur.photos[idx]; el('bm-img').alt = cur.name + ' photo ' + (idx + 1);
+      [].forEach.call(el('bm-thumbs').children, function (t, k) { t.className = k === idx ? 'on' : ''; });
+    }
+    function open(id, push) {
+      cur = BIKES.filter(function (b) { return b.id === id; })[0]; if (!cur) return;
+      el('bm-type').textContent = cur.type + ' \u00b7 ' + cur.cc;
+      el('bm-name').textContent = cur.name; el('bm-year').textContent = cur.year; el('bm-about').textContent = cur.about;
+      el('bm-prices').innerHTML = cur.day
+        ? '<div class="bm-price"><b>' + cur.day + ' THB</b><span>per day</span></div><div class="bm-price"><b>' + cur.month + ' THB</b><span>per month (30 days)</span></div>'
+        : '<div class="bm-price ask"><b>Message us for today\u2019s price</b><span>Daily, weekly and monthly rates available</span></div>';
+      el('bm-list').innerHTML = [
+        '<b>Deposit:</b> ' + cur.deposit,
+        '<b>Free:</b> 2 helmets and a phone holder',
+        '<b>Delivery</b> and pick-up available',
+        cur.big ? '<b>Ride area:</b> Phuket, Phang Nga and Krabi (146 km max, extra fee)' : '<b>Ride area:</b> Phuket island, up to 60 km radius',
+        '<b>Rentals:</b> daily, weekly, 2-week and monthly'
+      ].map(function (t) { return '<li>' + t + '</li>'; }).join('');
+      el('bm-book').href = 'https://wa.me/66803140043?text=' + encodeURIComponent("Hi, I'd like to rent a " + cur.name + '. Is it available?');
+      el('bm-thumbs').innerHTML = cur.photos.length > 1 ? cur.photos.map(function (p, k) { return '<img src="' + p + '" alt="" data-k="' + k + '">'; }).join('') : '';
+      [].forEach.call(m.querySelectorAll('.bm-nav'), function (b) { b.style.display = cur.photos.length > 1 ? '' : 'none'; });
+      show(0);
+      m.classList.add('open'); m.setAttribute('aria-hidden', 'false'); document.body.classList.add('bm-lock');
+      if (push !== false) history.replaceState(null, '', '#' + id);
+      m.querySelector('.bm-x').focus();
+    }
+    function close() {
+      m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); document.body.classList.remove('bm-lock');
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+    document.querySelectorAll('.bike').forEach(function (c) {
+      c.addEventListener('click', function () { open(c.dataset.bike); });
+      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(c.dataset.bike); } });
+    });
+    m.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) close();
+      if (e.target.dataset.k) show(+e.target.dataset.k);
+    });
+    m.querySelector('.prev').onclick = function () { show(idx - 1); };
+    m.querySelector('.next').onclick = function () { show(idx + 1); };
+    document.addEventListener('keydown', function (e) {
+      if (!m.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+    if (location.hash) open(location.hash.slice(1), false);
+  })();
+</script>
 </body>
 </html>
