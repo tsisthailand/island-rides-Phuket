@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://islandridesphuket.com/sitemap.xml

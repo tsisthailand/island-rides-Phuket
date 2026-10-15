@@ -1,1 +1,6 @@
-{"name":"island-rides-phuket","compatibility_date":"2026-07-02","assets":{"directory":"."},"workers_dev":true}
+{
+  "name": "island-rides-phuket",
+  "compatibility_date": "2026-07-02",
+  "assets": { "directory": ".", "not_found_handling": "404-page" },
+  "workers_dev": true
+}
