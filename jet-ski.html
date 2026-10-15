@@ -17,39 +17,138 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .jet-hero { display:flex; flex-direction:column; align-items:center; gap:26px; max-width:1100px; margin:0 auto; text-align:center; }
-  .jet-hero-img { order:-1; width:100%; height:auto !important; max-height:none !important; object-fit:contain; border-radius:18px; box-shadow:0 12px 30px rgba(0,0,0,.35); }
-  .jet-hero-text { max-width:760px; }
-  .jet-hero-note { margin-top:20px !important; font-size:14px; opacity:.85; }
-  @media (max-width:760px) { .jet-hero-img { border-radius:12px; } }
-  .stops-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  @media (max-width:700px) { .stops-grid { grid-template-columns:repeat(2,1fr); } }
-  .stop { background:#fff; border:1px solid var(--gray-200); border-radius:14px; overflow:hidden; }
-  .stop-photo { position:relative; aspect-ratio:4/3; background:linear-gradient(135deg,var(--turquoise),var(--navy)); display:flex; align-items:center; justify-content:center; }
-  .stop-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .stop-num { position:absolute; top:8px; left:8px; background:var(--orange); color:#fff; font-weight:700; font-size:13px; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-head); }
-  .stop-body { padding:10px 12px 12px; display:flex; flex-direction:column; gap:2px; }
-  .stop-body b { font-size:14.5px; font-family:var(--font-head); }
-  .stop-body span { font-size:12.5px; color:var(--gray-600); }
-  .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:24px; }
-  .info-grid .content-block { margin:0; }
-  .info-grid ul { color:#5b6b7a; font-size:14px; padding-left:18px; margin-top:6px; }
-  .price-unit { font-size: 11.5px; color: #5b6b7a; }
-  .form-wrap { background: #fff; border: 1px solid var(--gray-200); border-radius: 16px; padding: 30px; max-width: 620px; margin: 20px auto 0; }
-  .form-wrap h3 { font-size: 20px; margin-bottom: 6px; }
-  .form-wrap p.sub { font-size: 13px; color: var(--gray-600); margin-bottom: 20px; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-grid .full { grid-column: 1 / -1; }
-  label { display: block; font-size: 12.5px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
-  input, select { width: 100%; padding: 10px 12px; border: 1px solid var(--gray-200); border-radius: 8px; font-size: 14px; font-family: inherit; background: #fbfcfd; }
-  input:focus, select:focus { outline: 2px solid var(--turquoise); border-color: transparent; }
-  .form-submit { margin-top: 18px; width: 100%; background: #25D366; color: #fff; }
-  .form-submit:hover { background: #1ebe5b; }
-  .form-note { font-size: 11.5px; color: var(--gray-600); margin-top: 10px; text-align: center; }
-  @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+  body { background:#fff; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
+  .eyebrow { display:inline-block; color:var(--turquoise); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:8px; }
+  .sec { padding:72px 0; }
+  .sec-sky { background:linear-gradient(180deg,#EAF7FA 0%,#F6FCFD 100%); }
+  .sec-title { text-align:center; margin-bottom:40px; }
+  .sec-title h2 { font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+  .sec-title p { text-wrap:balance; color:var(--gray-600); font-size:15.5px; max-width:620px; margin:12px auto 0; }
+
+  /* hero */
+  .jhero { position:relative; background:#0AA5D6; }
+  .jhero img { width:100%; height:auto; display:block; max-height:640px; object-fit:cover; object-position:center; }
+  .facts { position:relative; z-index:2; margin:-48px auto 0; max-width:1000px; background:#fff; border-radius:20px; box-shadow:0 18px 50px rgba(15,42,71,.18); display:grid; grid-template-columns:repeat(4,1fr) auto; align-items:center; padding:20px 24px; gap:8px; }
+  .fact { text-align:center; padding:4px 10px; border-right:1px solid var(--gray-200); }
+  .fact b { display:block; font-family:var(--font-head); font-size:20px; color:var(--navy); line-height:1.2; }
+  .fact span { font-size:12.5px; color:var(--gray-600); }
+  .fact:nth-child(4) { border-right:none; }
+  .facts .btn-wa { margin-left:10px; }
+  .btn-wa { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-family:var(--font-head); font-weight:700; font-size:15px; padding:14px 22px; border-radius:999px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.35); transition:transform .15s; white-space:nowrap; }
+  .btn-wa:hover { transform:translateY(-2px); }
+  .intro { text-align:center; padding:56px 20px 0; max-width:760px; margin:0 auto; }
+  .intro h1 { text-wrap:balance; font-size:36px; font-weight:800; letter-spacing:-.02em; line-height:1.15; }
+  .intro h1 span { color:var(--orange); }
+  .intro p { color:var(--gray-600); font-size:16px; margin-top:14px; }
+  .back { display:inline-block; margin-top:14px; font-size:13.5px; color:var(--turquoise); font-weight:600; text-decoration:none; }
+
+  /* models */
+  .models { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .model { position:relative; background:#fff; border-radius:22px; overflow:hidden; box-shadow:0 10px 30px rgba(15,42,71,.10); display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s; }
+  .model:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(15,42,71,.16); }
+  .model-img { background:linear-gradient(180deg,#DDF3FA,#fff); }
+  .model-img img { width:100%; aspect-ratio:2/1; object-fit:cover; }
+  .ribbon { font-style:normal; vertical-align:middle; margin-left:6px; background:var(--orange); color:#fff; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:5px 12px; border-radius:999px; }
+  .model-body { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
+  .model-body h3 { font-size:21px; font-weight:800; }
+  .model-body h3 span { color:var(--turquoise); }
+  .model-sub { color:var(--gray-600); font-size:14px; margin-top:2px; }
+  .specs { list-style:none; margin:16px 0 18px; display:grid; gap:8px; }
+  .specs li { font-size:13.5px; color:var(--gray-600); padding-left:26px; position:relative; }
+  .specs li::before { content:"\2713"; position:absolute; left:0; top:0; width:18px; height:18px; border-radius:50%; background:rgba(31,166,160,.14); color:var(--turquoise); font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .specs b { color:var(--navy); }
+  .model-price { margin-top:auto; padding-top:16px; border-top:1px dashed var(--gray-200); }
+  .model-price .amt { font-family:var(--font-head); font-size:34px; font-weight:800; color:var(--orange); line-height:1; }
+  .model-price .cur { font-weight:700; color:var(--orange); }
+  .model-price small { display:block; color:var(--gray-600); font-size:12.5px; margin-top:4px; }
+  .btn-book { display:block; margin-top:16px; text-align:center; background:var(--navy); color:#fff; font-family:var(--font-head); font-weight:700; padding:13px; border-radius:12px; text-decoration:none; transition:background .15s; }
+  .btn-book:hover { background:var(--orange); }
+
+  /* included */
+  .incs { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; max-width:980px; margin:0 auto; }
+  .inc { display:flex; align-items:center; gap:12px; background:#fff; border-radius:14px; padding:12px 14px; font-size:14px; font-weight:500; box-shadow:0 2px 10px rgba(15,42,71,.06); }
+  .inc-ic { width:38px; height:38px; flex-shrink:0; border-radius:12px; background:#EAF7FA; display:flex; align-items:center; justify-content:center; font-size:19px; }
+  .times { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-top:28px; }
+  .time { background:#fff; border-radius:999px; padding:10px 20px; font-size:14px; box-shadow:0 2px 10px rgba(15,42,71,.06); }
+  .time b { color:var(--orange); font-family:var(--font-head); margin-right:6px; }
+
+  /* route */
+  .stops { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .stop { position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/3; margin:0; box-shadow:0 6px 18px rgba(15,42,71,.10); }
+  .stop img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+  .stop:hover img { transform:scale(1.06); }
+  .stop-num { position:absolute; top:12px; left:12px; width:32px; height:32px; border-radius:50%; background:var(--orange); color:#fff; font-family:var(--font-head); font-weight:800; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,.25); }
+  .stop figcaption { position:absolute; inset:auto 0 0 0; padding:40px 16px 14px; background:linear-gradient(transparent, rgba(8,26,46,.85)); color:#fff; display:flex; flex-direction:column; }
+  .stop figcaption b { font-family:var(--font-head); font-size:16px; }
+  .stop figcaption span { font-size:12.5px; opacity:.85; }
+  .note { text-align:center; color:var(--gray-600); font-size:13px; margin-top:18px; }
+
+  /* info */
+  .infos { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .info { background:#fff; border-radius:20px; padding:26px; box-shadow:0 6px 20px rgba(15,42,71,.07); }
+  .info h3 { font-size:18px; display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .info h3 i { font-style:normal; width:36px; height:36px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px; background:#EAF7FA; }
+  .info ul { list-style:none; display:grid; gap:9px; }
+  .info li { font-size:14px; color:var(--gray-600); padding-left:18px; position:relative; }
+  .info li::before { content:""; position:absolute; left:2px; top:9px; width:7px; height:7px; border-radius:50%; background:var(--turquoise); }
+  .info.warn h3 i { background:#FFF1E6; }
+  .info.warn li::before { background:var(--orange); }
+
+  /* safety */
+  .safety { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .safe { display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:18px; padding:20px; }
+  .safe .ic { font-size:22px; width:44px; height:44px; border-radius:14px; background:rgba(31,166,160,.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .safe b { display:block; font-family:var(--font-head); font-size:15.5px; color:#fff; margin-bottom:2px; }
+  .safe span { font-size:13.5px; color:#b9c8d6; }
+  .sec-navy { background:linear-gradient(160deg,var(--navy) 0%,var(--navy-dark) 100%); color:#fff; }
+  .sec-navy .sec-title h2 { color:#fff; }
+  .sec-navy .sec-title p { color:#b9c8d6; }
+  .sec-navy .eyebrow { color:#5FD3CD; }
+  .ins-note { text-align:center; color:#b9c8d6; font-size:13px; margin-top:22px; }
+
+  /* booking */
+  .book { display:grid; grid-template-columns:1fr 1.1fr; gap:36px; align-items:center; }
+  .book-copy h2 { font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+  .book-copy p { color:var(--gray-600); margin:12px 0 22px; }
+  .book-copy ul { list-style:none; display:grid; gap:8px; margin-bottom:24px; }
+  .book-copy li { font-size:14.5px; }
+  .book-copy li::before { content:"\2713"; color:var(--turquoise); font-weight:800; margin-right:8px; }
+  .form-card { background:#fff; border-radius:22px; padding:28px; box-shadow:0 18px 50px rgba(15,42,71,.14); }
+  .form-card h3 { font-size:20px; margin-bottom:16px; }
+  .fgrid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .fgrid .full { grid-column:1/-1; }
+  .fgrid label { display:block; font-size:12.5px; font-weight:600; margin-bottom:5px; }
+  .fgrid input, .fgrid select { width:100%; padding:11px 12px; border:1px solid var(--gray-200); border-radius:10px; font:inherit; font-size:14px; background:#fff; color:var(--navy); }
+  .fgrid input:focus, .fgrid select:focus { outline:2px solid rgba(31,166,160,.4); border-color:var(--turquoise); }
+  .send { width:100%; margin-top:18px; border:none; cursor:pointer; justify-content:center; }
+  .fnote { font-size:12px; color:var(--gray-600); margin-top:10px; text-align:center; }
+
+  .mbar { display:none; }
+  @media (max-width:900px) {
+    .facts { grid-template-columns:repeat(2,1fr); margin:-28px 16px 0; row-gap:14px; }
+    .fact:nth-child(2) { border-right:none; }
+    .facts .btn-wa { grid-column:1/-1; justify-self:center; margin:4px 0 0; }
+    .models, .stops, .infos, .safety { grid-template-columns:1fr 1fr; }
+    .book { grid-template-columns:1fr; }
+  }
+  @media (max-width:600px) {
+    .sec { padding:52px 0; }
+    .intro h1 { font-size:27px; }
+    .sec-title h2, .book-copy h2 { font-size:25px; }
+    .models, .infos, .safety { grid-template-columns:1fr; }
+    .stops { grid-template-columns:1fr 1fr; gap:10px; }
+    .stop figcaption span { display:none; }
+    .stop figcaption b { font-size:13.5px; }
+    .fgrid { grid-template-columns:1fr; }
+    .mbar { display:flex; position:fixed; left:12px; right:12px; bottom:12px; z-index:200; justify-content:center; }
+    .mbar .btn-wa { width:100%; justify-content:center; }
+    footer.site { padding-bottom:90px; }
+  }
 </style>
 </head>
 <body>
+
   <div class="topbar">
     <a href="https://wa.me/66803140043" target="_blank" rel="noopener">WhatsApp: +66 80 314 0043</a>
     <a href="https://line.me/ti/p/~islandrides" target="_blank" rel="noopener">LINE: islandrides</a>
@@ -70,125 +169,174 @@
     </nav>
   </header>
 
-  <section class="page-hero hero">
-   <div class="jet-hero">
-    <div class="jet-hero-text">
-      <h1>Phuket Jet Ski Tour &mdash; <span>9 Islands in 4 Hours</span></h1>
-      <p>Ride your own jet ski through Phang Nga Bay with a licensed guide. Lunch on the beach at Naka Noi, snorkeling, monkeys and the mangrove forest.</p>
-      <a class="btn btn-orange" href="#inquiry">Book on WhatsApp</a>
-      <p class="jet-hero-note">Private trips and group bookings available.</p>
-      <p style="margin-top:10px;font-size:13px;"><a href="tours.html" style="color:#fff;opacity:.85;">&larr; All tours &amp; activities</a></p>
+  <section class="jhero">
+    <img src="jetski-hero.jpg" alt="Island Rides Phuket jet ski tour: two riders on a Sea-Doo near the islands" width="1600" height="780">
+  </section>
+  <div class="facts">
+    <div class="fact"><b>4 hours</b><span>Morning or afternoon</span></div>
+    <div class="fact"><b>9 stops</b><span>Islands &amp; mangroves</span></div>
+    <div class="fact"><b>Lunch</b><span>On the beach</span></div>
+    <div class="fact"><b>7,900 THB</b><span>From, per jet ski</span></div>
+    <a class="btn-wa" href="https://wa.me/66803140043?text=Hi%20Island%20Rides!%20I%27d%20like%20to%20book%20the%20jet%20ski%20tour." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Book on WhatsApp</a>
+  </div>
+
+  <div class="intro">
+    <h1>Phuket Jet Ski Tour &mdash; <span>9 Islands in 4 Hours</span></h1>
+    <p>Ride your own jet ski through Phang Nga Bay with a licensed guide. Swim, snorkel, meet the monkeys and have lunch on the beach at Naka Noi. Private trips and group bookings available.</p>
+    <a class="back" href="tours.html">&larr; All tours &amp; activities</a>
+  </div>
+
+  <section class="sec" id="models">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Step 1</span><h2>Choose your jet ski</h2><p>Same route and same inclusions on every model. Price is per jet ski, and 2 people share one.</p></div>
+      <div class="models">
+      <article class="model">
+        <div class="model-img"><img src="jetski-yamaha-1100.jpg" alt="Yamaha 1100cc jet ski"></div>
+        <div class="model-body">
+          <h3>Yamaha <span>1100cc</span></h3>
+          <p class="model-sub">Easy to ride and the best value.</p>
+          <ul class="specs">
+            <li><b>2</b> people per jet ski</li>
+            <li><b>120 kg</b> max weight</li>
+            <li><b>50,000 THB</b> damage cover</li>
+          </ul>
+          <div class="model-price"><span class="amt">7,900</span> <span class="cur">THB</span><small>per jet ski &middot; 4-hour tour</small></div>
+          <a class="btn-book" href="#book" data-tour="TOUR-004">Book this jet ski</a>
+        </div>
+      </article>
+      <article class="model">
+        <div class="model-img"><img src="jetski-seadoo-1630.jpg" alt="Sea-Doo GTX Pro 1630cc jet ski"></div>
+        <div class="model-body">
+          <h3>Sea-Doo GTX Pro <span>1630cc</span></h3>
+          <p class="model-sub">All-new model, smooth and stable.</p>
+          <ul class="specs">
+            <li><b>2</b> people per jet ski</li>
+            <li><b>160 kg</b> max weight</li>
+            <li><b>70,000 THB</b> damage cover</li>
+          </ul>
+          <div class="model-price"><span class="amt">9,500</span> <span class="cur">THB</span><small>per jet ski &middot; 4-hour tour</small></div>
+          <a class="btn-book" href="#book" data-tour="TOUR-007">Book this jet ski</a>
+        </div>
+      </article>
+      <article class="model">
+        <div class="model-img"><img src="jetski-yamaha-1900.jpg" alt="Yamaha FX 1900cc jet ski"></div>
+        <div class="model-body">
+          <h3>Yamaha FX <span>1900cc</span> <em class="ribbon">Premium</em></h3>
+          <p class="model-sub">Our most powerful premium jet ski.</p>
+          <ul class="specs">
+            <li><b>2</b> people per jet ski</li>
+            <li><b>160 kg</b> max weight</li>
+            <li><b>100,000 THB</b> damage cover</li>
+          </ul>
+          <div class="model-price"><span class="amt">13,500</span> <span class="cur">THB</span><small>per jet ski &middot; 4-hour tour</small></div>
+          <a class="btn-book" href="#book" data-tour="TOUR-006">Book this jet ski</a>
+        </div>
+      </article>
+      </div>
     </div>
-    <img class="jet-hero-img" src="jetski-hero.jpg" alt="Island Rides Phuket jet ski tour: two riders on a Sea-Doo near the islands" width="1600" height="780">
-   </div>
   </section>
 
-  <section class="section" id="jet-ski">
-    <div class="section-head">
-      <span class="tag">Jet Ski Tour</span>
-      <h2>Choose your jet ski</h2>
-      <p>A 4-hour guided jet ski tour from AA Marina, Rasada, with 9 stops in Phang Nga Bay, from Mali Island to the Mangrove Forest. Run by Phuket Jet Ski Club, a fully licensed operator. Price is per jet ski (2 people share one).</p>
+  <section class="sec sec-sky">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">All included</span><h2>Everything you need, in one price</h2></div>
+      <div class="incs"><div class="inc"><span class="inc-ic">&#129405;</span><span>Life jacket</span></div><div class="inc"><span class="inc-ic">&#129343;</span><span>Mask &amp; snorkel</span></div><div class="inc"><span class="inc-ic">&#127958;&#65039;</span><span>Beach chairs</span></div><div class="inc"><span class="inc-ic">&#127835;</span><span>Halal buffet lunch</span></div><div class="inc"><span class="inc-ic">&#129380;</span><span>Soft drinks &amp; water</span></div><div class="inc"><span class="inc-ic">&#128656;</span><span>Hotel transfer</span></div><div class="inc"><span class="inc-ic">&#129517;</span><span>Licensed guide, 5 languages</span></div><div class="inc"><span class="inc-ic">&#128737;&#65039;</span><span>Accident + jet ski insurance</span></div><div class="inc"><span class="inc-ic">&#127966;&#65039;</span><span>Island fees</span></div><div class="inc"><span class="inc-ic">&#128274;</span><span>Safety locker</span></div><div class="inc"><span class="inc-ic">&#129534;</span><span>VAT 7% included</span></div></div>
+      <div class="times">
+        <div class="time"><b>Morning</b>09:00 &ndash; 13:00</div>
+        <div class="time"><b>Afternoon</b>13:30 &ndash; 17:30</div>
+        <div class="time"><b>Departs</b>AA Marina, Rasada</div>
+      </div>
     </div>
-    <div class="card-grid" id="jetski-grid"></div>
-    <h3 style="text-align:center; margin:40px 0 6px;">The route: 9 stops in 4 hours</h3>
-    <p style="text-align:center; color:#5b6b7a; font-size:14px; margin-bottom:18px;">Morning trip 09:00&ndash;13:00 or afternoon trip 13:30&ndash;17:30.</p>
-    <div class="stops-grid">
-        <div class="stop"><div class="stop-photo"><img src="stop-mali.jpg" alt="Mali Island, Phuket jet ski tour stop 1" loading="lazy"><span class="stop-num">1</span></div><div class="stop-body"><b>Mali Island</b><span>First stop and photos</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-phrae.jpg" alt="Phrae Island, Phuket jet ski tour stop 2" loading="lazy"><span class="stop-num">2</span></div><div class="stop-body"><b>Phrae Island</b><span>Sandbar beach and swimming</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-aopor.jpg" alt="Ao Por Grand Marina, Phuket jet ski tour stop 3" loading="lazy"><span class="stop-num">3</span></div><div class="stop-body"><b>Ao Por Grand Marina</b><span>Ride past the yachts</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-monkey.jpg" alt="Monkey Island, Phuket jet ski tour stop 4" loading="lazy"><span class="stop-num">4</span></div><div class="stop-body"><b>Monkey Island</b><span>Meet the island monkeys</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-nakayai.jpg" alt="Naka Yai Island, Phuket jet ski tour stop 5" loading="lazy"><span class="stop-num">5</span></div><div class="stop-body"><b>Naka Yai Island</b><span>Snorkeling stop</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-nakanoi.jpg" alt="Naka Noi Island, Phuket jet ski tour stop 6" loading="lazy"><span class="stop-num">6</span></div><div class="stop-body"><b>Naka Noi Island</b><span>Buffet lunch on the beach</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-rangnoi.jpg" alt="Rang Noi Island, Phuket jet ski tour stop 7" loading="lazy"><span class="stop-num">7</span></div><div class="stop-body"><b>Rang Noi Island</b><span>Island views and photos</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-rangyai.jpg" alt="Rang Yai Island, Phuket jet ski tour stop 8" loading="lazy"><span class="stop-num">8</span></div><div class="stop-body"><b>Rang Yai Island</b><span>Swimming and relaxing</span></div></div>
-        <div class="stop"><div class="stop-photo"><img src="stop-mangrove.jpg" alt="Mangrove Forest, Phuket jet ski tour stop 9" loading="lazy"><span class="stop-num">9</span></div><div class="stop-body"><b>Mangrove Forest</b><span>Ride through the mangroves</span></div></div>
-    </div>
+  </section>
 
-    <div class="info-grid">
-      <div class="content-block">
-        <h3>Who can ride</h3>
-        <ul>
-          <li>Riders aged 17 and over can drive.</li>
-          <li>Riders under 17 can drive only with a parent or staff member riding with them.</li>
-          <li>Max 2 people per jet ski. Weight limit is 120 kg on the Yamaha 1100cc and 160 kg on the other two models.</li>
-        </ul>
-        <h3 style="margin-top:14px;">Not recommended for</h3>
-        <ul>
+  <section class="sec" id="route">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">The route</span><h2>9 stops in Phang Nga Bay</h2><p>From Mali Island to the Mangrove Forest, with time to swim, snorkel and take photos along the way.</p></div>
+      <div class="stops">
+      <figure class="stop"><img src="stop-mali.jpg" alt="Mali Island, stop 1 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">1</span><figcaption><b>Mali Island</b><span>First stop and photos</span></figcaption></figure>
+      <figure class="stop"><img src="stop-phrae.jpg" alt="Phrae Island, stop 2 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">2</span><figcaption><b>Phrae Island</b><span>Sandbar beach and swimming</span></figcaption></figure>
+      <figure class="stop"><img src="stop-aopor.jpg" alt="Ao Por Grand Marina, stop 3 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">3</span><figcaption><b>Ao Por Grand Marina</b><span>Ride past the yachts</span></figcaption></figure>
+      <figure class="stop"><img src="stop-monkey.jpg" alt="Monkey Island, stop 4 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">4</span><figcaption><b>Monkey Island</b><span>Meet the island monkeys</span></figcaption></figure>
+      <figure class="stop"><img src="stop-nakayai.jpg" alt="Naka Yai Island, stop 5 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">5</span><figcaption><b>Naka Yai Island</b><span>Snorkeling stop</span></figcaption></figure>
+      <figure class="stop"><img src="stop-nakanoi.jpg" alt="Naka Noi Island, stop 6 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">6</span><figcaption><b>Naka Noi Island</b><span>Buffet lunch on the beach</span></figcaption></figure>
+      <figure class="stop"><img src="stop-rangnoi.jpg" alt="Rang Noi Island, stop 7 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">7</span><figcaption><b>Rang Noi Island</b><span>Island views and photos</span></figcaption></figure>
+      <figure class="stop"><img src="stop-rangyai.jpg" alt="Rang Yai Island, stop 8 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">8</span><figcaption><b>Rang Yai Island</b><span>Swimming and relaxing</span></figcaption></figure>
+      <figure class="stop"><img src="stop-mangrove.jpg" alt="Mangrove Forest, stop 9 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">9</span><figcaption><b>Mangrove Forest</b><span>Ride through the mangroves</span></figcaption></figure>
+      </div>
+      <p class="note">The route can change because of tides and weather.</p>
+    </div>
+  </section>
+
+  <section class="sec sec-sky">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Good to know</span><h2>Before you go</h2></div>
+      <div class="infos">
+        <div class="info"><h3><i>&#128100;</i>Who can ride</h3><ul>
+          <li>Riders aged 17 and over can drive</li>
+          <li>Under 17s can drive only with a parent or staff member riding with them</li>
+          <li>Max 2 people per jet ski</li>
+          <li>Weight limit: 120 kg on the Yamaha 1100cc, 160 kg on the other two</li></ul></div>
+        <div class="info warn"><h3><i>&#9888;&#65039;</i>Not recommended for</h3><ul>
           <li>People over 70 or children under 6</li>
           <li>Pregnant women</li>
-          <li>People with back pain, heart disease, asthma or panic disorder</li>
-        </ul>
-      </div>
-      <div class="content-block">
-        <h3>What to bring</h3>
-        <ul>
-          <li>Sunglasses</li>
+          <li>People with back pain or heart disease</li>
+          <li>People with asthma or panic disorder</li></ul></div>
+        <div class="info"><h3><i>&#127890;</i>What to bring</h3><ul>
+          <li>Sunglasses and sunscreen</li>
           <li>Towel</li>
           <li>Dry bag</li>
           <li>Waterproof phone case</li>
-          <li>Sunscreen</li>
-          <li>Water shoes</li>
-        </ul>
-        <h3 style="margin-top:14px;">What you&#8217;ll do</h3>
-        <ul>
-          <li>Halal buffet lunch on the beach at Naka Noi: fried chicken, chicken tom yum, stir-fried vegetables and fresh fruit</li>
-          <li>Snorkel in clear, shallow water</li>
-          <li>Relax on the beach in a beach chair</li>
-          <li>See the monkeys at Monkey Island</li>
-          <li>Plenty of photo stops along the way</li>
-        </ul>
+          <li>Water shoes</li></ul></div>
       </div>
-    </div>
-    <div class="content-block" style="margin-top:24px;">
-      <h3>Why we book with Phuket Jet Ski Club</h3>
-      <ul style="color:#5b6b7a; font-size:14px; padding-left:18px; margin-top:8px;">
-        <li>Licensed guides in 5 languages: Thai, English, Russian, Chinese and Arabic</li>
-        <li>Small groups: one guide team for every 6 jet skis</li>
-        <li>GPS tracking on every jet ski, with a support speedboat on standby</li>
-        <li>Staff trained in first aid and CPR</li>
-        <li>Replacement jet ski within 10 minutes if yours has a problem</li>
-        <li>Jet ski damage insurance included, covering one incident per trip. If you hit another renter&#8217;s jet ski, you pay for that damage yourself.</li>
-      </ul>
-      <p style="color:#5b6b7a; font-size:13px; margin-top:10px;">The route can change because of tides and weather.</p>
     </div>
   </section>
 
-  <section class="section" id="inquiry">
-    <div class="form-wrap">
-      <h3>Book Your Jet Ski Tour</h3>
-      <p class="sub">Fill in the form and send it via WhatsApp &mdash; we&#8217;ll confirm availability, price, and payment.</p>
-      <form id="inquiry-form">
-        <div class="form-grid">
-          <div class="full">
-            <label>Tour / Activity</label>
-            <select id="f-tour" required></select>
-          </div>
-          <div>
-            <label>Full name</label>
-            <input id="f-name" type="text" required placeholder="Your name">
-          </div>
-          <div>
-            <label>WhatsApp / LINE number</label>
-            <input id="f-contact" type="text" required placeholder="+66...">
-          </div>
-          <div>
-            <label>Preferred date</label>
-            <input id="f-date" type="date" required>
-          </div>
-          <div>
-            <label>Number of people</label>
-            <input id="f-pax" type="text" placeholder="e.g. 2 adults, 1 child" required>
-          </div>
-          <div class="full">
-            <label>Hotel / pickup location</label>
-            <input id="f-pickup" type="text" placeholder="Hotel name or area">
-          </div>
-        </div>
-        <button type="submit" class="btn form-submit">Send via WhatsApp</button>
-        <p class="form-note">This form opens WhatsApp with your details pre-filled &mdash; nothing is stored automatically yet, our team will confirm and log your booking.</p>
-      </form>
+  <section class="sec sec-navy">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Safety first</span><h2>Run by Phuket Jet Ski Club</h2><p>We book with a fully licensed operator, so you can relax and enjoy the ride.</p></div>
+      <div class="safety">
+        <div class="safe"><span class="ic">&#128483;&#65039;</span><div><b>Licensed guides</b><span>Thai, English, Russian, Chinese and Arabic</span></div></div>
+        <div class="safe"><span class="ic">&#128101;</span><div><b>Small groups</b><span>One guide team for every 6 jet skis</span></div></div>
+        <div class="safe"><span class="ic">&#128225;</span><div><b>GPS tracking</b><span>On every jet ski, sends your location in an emergency</span></div></div>
+        <div class="safe"><span class="ic">&#128676;</span><div><b>Support speedboat</b><span>On standby to pick you up if anything happens</span></div></div>
+        <div class="safe"><span class="ic">&#9877;&#65039;</span><div><b>First aid trained</b><span>All staff certified in first aid and CPR</span></div></div>
+        <div class="safe"><span class="ic">&#128260;</span><div><b>10-minute replacement</b><span>A new jet ski within 10 minutes if yours has a problem</span></div></div>
+      </div>
+      <p class="ins-note">Jet ski damage insurance covers one incident per trip. If you hit another renter&#8217;s jet ski, you pay for that damage yourself.</p>
     </div>
   </section>
+
+  <section class="sec sec-sky" id="book">
+    <div class="wrap book">
+      <div class="book-copy">
+        <span class="eyebrow">Book your ride</span>
+        <h2>Ready to ride?</h2>
+        <p>Send us your details and we&#8217;ll confirm availability, pickup time and payment on WhatsApp.</p>
+        <ul><li>Hotel pickup and drop-off included</li><li>Fast replies during working hours</li><li>Private trips and groups welcome</li></ul>
+        <a class="btn-wa" href="https://wa.me/66803140043" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Chat on WhatsApp</a>
+      </div>
+      <div class="form-card">
+        <h3>Book your jet ski tour</h3>
+        <form id="inquiry-form">
+          <div class="fgrid">
+            <div class="full"><label for="f-tour">Jet ski</label><select id="f-tour" required>
+              <option value="Yamaha 1100cc (7,900 THB)">Yamaha 1100cc &middot; 7,900 THB</option>
+              <option value="Sea-Doo GTX Pro 1630cc (9,500 THB)">Sea-Doo GTX Pro 1630cc &middot; 9,500 THB</option>
+              <option value="Yamaha FX 1900cc (13,500 THB)">Yamaha FX 1900cc &middot; 13,500 THB</option></select></div>
+            <div><label for="f-name">Full name</label><input id="f-name" type="text" required placeholder="Your name"></div>
+            <div><label for="f-contact">WhatsApp / LINE</label><input id="f-contact" type="text" required placeholder="+66..."></div>
+            <div><label for="f-date">Date</label><input id="f-date" type="date" required></div>
+            <div><label for="f-time">Trip</label><select id="f-time"><option>Morning 09:00&ndash;13:00</option><option>Afternoon 13:30&ndash;17:30</option></select></div>
+            <div><label for="f-pax">Number of people</label><input id="f-pax" type="text" required placeholder="e.g. 2 adults"></div>
+            <div><label for="f-pickup">Hotel / pickup</label><input id="f-pickup" type="text" placeholder="Hotel name or area"></div>
+          </div>
+          <button type="submit" class="btn-wa send"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Send via WhatsApp</button>
+          <p class="fnote">Opens WhatsApp with your details filled in. Nothing is charged until we confirm.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="mbar"><a class="btn-wa" href="#book"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Book this tour</a></div>
 
   <footer class="site">
     <div class="fname">ISLAND RIDES PHUKET</div>
@@ -209,98 +357,20 @@
     <p style="margin-top:10px; color:#7b8fa1;">Chalong, Phuket, Thailand</p>
   </footer>
 
+<script src="nav.js" defer></script>
 <script>
-  window.JETSKI_DETAIL_PAGE = true;
-  const TOURS = [
-    { id: "TOUR-001", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", photo: "phiphi.jpg", name: "Phi Phi - Bamboo Island by Speed Catamaran",
-      duration: "Full day", desc: "Phi Phi, Pileh Lagoon, Viking Cave, Maya Bay, Bamboo Island by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
-      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
-    { id: "TOUR-002", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "James Bond Island by Speed Catamaran",
-      duration: "Full day", desc: "Phang Nga Bay, James Bond Island (Ko Tapu), cave, by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
-      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
-    { id: "TOUR-003", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "Coral / Khai Island Snorkeling Tour",
-      duration: "Half day", desc: "Snorkeling at Coral Island and Khai Island.",
-      included: "Hotel pickup, snorkel gear, drinks", priceAdult: 1200, priceChild: 800, unit: "adult" },
-    { id: "TOUR-004", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-yamaha-1100.jpg", name: "Jet Ski Tour - Yamaha 1100cc",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "9-point island route by jet ski. Max weight 120 kg, 2 people per jet ski. Insurance covers jet ski damage up to 50,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 7900, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-007", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-seadoo-1630.jpg", name: "Jet Ski Tour - Sea-Doo GTX Pro 130 (1630cc)",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "Same 9-point route on an all-new Sea-Doo GTX Pro. Max weight 160 kg, 2 people per jet ski. Insurance covers jet ski damage up to 70,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 9500, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-006", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-yamaha-1900.jpg", name: "Jet Ski Tour - Yamaha FX 1900cc (Premium)",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "Same 9-point route on the premium Yamaha FX. Max weight 160 kg, 2 people per jet ski. Insurance covers jet ski damage up to 100,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 13500, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-005", cat: "atv", icon: "\uD83C\uDFCD\uFE0F", name: "ATV Jungle Ride (1 hour)",
-      duration: "1 hour", desc: "Off-road ATV ride through Phuket jungle trails with a guide.",
-      included: "Helmet, guide, accident insurance", priceAdult: 1300, priceChild: null, unit: "person" },
-  ];
-  const WHATSAPP_NUMBER = "66803140043";
-
-  function renderCards() {
-    const grids = { "island-tours": document.getElementById("tours-grid"), "jet-ski": document.getElementById("jetski-grid"), "atv": document.getElementById("atv-grid") };
-    const select = document.getElementById("f-tour");
-    TOURS.forEach(t => {
-      if (!grids[t.cat]) return;
-      const compact = t.cat === "jet-ski" && !window.JETSKI_DETAIL_PAGE;
-      const card = document.createElement("div");
-      card.className = "card";
-      const childPrice = t.priceChild ? `<div class="price-child">Child: ${t.priceChild.toLocaleString()} THB</div>` : "";
-      const photoHtml = t.photo ? `<img src="${t.photo}" alt="${t.name}">` : t.icon;
-      card.innerHTML = `
-        <div class="card-photo">${photoHtml}</div>
-        <div class="card-body">
-          <h3>${t.name}</h3>
-          <div class="duration">${t.duration}</div>
-          <div class="desc">${t.desc}</div>
-          ${compact ? "" : `<div class="included"><b>Included:</b> ${t.included}</div>`}
-          <div class="price-row">
-            <div>
-              <div class="price">${t.priceAdult.toLocaleString()}<small> THB</small></div>
-              <div class="price-unit">per ${t.unit}</div>
-              ${childPrice}
-            </div>
-          </div>
-          <a class="book-btn" href="#inquiry" onclick="document.getElementById('f-tour').value='${t.id}'">Book This</a>
-          ${compact ? `<a href="jet-ski.html" style="display:block;text-align:center;margin-top:10px;font-size:13.5px;font-weight:600;color:var(--turquoise);">Route, photos &amp; what&#8217;s included &rarr;</a>` : ""}
-        </div>`;
-      grids[t.cat].appendChild(card);
-
-      const opt = document.createElement("option");
-      opt.value = t.id;
-      opt.textContent = t.name;
-      select.appendChild(opt);
-    });
-  }
-  renderCards();
-
-  document.getElementById("inquiry-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const tour = TOURS.find(t => t.id === document.getElementById("f-tour").value) || TOURS[0];
-    const name = document.getElementById("f-name").value;
-    const contact = document.getElementById("f-contact").value;
-    const date = document.getElementById("f-date").value;
-    const pax = document.getElementById("f-pax").value;
-    const pickup = document.getElementById("f-pickup").value;
-
-    const msg = "Hi Island Rides Phuket! %0A" +
-      "I'd like to book: " + tour.name + "%0A" +
-      "Name: " + name + "%0A" +
-      "Contact: " + contact + "%0A" +
-      "Preferred date: " + date + "%0A" +
-      "Number of people: " + pax + "%0A" +
-      "Pickup location: " + (pickup || "-");
-
-    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg, "_blank");
+  var MAP = {"TOUR-004":0,"TOUR-007":1,"TOUR-006":2};
+  document.querySelectorAll('.btn-book').forEach(function (a) {
+    a.addEventListener('click', function () { document.getElementById('f-tour').selectedIndex = MAP[a.dataset.tour]; });
   });
-
-  var navToggle = document.querySelector('.nav-toggle');
-  var navSite = document.querySelector('nav.site');
-  if (navToggle && navSite) {
-    navToggle.addEventListener('click', function () { navSite.classList.toggle('open'); });
-    navSite.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { navSite.classList.remove('open'); });
-    });
-  }
+  document.getElementById('inquiry-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value; };
+    var msg = "Hi Island Rides Phuket! I'd like to book the jet ski tour.\n" +
+      "Jet ski: " + v('f-tour') + "\nName: " + v('f-name') + "\nContact: " + v('f-contact') +
+      "\nDate: " + v('f-date') + "\nTrip: " + v('f-time') + "\nPeople: " + v('f-pax') + "\nPickup: " + (v('f-pickup') || "-");
+    window.open("https://wa.me/66803140043?text=" + encodeURIComponent(msg), "_blank");
+  });
 </script>
 </body>
 </html>
