@@ -56,6 +56,24 @@
   .bm-list b { color:var(--navy); }
   .bm-book { margin-top:auto; display:flex; align-items:center; justify-content:center; gap:8px; background:#25D366; color:#fff; font-family:var(--font-head); font-weight:700; padding:14px; border-radius:999px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.35); }
   .bm-note { font-size:12px; color:var(--gray-600); text-align:center; margin-top:10px; }
+  .season { display:flex; justify-content:center; gap:8px; margin:-6px auto 26px; background:#fff; border:1px solid var(--gray-200); border-radius:999px; padding:5px; width:max-content; max-width:100%; box-shadow:var(--shadow-sm); }
+  .season button { border:none; background:none; cursor:pointer; padding:9px 20px; border-radius:999px; font-family:var(--font-head); font-weight:700; font-size:14px; color:var(--navy); line-height:1.2; }
+  .season button small { display:block; font-family:var(--font-body); font-weight:500; font-size:11.5px; color:var(--gray-600); }
+  .season button.on { background:var(--navy); color:#fff; }
+  .season button.on small { color:#cfdbe6; }
+  .season-badge { display:inline-block; margin-top:6px; background:#EAF7FA; color:#0E6E8C; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; }
+  .bm-seg { display:flex; gap:6px; margin-top:16px; }
+  .bm-seg button { flex:1; border:1px solid var(--gray-200); background:#fff; border-radius:10px; padding:8px; font-family:var(--font-head); font-weight:700; font-size:13px; cursor:pointer; color:var(--navy); }
+  .bm-seg button.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .bm-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:13.5px; }
+  .bm-table th, .bm-table td { padding:7px 8px; text-align:left; border-bottom:1px solid var(--gray-200); }
+  .bm-table thead th { font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--gray-600); }
+  .bm-table td:not(:first-child), .bm-table th:not(:first-child) { text-align:right; }
+  .bm-table td.v { font-weight:700; color:var(--orange); white-space:nowrap; }
+  .bm-table td:first-child { white-space:nowrap; }
+  .bm-table tr.dep td { font-size:12.5px; color:var(--gray-600); border-bottom:none; }
+  .bm-wrapt { overflow-x:auto; }
+  .bm-small { font-size:12px; color:var(--gray-600); margin-top:8px; }
   body.bm-lock { overflow:hidden; }
   @media (max-width:760px) {
     .bm { padding:0; align-items:flex-end; }
@@ -96,101 +114,24 @@
     <div class="section-head">
       <span class="tag">Our Fleet</span>
       <h2>Real bikes, real photos</h2>
-      <p>All models below are from our own fleet in Chalong. Tap a bike to see photos and details. Prices are from our current rate card &mdash; always confirm today&#8217;s availability on WhatsApp.</p>
+      <p>All models below are from our own fleet in Chalong. Tap a bike to see photos and the full rate table. Prices are from our current rate card &mdash; always confirm today&#8217;s availability on WhatsApp.</p>
     </div>
-    <div class="card-grid">
-      <div class="card bike" data-bike="click125" tabindex="0" role="button" aria-label="View Honda Click 125 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="click125.jpg" alt="Honda Click 125"></div>
-        <div class="card-body">
-          <h3>Honda Click 125</h3>
-          <div class="year">2023 model</div>
-          <div class="price-row"><div class="price">150<small>/day</small></div><div class="price-child">4,500 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 3,000&ndash;4,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20125" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="click160" tabindex="0" role="button" aria-label="View Honda Click 160 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="click160.jpg" alt="Honda Click 160"></div>
-        <div class="card-body">
-          <h3>Honda Click 160</h3>
-          <div class="year">2023&ndash;2026 model</div>
-          <div class="price-row"><div class="price">200<small>/day</small></div><div class="price-child">6,000 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 3,000&ndash;4,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Click%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="nmax" tabindex="0" role="button" aria-label="View Yamaha NMAX / Aerox 155 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="nmax-aerox.jpg" alt="Yamaha NMAX / Aerox 155"></div>
-        <div class="card-body">
-          <h3>Yamaha NMAX / Aerox 155</h3>
-          <div class="year">2023 model</div>
-          <div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>
-          <div class="included">Ask us on WhatsApp for current rate &amp; deposit</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Yamaha%20NMAX%2FAerox%20155" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="pcx160" tabindex="0" role="button" aria-label="View Honda PCX 160 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="pcx160.jpg" alt="Honda PCX 160"></div>
-        <div class="card-body">
-          <h3>Honda PCX 160</h3>
-          <div class="year">2025 model</div>
-          <div class="price-row"><div class="price">276<small>/day</small></div><div class="price-child">8,000 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 5,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20PCX%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="adv160" tabindex="0" role="button" aria-label="View Honda ADV 160 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="adv160.jpg" alt="Honda ADV 160"></div>
-        <div class="card-body">
-          <h3>Honda ADV 160</h3>
-          <div class="year">2025&ndash;2026 model</div>
-          <div class="price-row"><div class="price">333<small>/day</small></div><div class="price-child">10,000 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 5,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20160" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="adv350" tabindex="0" role="button" aria-label="View Honda ADV 350 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="adv350.jpg" alt="Honda ADV 350"></div>
-        <div class="card-body">
-          <h3>Honda ADV 350</h3>
-          <div class="year">2025&ndash;2026 model</div>
-          <div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>
-          <div class="included">Deposit: &#8776; 7,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20ADV%20350" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="forza350" tabindex="0" role="button" aria-label="View Honda Forza 350 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="forza350.jpg" alt="Honda Forza 350"></div>
-        <div class="card-body">
-          <h3>Honda Forza 350</h3>
-          <div class="year">2025 model</div>
-          <div class="price-row"><div class="price">533<small>/day</small></div><div class="price-child">16,000 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 7,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20Forza%20350" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
-      <div class="card bike" data-bike="xadv750" tabindex="0" role="button" aria-label="View Honda X-ADV 750 details">
-        <div class="card-photo"><span class="zoom">View photos &amp; details</span><img src="xadv750.jpg" alt="Honda X-ADV 750"></div>
-        <div class="card-body">
-          <h3>Honda X-ADV 750</h3>
-          <div class="year">2024&ndash;2026 model, with Akrapovic</div>
-          <div class="price-row"><div class="price">1,300<small>/day</small></div><div class="price-child">39,000 THB/month</div></div>
-          <div class="included">Deposit: &#8776; 20,000 THB or passport</div>
-          <a class="book-btn" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20rent%20a%20Honda%20X-ADV%20750" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a>
-        </div>
-      </div>
+    <div class="season" role="tablist" aria-label="Season">
+      <button role="tab" data-season="low">Low season<small>1 May &ndash; 31 Oct</small></button>
+      <button role="tab" data-season="high">High season<small>1 Nov &ndash; 30 Apr</small></button>
     </div>
-    <div class="disclaimer" style="margin-bottom:32px;">Prices shown are from our most recent rate card and include free 2 helmets, free phone holder, and delivery pick-up available. Rates change with season and stock &mdash; message us on WhatsApp to confirm today&#8217;s price.</div>
+    <div class="card-grid" id="bike-grid"></div>
+    <div class="disclaimer" style="margin-bottom:32px;">All rentals include 2 free helmets, a free phone holder and compulsory insurance. Delivery and pick-up are available for an extra fee. <span id="season-note"></span> Card payments have a 5% fee and USDT a 3% fee.</div>
 
     <div class="content-block">
       <h3>Rental terms</h3>
       <ul>
-        <li>Daily, weekly (7 days), 2-week (14 days), and monthly (30 days) rates available &mdash; longer rentals get better value.</li>
+        <li>The longer you rent, the lower the daily rate. Monthly and 3-month rates available. Minimum rental in high season is 3 days.</li>
         <li>Newer bikes, with after-sales support if anything comes up during your rental.</li>
         <li>Delivery / pick-up available, fee depends on area and bike size &mdash; free or reduced if you collect at the shop.</li>
-        <li>Payment: cash, card, or bank transfer / Wise. Upfront or monthly for long-term rentals.</li>
+        <li>Payment: cash, bank transfer / Wise, card (5% fee) or USDT (3% fee). Upfront or monthly for long-term rentals.</li>
       </ul>
-      <div class="disclaimer">Exact daily/weekly/monthly rates depend on the bike model, season, and current stock &mdash; see current rates on each bike above, or message us on WhatsApp for today&#8217;s rate.</div>
+      <div class="disclaimer">Tap any bike above to see its full rate table for the low and high season.</div>
     </div>
 
     <div class="content-block">
@@ -236,7 +177,9 @@
         <h2 id="bm-name"></h2>
         <div class="bm-year" id="bm-year"></div>
         <p class="bm-about" id="bm-about"></p>
-        <div class="bm-prices" id="bm-prices"></div>
+        <div class="bm-seg" id="bm-seg"><button data-s="low">Low season</button><button data-s="high">High season</button></div>
+        <div class="bm-wrapt" id="bm-rates"></div>
+        <p class="bm-small" id="bm-snote"></p>
         <ul class="bm-list" id="bm-list"></ul>
         <a class="bm-book" id="bm-book" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Check availability on WhatsApp</a>
         <p class="bm-note">Rates change with season and stock. We confirm today&#8217;s price on WhatsApp.</p>
@@ -265,10 +208,41 @@
 
 <script src="nav.js" defer></script>
 <script>
-  var BIKES = [{"id": "click125", "name": "Honda Click 125", "year": "2023 model", "cc": "125cc", "type": "Automatic scooter", "photos": ["click125.jpg"], "day": "150", "month": "4,500", "deposit": "3,000–4,000 THB or passport", "about": "Light and easy to ride. Great for getting around town and the beaches.", "big": false}, {"id": "click160", "name": "Honda Click 160", "year": "2023–2026 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["click160.jpg"], "day": "200", "month": "6,000", "deposit": "3,000–4,000 THB or passport", "about": "A little more power than the Click 125, still light and easy to park.", "big": false}, {"id": "nmax", "name": "Yamaha NMAX / Aerox 155", "year": "2023 model", "cc": "155cc", "type": "Automatic scooter", "photos": ["nmax-aerox.jpg"], "day": null, "month": null, "deposit": "Ask us on WhatsApp", "about": "Comfortable seat and storage, good for two people and longer rides around the island.", "big": false}, {"id": "pcx160", "name": "Honda PCX 160", "year": "2025 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["pcx160.jpg"], "day": "276", "month": "8,000", "deposit": "≈ 5,000 THB or passport", "about": "Smooth, comfortable and roomy. A favourite for monthly rentals.", "big": false}, {"id": "adv160", "name": "Honda ADV 160", "year": "2025–2026 model", "cc": "160cc", "type": "Adventure scooter", "photos": ["adv160.jpg"], "day": "333", "month": "10,000", "deposit": "≈ 5,000 THB or passport", "about": "Adventure style with a tall screen and strong suspension for Phuket's hills.", "big": false}, {"id": "adv350", "name": "Honda ADV 350", "year": "2025–2026 model", "cc": "350cc", "type": "Adventure scooter", "photos": ["adv350.jpg"], "day": null, "month": null, "deposit": "≈ 7,000 THB or passport", "about": "Big-scooter power for touring. Allowed to Phang Nga and Krabi.", "big": true}, {"id": "forza350", "name": "Honda Forza 350", "year": "2025 model", "cc": "350cc", "type": "Maxi scooter", "photos": ["forza350.jpg"], "day": "533", "month": "16,000", "deposit": "≈ 7,000 THB or passport", "about": "Premium maxi scooter, very comfortable for two and for long trips.", "big": true}, {"id": "xadv750", "name": "Honda X-ADV 750", "year": "2024–2026 model, with Akrapovic", "cc": "750cc", "type": "Adventure bike", "photos": ["xadv750.jpg"], "day": "1,300", "month": "39,000", "deposit": "≈ 20,000 THB or passport", "about": "Our flagship. Big power, Akrapovic exhaust, built for road trips.", "big": true}];
+  var BIKES = [{"id": "click125", "name": "Honda Click 125", "year": "2023 model", "cc": "125cc", "type": "Automatic scooter", "photos": ["click125.jpg"], "about": "Light and easy to ride. Great for getting around town and the beaches.", "low": [{"name": "Click 125", "r": ["300/day", "250/day", "200/day", "4,500/month", "4,000/month"], "day": "300", "month": "4,500", "dep": "4,000 THB or passport"}], "high": [{"name": "Click 125", "r": ["400/day", "350/day", "300/day", "250/day", "200/day", "166/day (5,000/month)"], "day": "400", "month": "5,000", "dep": "3,000 THB"}]}, {"id": "click160", "name": "Honda Click 160", "year": "2023 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["click160.jpg"], "about": "A little more power than the Click 125, still light and easy to park.", "low": [{"name": "Click 160", "r": ["350/day", "300/day", "250/day", "5,500/month", "5,000/month"], "day": "350", "month": "5,500", "dep": "4,000 THB or passport"}], "high": [{"name": "Click 160", "r": ["450/day", "400/day", "350/day", "300/day", "250/day", "200/day (6,000/month)"], "day": "450", "month": "6,000", "dep": "4,000 THB"}]}, {"id": "nmax", "name": "Yamaha NMAX / Aerox 155", "year": "2023 model", "cc": "155cc", "type": "Automatic scooter", "photos": ["nmax-aerox.jpg"], "about": "Comfortable seat and storage, good for two people and longer rides around the island.", "low": [{"name": "NMAX", "r": ["450/day", "400/day", "350/day", "6,500/month", "6,000/month"], "day": "450", "month": "6,500", "dep": "4,000 THB or passport"}, {"name": "Aerox 155", "r": ["350/day", "300/day", "250/day", "5,500/month", "5,000/month"], "day": "350", "month": "5,500", "dep": "4,000 THB or passport"}], "high": [{"name": "Aerox 155", "r": ["450/day", "400/day", "350/day", "300/day", "250/day", "200/day (6,000/month)"], "day": "450", "month": "6,000", "dep": "4,000 THB"}, {"name": "NMAX", "ask": true}]}, {"id": "pcx160", "name": "Honda PCX 160", "year": "2025–2026 model", "cc": "160cc", "type": "Automatic scooter", "photos": ["pcx160.jpg"], "about": "Smooth, comfortable and roomy. A favourite for monthly rentals.", "low": [{"name": "PCX 160", "r": ["500/day", "450/day", "400/day", "7,500/month", "7,000/month"], "day": "500", "month": "7,500", "dep": "5,000 THB or passport"}], "high": [{"name": "PCX 160", "r": ["600/day", "550/day", "500/day", "450/day", "400/day", "333/day (10,000/month)"], "day": "600", "month": "10,000", "dep": "5,000 THB or passport"}]}, {"id": "adv160", "name": "Honda ADV 160", "year": "2025–2026 model", "cc": "160cc", "type": "Adventure scooter", "photos": ["adv160.jpg"], "about": "Adventure style with a tall screen and strong suspension for Phuket's hills.", "low": [{"name": "ADV 160", "r": ["500/day", "450/day", "400/day", "7,500/month", "7,000/month"], "day": "500", "month": "7,500", "dep": "5,000 THB or passport"}], "high": [{"name": "ADV 160", "r": ["600/day", "550/day", "500/day", "450/day", "400/day", "333/day (10,000/month)"], "day": "600", "month": "10,000", "dep": "5,000 THB or passport"}]}, {"id": "adv350", "name": "Honda ADV 350", "year": "2024–2026 model", "cc": "350cc", "type": "Adventure scooter", "photos": ["adv350.jpg"], "about": "Big-scooter power and comfort, great for exploring the whole island.", "low": [{"name": "ADV 350 (2026)", "r": ["800/day", "700/day", "600/day", "14,000/month", "13,000/month"], "day": "800", "month": "14,000", "dep": "7,000 THB or passport"}, {"name": "ADV 350 (2024–2025)", "r": ["750/day", "650/day", "550/day", "13,000/month", "12,000/month"], "day": "750", "month": "13,000", "dep": "7,000 THB or passport"}], "high": [{"name": "ADV 350", "r": ["1,100/day", "1,000/day", "900/day", "850/day", "750/day", "633/day (19,000/month)"], "day": "1,100", "month": "19,000", "dep": "7,000 THB or passport"}]}, {"id": "forza350", "name": "Honda Forza 350", "year": "2024–2025 model", "cc": "350cc", "type": "Maxi scooter", "photos": ["forza350.jpg"], "about": "Premium maxi scooter, very comfortable for two people.", "low": [{"name": "Forza 350", "r": ["750/day", "650/day", "550/day", "13,000/month", "12,000/month"], "day": "750", "month": "13,000", "dep": "7,000 THB or passport"}], "high": [{"name": "Forza 350", "r": ["1,100/day", "1,000/day", "900/day", "850/day", "750/day", "633/day (19,000/month)"], "day": "1,100", "month": "19,000", "dep": "7,000 THB or passport"}]}, {"id": "xadv750", "name": "Honda X-ADV 750", "year": "2024–2026 model, with Akrapovic", "cc": "750cc", "type": "Adventure bike", "photos": ["xadv750.jpg"], "about": "Our flagship. Big power and an Akrapovic exhaust.", "low": [{"name": "X-ADV 750 (2024)", "r": ["1,400/day", "1,200/day", "1,100/day", "28,000/month", "25,000/month"], "day": "1,400", "month": "28,000", "dep": "Passport only"}, {"name": "X-ADV 750 (2025)", "r": ["1,500/day", "1,300/day", "1,200/day", "30,000/month", "28,000/month"], "day": "1,500", "month": "30,000", "dep": "Passport only"}, {"name": "X-ADV 750 (2026)", "r": ["1,600/day", "1,400/day", "1,300/day", "33,000/month", "30,000/month"], "day": "1,600", "month": "33,000", "dep": "Passport only"}], "high": [{"name": "X-ADV 750", "r": ["2,500/day", "2,300/day", "2,100/day", "1,900/day", "1,700/day", "1,500/day (45,000/month)"], "day": "2,500", "month": "45,000", "dep": "20,000 THB or passport"}]}];
+  var HEAD = { low: ["1–6 days", "7–14 days", "15–29 days", "30+ days", "3+ months"], high: ["3 days", "4–6 days", "7–13 days", "14–20 days", "21–29 days", "30+ days"] };
+  var NOTE = { low: 'Low season rates, valid 1 May \u2013 31 Oct.', high: 'High season rates, valid 1 Nov \u2013 30 Apr. Minimum rental 3 days.' };
+  var WA_ICON = document.querySelector('#bm-book svg').outerHTML;
+  var mo = new Date().getMonth() + 1, SEASON = (mo >= 5 && mo <= 10) ? 'low' : 'high';
   (function () {
-    var m = document.getElementById('bm'), cur = null, idx = 0;
+    var m = document.getElementById('bm'), cur = null, idx = 0, mseason = SEASON;
     function el(id) { return document.getElementById(id); }
+    function esc(t) { return String(t).replace(/[&<>]/g, function (c) { return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+    function renderGrid() {
+      [].forEach.call(document.querySelectorAll('.season button'), function (b) { b.classList.toggle('on', b.dataset.season === SEASON); b.setAttribute('aria-selected', b.dataset.season === SEASON); });
+      el('season-note').textContent = NOTE[SEASON];
+      el('bike-grid').innerHTML = BIKES.map(function (b) {
+        var vs = b[SEASON].filter(function (v) { return !v.ask; });
+        var price = vs.length ? '<div class="price-row"><div class="price">' + (vs.length > 1 ? 'from ' : '') + vs.map(function(v){return v;}).sort(function(a,b){return parseInt(a.day.replace(/,/g,''))-parseInt(b.day.replace(/,/g,''));})[0].day + '<small>/day</small></div><div class="price-child">' + vs[vs.length > 1 ? vs.length - 1 : 0].month + ' THB/month</div></div>'
+          : '<div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>';
+        return '<div class="card bike" data-bike="' + b.id + '" tabindex="0" role="button" aria-label="View ' + esc(b.name) + ' details">' +
+          '<div class="card-photo"><span class="zoom">View photos &amp; rates</span><img src="' + b.photos[0] + '" alt="' + esc(b.name) + '" loading="lazy"></div>' +
+          '<div class="card-body"><h3>' + esc(b.name) + '</h3><div class="year">' + esc(b.year) + '</div>' + price +
+          '<div class="included">Deposit: ' + esc((vs[0] || b.low[0]).dep) + '</div>' +
+          '<a class="book-btn" href="https://wa.me/66803140043?text=' + encodeURIComponent("Hi, I'd like to rent a " + b.name) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a></div></div>';
+      }).join('');
+    }
+    function fix(x) { return x.replace(/^from /, ''); }
+    function renderRates() {
+      [].forEach.call(el('bm-seg').children, function (b) { b.classList.toggle('on', b.dataset.s === mseason); });
+      var vs = cur[mseason], multi = vs.length > 1, h = HEAD[mseason];
+      var html = '<table class="bm-table"><thead><tr><th>Rent for</th>' + (multi ? vs.map(function (v) { return '<th>' + esc(v.name) + '</th>'; }).join('') : '<th>Price (THB)</th>') + '</tr></thead><tbody>';
+      h.forEach(function (p, i) {
+        html += '<tr><td>' + p + '</td>' + vs.map(function (v) { return v.ask ? '<td>Ask us</td>' : '<td class="v">' + v.r[i] + '</td>'; }).join('') + '</tr>';
+      });
+      html += '<tr class="dep"><td>Deposit</td>' + vs.map(function (v) { return '<td>' + (v.ask ? '&ndash;' : esc(v.dep)) + '</td>'; }).join('') + '</tr></tbody></table>';
+      el('bm-rates').innerHTML = html;
+      el('bm-snote').textContent = NOTE[mseason] + (mseason === SEASON ? ' (current season)' : '');
+    }
     function show(i) {
       idx = (i + cur.photos.length) % cur.photos.length;
       el('bm-img').src = cur.photos[idx]; el('bm-img').alt = cur.name + ' photo ' + (idx + 1);
@@ -276,17 +250,15 @@
     }
     function open(id, push) {
       cur = BIKES.filter(function (b) { return b.id === id; })[0]; if (!cur) return;
+      mseason = SEASON;
       el('bm-type').textContent = cur.type + ' \u00b7 ' + cur.cc;
       el('bm-name').textContent = cur.name; el('bm-year').textContent = cur.year; el('bm-about').textContent = cur.about;
-      el('bm-prices').innerHTML = cur.day
-        ? '<div class="bm-price"><b>' + cur.day + ' THB</b><span>per day</span></div><div class="bm-price"><b>' + cur.month + ' THB</b><span>per month (30 days)</span></div>'
-        : '<div class="bm-price ask"><b>Message us for today\u2019s price</b><span>Daily, weekly and monthly rates available</span></div>';
+      renderRates();
       el('bm-list').innerHTML = [
-        '<b>Deposit:</b> ' + cur.deposit,
         '<b>Free:</b> 2 helmets and a phone holder',
-        '<b>Delivery</b> and pick-up available',
-        cur.big ? '<b>Ride area:</b> Phuket, Phang Nga and Krabi (146 km max, extra fee)' : '<b>Ride area:</b> Phuket island, up to 60 km radius',
-        '<b>Rentals:</b> daily, weekly, 2-week and monthly'
+        '<b>Compulsory insurance</b> included',
+        '<b>Delivery</b> and pick-up available (extra fee)',
+        '<b>Pay by</b> cash, transfer, card (+5%) or USDT (+3%)'
       ].map(function (t) { return '<li>' + t + '</li>'; }).join('');
       el('bm-book').href = 'https://wa.me/66803140043?text=' + encodeURIComponent("Hi, I'd like to rent a " + cur.name + '. Is it available?');
       el('bm-thumbs').innerHTML = cur.photos.length > 1 ? cur.photos.map(function (p, k) { return '<img src="' + p + '" alt="" data-k="' + k + '">'; }).join('') : '';
@@ -300,10 +272,11 @@
       m.classList.remove('open'); m.setAttribute('aria-hidden', 'true'); document.body.classList.remove('bm-lock');
       history.replaceState(null, '', location.pathname + location.search);
     }
-    document.querySelectorAll('.bike').forEach(function (c) {
-      c.addEventListener('click', function () { open(c.dataset.bike); });
-      c.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(c.dataset.bike); } });
-    });
+    renderGrid();
+    document.querySelector('.season').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { SEASON = b.dataset.season; renderGrid(); } });
+    el('bike-grid').addEventListener('click', function (e) { var c = e.target.closest('.bike'); if (c) open(c.dataset.bike); });
+    el('bike-grid').addEventListener('keydown', function (e) { var c = e.target.closest('.bike'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(c.dataset.bike); } });
+    el('bm-seg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) { mseason = b.dataset.s; renderRates(); } });
     m.addEventListener('click', function (e) {
       if (e.target.hasAttribute('data-close')) close();
       if (e.target.dataset.k) show(+e.target.dataset.k);
