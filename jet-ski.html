@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Phuket Jet Ski Tour — 9 Islands in 4 Hours | Island Rides</title>
-<meta name="description" content="Guided 4-hour jet ski tour from AA Marina, Phuket: 9 stops including Naka Noi, Rang Yai and the Mangrove Forest. Lunch, transfer and insurance included. From 7,900 THB per jet ski.">
+<meta name="description" content="Guided 4-hour jet ski tour from AA Marina, Phuket: 9 stops including Naka Noi, Rang Yai and the Mangrove Forest. Guides speak Thai, English, Russian, Arabic and Chinese. Lunch, transfer and insurance included. From 7,900 THB per jet ski.">
 <link rel="canonical" href="https://www.islandridesphuket.com/jet-ski">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Island Rides Phuket">
 <meta property="og:title" content="Phuket Jet Ski Tour — 9 Islands in 4 Hours | Island Rides">
-<meta property="og:description" content="Guided 4-hour jet ski tour from AA Marina, Phuket: 9 stops including Naka Noi, Rang Yai and the Mangrove Forest. Lunch, transfer and insurance included. From 7,900 THB per jet ski.">
+<meta property="og:description" content="Guided 4-hour jet ski tour from AA Marina, Phuket: 9 stops including Naka Noi, Rang Yai and the Mangrove Forest. Guides speak Thai, English, Russian, Arabic and Chinese. Lunch, transfer and insurance included. From 7,900 THB per jet ski.">
 <meta property="og:url" content="https://www.islandridesphuket.com/jet-ski">
 <meta property="og:image" content="https://www.islandridesphuket.com/jetski-hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -75,7 +75,7 @@
 
   /* route */
   .stops { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .stop { position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/3; margin:0; box-shadow:0 6px 18px rgba(15,42,71,.10); }
+  .stop { position:relative; border-radius:18px; overflow:hidden; aspect-ratio:2/1; margin:0; box-shadow:0 6px 18px rgba(15,42,71,.10); }
   .stop img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
   .stop:hover img { transform:scale(1.06); }
   .stop-num { position:absolute; top:12px; left:12px; width:32px; height:32px; border-radius:50%; background:var(--orange); color:#fff; font-family:var(--font-head); font-weight:800; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(0,0,0,.25); }
@@ -124,6 +124,28 @@
   .send { width:100%; margin-top:18px; border:none; cursor:pointer; justify-content:center; }
   .fnote { font-size:12px; color:var(--gray-600); margin-top:10px; text-align:center; }
 
+  .mini-flags { display:flex !important; justify-content:center; gap:3px; padding:3px 0 2px; }
+  .mini-flags img { width:20px; height:20px; border-radius:50%; box-shadow:0 1px 3px rgba(0,0,0,.15); }
+  .langs-band { margin-top:56px; background:linear-gradient(120deg,#0E6E8C 0%,#0AA5D6 100%); color:#fff; padding:44px 0; }
+  .langs-wrap { display:grid; grid-template-columns:.9fr 1.1fr; gap:32px; align-items:center; }
+  .langs-copy .eyebrow { color:#FFE07A; }
+  .langs-copy h2 { font-size:30px; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+  .langs-copy p { color:#E3F6FC; margin-top:12px; font-size:15.5px; }
+  .langs { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; }
+  .lang { display:flex; flex-direction:column; align-items:center; gap:8px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25); border-radius:18px; padding:16px 10px 12px; width:100px; }
+  .lang img { width:56px; height:56px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.2); }
+  .lang span { font-family:var(--font-head); font-weight:700; font-size:14px; }
+  .route { display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:center; margin-bottom:44px; }
+  .route-map { width:100%; border-radius:22px; box-shadow:0 12px 34px rgba(15,42,71,.14); }
+  .route-list { list-style:none; display:grid; gap:4px; counter-reset:none; }
+  .route-list li { display:flex; gap:14px; align-items:center; padding:9px 12px; border-radius:14px; }
+  .route-list li:nth-child(odd) { background:#F2FAFC; }
+  .route-list .n { width:32px; height:32px; flex-shrink:0; border-radius:50%; background:var(--orange); color:#fff; font-family:var(--font-head); font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .route-list b { display:block; font-family:var(--font-head); font-size:15px; line-height:1.3; }
+  .route-list small { color:var(--gray-600); font-size:13px; }
+  .gal-title { text-align:center; font-size:20px; margin-bottom:18px; }
+  @media (max-width:900px) { .langs-wrap, .route { grid-template-columns:1fr; } .langs-copy { text-align:center; } }
+  @media (max-width:600px) { .lang { width:88px; padding:12px 8px 10px; } .lang img { width:46px; height:46px; } .langs-copy h2 { font-size:25px; } }
   .mbar { display:none; }
   @media (max-width:900px) {
     .facts { grid-template-columns:repeat(2,1fr); margin:-28px 16px 0; row-gap:14px; }
@@ -175,7 +197,7 @@
   <div class="facts">
     <div class="fact"><b>4 hours</b><span>Morning or afternoon</span></div>
     <div class="fact"><b>9 stops</b><span>Islands &amp; mangroves</span></div>
-    <div class="fact"><b>Lunch</b><span>On the beach</span></div>
+    <div class="fact"><b class="mini-flags"><img src="flag-th.png" alt="Thai" width="20" height="20"><img src="flag-ru.png" alt="Russian" width="20" height="20"><img src="flag-gb.png" alt="English" width="20" height="20"><img src="flag-sa.png" alt="Arabic" width="20" height="20"><img src="flag-cn.png" alt="Chinese" width="20" height="20"></b><span>Guides in 5 languages</span></div>
     <div class="fact"><b>7,900 THB</b><span>From, per jet ski</span></div>
     <a class="btn-wa" href="https://wa.me/66803140043?text=Hi%20Island%20Rides!%20I%27d%20like%20to%20book%20the%20jet%20ski%20tour." target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Book on WhatsApp</a>
   </div>
@@ -185,6 +207,18 @@
     <p>Ride your own jet ski through Phang Nga Bay with a licensed guide. Swim, snorkel, meet the monkeys and have lunch on the beach at Naka Noi. Private trips and group bookings available.</p>
     <a class="back" href="tours.html">&larr; All tours &amp; activities</a>
   </div>
+
+
+  <section class="langs-band">
+    <div class="wrap langs-wrap">
+      <div class="langs-copy">
+        <span class="eyebrow">Our guests&#8217; favourite</span>
+        <h2>Your guide speaks your language</h2>
+        <p>Every tour has licensed guides who speak Thai, English, Russian, Arabic and Chinese. Safety briefings, riding tips and island stories are explained clearly, so you can relax and enjoy the ride.</p>
+      </div>
+      <div class="langs"><div class="lang"><img src="flag-th.png" alt="Thai flag" width="64" height="64"><span>Thai</span></div><div class="lang"><img src="flag-ru.png" alt="Russian flag" width="64" height="64"><span>Russian</span></div><div class="lang"><img src="flag-gb.png" alt="English flag" width="64" height="64"><span>English</span></div><div class="lang"><img src="flag-sa.png" alt="Arabic flag" width="64" height="64"><span>Arabic</span></div><div class="lang"><img src="flag-cn.png" alt="Chinese flag" width="64" height="64"><span>Chinese</span></div></div>
+    </div>
+  </section>
 
   <section class="sec" id="models">
     <div class="wrap">
@@ -251,11 +285,16 @@
   <section class="sec" id="route">
     <div class="wrap">
       <div class="sec-title"><span class="eyebrow">The route</span><h2>9 stops in Phang Nga Bay</h2><p>From Mali Island to the Mangrove Forest, with time to swim, snorkel and take photos along the way.</p></div>
+      <div class="route">
+        <img class="route-map" src="route-map.jpg" alt="Map of the 9-stop jet ski route from Mali Island to the Mangrove Forest" loading="lazy">
+        <ol class="route-list"><li><span class="n">1</span><div><b>Mali Island</b><small>First stop and photos</small></div></li><li><span class="n">2</span><div><b>Phrae Island</b><small>Sandbar beach and swimming</small></div></li><li><span class="n">3</span><div><b>Ao Por Grand Marina</b><small>Ride past the yachts</small></div></li><li><span class="n">4</span><div><b>Monkey Island</b><small>Meet the friendly monkeys</small></div></li><li><span class="n">5</span><div><b>Naka Yai Island</b><small>Snorkeling stop</small></div></li><li><span class="n">6</span><div><b>Naka Noi Island</b><small>Buffet lunch on the beach</small></div></li><li><span class="n">7</span><div><b>Rang Noi Island</b><small>Island views and photos</small></div></li><li><span class="n">8</span><div><b>Rang Yai Island</b><small>Swimming and relaxing</small></div></li><li><span class="n">9</span><div><b>Mangrove Forest</b><small>Ride through the mangroves</small></div></li></ol>
+      </div>
+      <h3 class="gal-title">See the stops</h3>
       <div class="stops">
       <figure class="stop"><img src="stop-mali.jpg" alt="Mali Island, stop 1 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">1</span><figcaption><b>Mali Island</b><span>First stop and photos</span></figcaption></figure>
       <figure class="stop"><img src="stop-phrae.jpg" alt="Phrae Island, stop 2 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">2</span><figcaption><b>Phrae Island</b><span>Sandbar beach and swimming</span></figcaption></figure>
       <figure class="stop"><img src="stop-aopor.jpg" alt="Ao Por Grand Marina, stop 3 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">3</span><figcaption><b>Ao Por Grand Marina</b><span>Ride past the yachts</span></figcaption></figure>
-      <figure class="stop"><img src="stop-monkey.jpg" alt="Monkey Island, stop 4 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">4</span><figcaption><b>Monkey Island</b><span>Meet the island monkeys</span></figcaption></figure>
+      <figure class="stop"><img src="stop-monkey.jpg" alt="Monkey Island, stop 4 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">4</span><figcaption><b>Monkey Island</b><span>Meet the friendly monkeys</span></figcaption></figure>
       <figure class="stop"><img src="stop-nakayai.jpg" alt="Naka Yai Island, stop 5 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">5</span><figcaption><b>Naka Yai Island</b><span>Snorkeling stop</span></figcaption></figure>
       <figure class="stop"><img src="stop-nakanoi.jpg" alt="Naka Noi Island, stop 6 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">6</span><figcaption><b>Naka Noi Island</b><span>Buffet lunch on the beach</span></figcaption></figure>
       <figure class="stop"><img src="stop-rangnoi.jpg" alt="Rang Noi Island, stop 7 on the Phuket jet ski tour" loading="lazy"><span class="stop-num">7</span><figcaption><b>Rang Noi Island</b><span>Island views and photos</span></figcaption></figure>
