@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Phuket Island Tours, Jet Ski &amp; ATV | Island Rides</title>
-<meta name="description" content="Book Phi Phi and James Bond Island tours, jet ski and ATV rides in Phuket with clear pricing and hotel pickup. Easy booking on WhatsApp.">
+<title>Phuket Island Tours &amp; Adventure Tours | Island Rides</title>
+<meta name="description" content="Island tours and adventure tours in Phuket: Phi Phi, James Bond Island and Coral Island trips, plus guided jet ski tours and ATV rides. Hotel pickup and easy booking on WhatsApp.">
 <link rel="canonical" href="https://www.islandridesphuket.com/tours">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Island Rides Phuket">
-<meta property="og:title" content="Phuket Island Tours, Jet Ski &amp; ATV | Island Rides">
-<meta property="og:description" content="Book Phi Phi and James Bond Island tours, jet ski and ATV rides in Phuket with clear pricing and hotel pickup. Easy booking on WhatsApp.">
+<meta property="og:title" content="Phuket Island Tours &amp; Adventure Tours | Island Rides">
+<meta property="og:description" content="Island tours and adventure tours in Phuket: Phi Phi, James Bond Island and Coral Island trips, plus guided jet ski tours and ATV rides. Hotel pickup and easy booking on WhatsApp.">
 <meta property="og:url" content="https://www.islandridesphuket.com/tours">
 <meta property="og:image" content="https://www.islandridesphuket.com/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,34 +19,90 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .stops-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-  @media (max-width:700px) { .stops-grid { grid-template-columns:repeat(2,1fr); } }
-  .stop { background:#fff; border:1px solid var(--gray-200); border-radius:14px; overflow:hidden; }
-  .stop-photo { position:relative; aspect-ratio:4/3; background:linear-gradient(135deg,var(--turquoise),var(--navy)); display:flex; align-items:center; justify-content:center; }
-  .stop-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .stop-num { position:absolute; top:8px; left:8px; background:var(--orange); color:#fff; font-weight:700; font-size:13px; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-head); }
-  .stop-body { padding:10px 12px 12px; display:flex; flex-direction:column; gap:2px; }
-  .stop-body b { font-size:14.5px; font-family:var(--font-head); }
-  .stop-body span { font-size:12.5px; color:var(--gray-600); }
-  .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:24px; }
-  .info-grid .content-block { margin:0; }
-  .info-grid ul { color:#5b6b7a; font-size:14px; padding-left:18px; margin-top:6px; }
-  .price-unit { font-size: 11.5px; color: #5b6b7a; }
-  .form-wrap { background: #fff; border: 1px solid var(--gray-200); border-radius: 16px; padding: 30px; max-width: 620px; margin: 20px auto 0; }
-  .form-wrap h3 { font-size: 20px; margin-bottom: 6px; }
-  .form-wrap p.sub { font-size: 13px; color: var(--gray-600); margin-bottom: 20px; }
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .form-grid .full { grid-column: 1 / -1; }
-  label { display: block; font-size: 12.5px; font-weight: 700; color: var(--navy); margin-bottom: 5px; }
-  input, select { width: 100%; padding: 10px 12px; border: 1px solid var(--gray-200); border-radius: 8px; font-size: 14px; font-family: inherit; background: #fbfcfd; }
-  input:focus, select:focus { outline: 2px solid var(--turquoise); border-color: transparent; }
-  .form-submit { margin-top: 18px; width: 100%; background: #25D366; color: #fff; }
-  .form-submit:hover { background: #1ebe5b; }
-  .form-note { font-size: 11.5px; color: var(--gray-600); margin-top: 10px; text-align: center; }
-  @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+  body { background:#fff; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
+  .eyebrow { display:inline-block; color:var(--turquoise); font-weight:700; font-size:12px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:8px; }
+  .sec { padding:72px 0; }
+  .sec-sky { background:linear-gradient(180deg,#EAF7FA 0%,#F6FCFD 100%); }
+  .sec-title { text-align:center; margin-bottom:40px; }
+  .sec-title h2 { font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+  .sec-title p { text-wrap:balance; color:var(--gray-600); font-size:15.5px; max-width:640px; margin:12px auto 0; }
+
+  .thero { background:linear-gradient(180deg,#DFF3FA 0%,#fff 100%); padding:56px 0 64px; text-align:center; }
+  .thero h1 { font-size:40px; font-weight:800; letter-spacing:-.02em; line-height:1.15; text-wrap:balance; }
+  .thero h1 span { color:var(--orange); }
+  .thero > .wrap > p { color:var(--gray-600); font-size:16.5px; max-width:640px; margin:14px auto 36px; }
+  .cats { display:grid; grid-template-columns:1fr 1fr; gap:24px; text-align:left; }
+  .cat { position:relative; display:block; border-radius:24px; overflow:hidden; aspect-ratio:16/10; color:#fff; text-decoration:none; box-shadow:0 16px 40px rgba(15,42,71,.18); transition:transform .2s, box-shadow .2s; }
+  .cat:hover { transform:translateY(-4px); box-shadow:0 22px 50px rgba(15,42,71,.24); }
+  .cat img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s; }
+  .cat:hover img { transform:scale(1.05); }
+  .cat::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(8,26,46,0) 35%,rgba(8,26,46,.85) 100%); }
+  .cat-body { position:absolute; left:0; right:0; bottom:0; z-index:2; padding:24px 26px; }
+  .cat-tag { display:inline-block; background:var(--orange); font-size:11.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px; border-radius:999px; margin-bottom:10px; }
+  .cat-tag.teal { background:var(--turquoise); }
+  .cat h2 { font-size:28px; font-weight:800; line-height:1.15; }
+  .cat p { font-size:14.5px; opacity:.9; margin-top:6px; }
+  .cat .go { display:inline-block; margin-top:12px; font-family:var(--font-head); font-weight:700; font-size:14.5px; }
+
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .grid2 { display:grid; grid-template-columns:1.3fr 1fr; gap:24px; }
+  .tcard { position:relative; background:#fff; border-radius:22px; overflow:hidden; box-shadow:0 10px 30px rgba(15,42,71,.10); display:flex; flex-direction:column; transition:transform .2s, box-shadow .2s; }
+  .tcard:hover { transform:translateY(-4px); box-shadow:0 18px 40px rgba(15,42,71,.16); }
+  .tphoto { position:relative; aspect-ratio:16/10; background:linear-gradient(135deg,#1FA6A0,#0F2A47); display:flex; align-items:center; justify-content:center; font-size:56px; overflow:hidden; }
+  .tphoto img { width:100%; height:100%; object-fit:cover; }
+  .tphoto .dur { position:absolute; top:14px; left:14px; background:rgba(255,255,255,.92); color:var(--navy); font-size:12px; font-weight:700; padding:5px 12px; border-radius:999px; }
+  .tbody { padding:22px 24px 24px; display:flex; flex-direction:column; flex:1; }
+  .tbody h3 { font-size:20px; font-weight:800; line-height:1.25; }
+  .tbody .by { color:var(--turquoise); font-size:13px; font-weight:600; margin-top:4px; }
+  .tbody .desc { color:var(--gray-600); font-size:14px; margin-top:10px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .tags span { background:#EAF7FA; color:#0E6E8C; font-size:12px; font-weight:600; padding:5px 10px; border-radius:999px; }
+  .tprice { margin-top:auto; padding-top:16px; border-top:1px dashed var(--gray-200); margin-top:18px; }
+  .tprice .amt { font-family:var(--font-head); font-size:30px; font-weight:800; color:var(--orange); line-height:1; }
+  .tprice .cur { font-weight:700; color:var(--orange); }
+  .tprice small { display:block; color:var(--gray-600); font-size:12.5px; margin-top:4px; }
+  .tprice .ask { font-family:var(--font-head); font-size:20px; font-weight:800; color:var(--navy); }
+  .tbtns { display:flex; gap:10px; margin-top:16px; }
+  .btn-book { flex:1; display:block; text-align:center; background:var(--navy); color:#fff; font-family:var(--font-head); font-weight:700; padding:13px; border-radius:12px; text-decoration:none; transition:background .15s; }
+  .btn-book:hover { background:var(--orange); }
+  .btn-book.alt { background:var(--orange); }
+  .btn-book.alt:hover { background:var(--orange-dark); }
+  .tcard.feature .tphoto { aspect-ratio:16/8; }
+  .flags { display:flex; align-items:center; gap:4px; margin-top:12px; font-size:13px; color:var(--gray-600); }
+  .flags img { width:20px; height:20px; border-radius:50%; box-shadow:0 1px 3px rgba(0,0,0,.15); }
+  .flags b { margin-left:6px; color:var(--navy); font-weight:600; }
+
+  .btn-wa { display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; font-family:var(--font-head); font-weight:700; font-size:15px; padding:14px 22px; border-radius:999px; text-decoration:none; box-shadow:0 8px 20px rgba(37,211,102,.35); transition:transform .15s; white-space:nowrap; border:none; cursor:pointer; }
+  .btn-wa:hover { transform:translateY(-2px); }
+  .book { display:grid; grid-template-columns:1fr 1.1fr; gap:36px; align-items:center; }
+  .book-copy h2 { font-size:32px; font-weight:800; letter-spacing:-.02em; line-height:1.2; }
+  .book-copy p { color:var(--gray-600); margin:12px 0 22px; }
+  .book-copy ul { list-style:none; display:grid; gap:8px; margin-bottom:24px; }
+  .book-copy li::before { content:"\2713"; color:var(--turquoise); font-weight:800; margin-right:8px; }
+  .form-card { background:#fff; border-radius:22px; padding:28px; box-shadow:0 18px 50px rgba(15,42,71,.14); }
+  .form-card h3 { font-size:20px; margin-bottom:16px; }
+  .fgrid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .fgrid .full { grid-column:1/-1; }
+  .fgrid label { display:block; font-size:12.5px; font-weight:600; margin-bottom:5px; }
+  .fgrid input, .fgrid select { width:100%; padding:11px 12px; border:1px solid var(--gray-200); border-radius:10px; font:inherit; font-size:14px; background:#fff; color:var(--navy); }
+  .fgrid input:focus, .fgrid select:focus { outline:2px solid rgba(31,166,160,.4); border-color:var(--turquoise); }
+  .send { width:100%; margin-top:18px; justify-content:center; }
+  .fnote { font-size:12px; color:var(--gray-600); margin-top:10px; text-align:center; }
+  .mbar { display:none; }
+  @media (max-width:900px) { .grid3 { grid-template-columns:1fr 1fr; } .grid2, .book { grid-template-columns:1fr; } }
+  @media (max-width:640px) {
+    .sec { padding:52px 0; } .thero { padding:36px 0 44px; } .thero h1 { font-size:29px; }
+    .sec-title h2, .book-copy h2 { font-size:25px; } .cats, .grid3, .fgrid { grid-template-columns:1fr; }
+    .cat h2 { font-size:23px; } .cat { aspect-ratio:4/3; }
+    .mbar { display:flex; position:fixed; left:12px; right:12px; bottom:12px; z-index:200; } .mbar .btn-wa { width:100%; justify-content:center; }
+    footer.site { padding-bottom:90px; }
+  }
 </style>
 </head>
 <body>
+
+
   <div class="topbar">
     <a href="https://wa.me/66803140043" target="_blank" rel="noopener">WhatsApp: +66 80 314 0043</a>
     <a href="https://line.me/ti/p/~islandrides" target="_blank" rel="noopener">LINE: islandrides</a>
@@ -60,90 +116,146 @@
       <a href="index.html">Home</a>
       <a href="motorcycle-rental.html">Motorcycle</a>
       <a href="car-rental.html">Car Rental</a>
-      <a href="tours.html" class="active">Island Tours</a>
+      <a href="tours.html" class="active">Tours</a>
       <a href="visa-services.html">Visa</a>
       <a href="driver-license.html">Driver License</a>
       <a href="ferry-tickets.html">Ferry Tickets</a>
     </nav>
   </header>
 
-  <section class="page-hero hero">
-    <h1>Island Tours, Jet Ski &amp; <span>ATV</span></h1>
-    <p>Hand-picked island tours, jet ski, and ATV rides around Phuket &mdash; clear pricing, hotel pickup, and easy booking.</p>
-    <a class="btn btn-orange" href="#inquiry">Book Now</a>
-  </section>
-
-  <section class="section" id="island-tours">
-    <div class="section-head">
-      <span class="tag">Island Activities</span>
-      <h2>Island Tours</h2>
-      <p>Popular island tours around Phuket, run by trusted operators.</p>
-    </div>
-    <div class="card-grid" id="tours-grid"></div>
-    <div class="disclaimer" style="margin-top:6px;">Phi Phi and James Bond Island tours are operated by Sawanu Travel by speed catamaran, departing Royal Phuket Marina. Prices shown reflect their promotional rate valid 1 Jul&ndash;30 Sep 2026.</div>
-  </section>
-
-  <section class="section" id="jet-ski">
-    <div class="section-head">
-      <span class="tag">Island Activities</span>
-      <h2>Jet Ski Tour &mdash; 9 Points Exotic Escape</h2>
-      <p>4 hours, 9 island stops, lunch and hotel transfer included. Choose your jet ski. Price is per jet ski, and 2 people share one.</p>
-    </div>
-    <div class="card-grid" id="jetski-grid"></div>
-    <div style="text-align:center; margin-top:8px;">
-      <a class="btn btn-orange" href="jet-ski.html">See the full route &amp; tour details</a>
+  <section class="thero">
+    <div class="wrap">
+      <span class="eyebrow">Tours &amp; activities</span>
+      <h1>Explore Phuket by <span>sea and island</span></h1>
+      <p>Relax on a classic island day trip, or ride your own jet ski and ATV. Hotel pickup, clear prices and easy booking on WhatsApp.</p>
+      <div class="cats">
+        <a class="cat" href="#island-tours">
+          <img src="phiphi.jpg" alt="Phi Phi Islands, Phuket">
+          <div class="cat-body"><span class="cat-tag teal">Relax &amp; explore</span><h2>Island Tours</h2><p>Phi Phi, James Bond Island and Coral Island day trips</p><span class="go">See island tours &darr;</span></div>
+        </a>
+        <a class="cat" href="#adventure-tours">
+          <img src="tour-adventure.jpg" alt="Jet ski adventure tour in Phuket">
+          <div class="cat-body"><span class="cat-tag">Ride &amp; thrill</span><h2>Adventure Tours</h2><p>Jet ski island-hopping and ATV jungle rides</p><span class="go">See adventure tours &darr;</span></div>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="atv">
-    <div class="section-head">
-      <span class="tag">Island Activities</span>
-      <h2>ATV</h2>
-      <p>Off-road ATV ride through Phuket&#8217;s jungle trails, with a guide.</p>
+  <section class="sec" id="island-tours">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Island Tours</span><h2>Classic island day trips</h2><p>Sit back and enjoy the islands with trusted operators. Lunch, snorkel gear and hotel transfer included.</p></div>
+      <div class="grid3">
+        <article class="tcard">
+          <div class="tphoto"><img src="phiphi.jpg" alt="Phi Phi &amp; Bamboo Island" loading="lazy"><span class="dur">Full day</span></div>
+          <div class="tbody">
+            <h3>Phi Phi &amp; Bamboo Island</h3>
+            <div class="by">By speed catamaran &middot; Sawanu Travel</div>
+            <p class="desc">Maya Bay, Pileh Lagoon, Viking Cave and Bamboo Island, departing Royal Phuket Marina.</p>
+            <div class="tags"><span>Hotel transfer</span><span>Lunch</span><span>Snorkel gear</span><span>Park fees</span></div>
+            <div class="tprice"><span class="ask">Ask for today&#8217;s price</span><small>New season rates, confirmed on WhatsApp</small></div>
+            <div class="tbtns"><a class="btn-book" href="#book" data-tour="Phi Phi &amp; Bamboo Island by speed catamaran">Book this tour</a></div>
+          </div>
+        </article>
+        <article class="tcard">
+          <div class="tphoto">&#127965;&#65039;<span class="dur">Full day</span></div>
+          <div class="tbody">
+            <h3>James Bond Island</h3>
+            <div class="by">By speed catamaran &middot; Sawanu Travel</div>
+            <p class="desc">Phang Nga Bay, James Bond Island (Ko Tapu) and sea caves, departing Royal Phuket Marina.</p>
+            <div class="tags"><span>Hotel transfer</span><span>Lunch</span><span>Snorkel gear</span><span>Park fees</span></div>
+            <div class="tprice"><span class="ask">Ask for today&#8217;s price</span><small>New season rates, confirmed on WhatsApp</small></div>
+            <div class="tbtns"><a class="btn-book" href="#book" data-tour="James Bond Island by speed catamaran">Book this tour</a></div>
+          </div>
+        </article>
+        <article class="tcard">
+          <div class="tphoto">&#129343;<span class="dur">Half day</span></div>
+          <div class="tbody">
+            <h3>Coral &amp; Khai Island Snorkeling</h3>
+            <div class="by">Half-day trip</div>
+            <p class="desc">Swim and snorkel in the clear water around Coral Island and Khai Island.</p>
+            <div class="tags"><span>Hotel pickup</span><span>Snorkel gear</span><span>Drinks</span></div>
+            <div class="tprice"><span class="amt">1,200</span> <span class="cur">THB</span><small>Adult &middot; Child 800 THB</small></div>
+            <div class="tbtns"><a class="btn-book" href="#book" data-tour="Coral &amp; Khai Island snorkeling">Book this tour</a></div>
+          </div>
+        </article>
+      </div>
     </div>
-    <div class="card-grid" id="atv-grid"></div>
   </section>
 
-  <section class="section" id="inquiry">
-    <div class="form-wrap">
-      <h3>Book / Ask About a Tour</h3>
-      <p class="sub">Fill in the form and send it via WhatsApp &mdash; we&#8217;ll confirm availability, price, and payment.</p>
-      <form id="inquiry-form">
-        <div class="form-grid">
-          <div class="full">
-            <label>Tour / Activity</label>
-            <select id="f-tour" required></select>
+  <section class="sec sec-sky" id="adventure-tours">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Adventure Tours</span><h2>Ride it yourself</h2><p>Drive your own jet ski or ATV with a licensed guide. For couples, friends and anyone who wants more action.</p></div>
+      <div class="grid2">
+        <article class="tcard feature">
+          <div class="tphoto"><img src="tour-adventure.jpg" alt="Phuket jet ski tour" loading="lazy" style="object-position:center 30%;"><span class="dur">4 hours</span></div>
+          <div class="tbody">
+            <h3>Jet Ski Tour &mdash; 9 Islands</h3>
+            <div class="by">Phuket Jet Ski Club &middot; from AA Marina, Rasada</div>
+            <p class="desc">Island-hop through Phang Nga Bay: Mali, Naka Noi, Monkey Island, Rang Yai and the Mangrove Forest. Swim, snorkel and have lunch on the beach.</p>
+            <div class="flags"><img src="flag-th.png" alt="Thai" width="20" height="20"><img src="flag-ru.png" alt="Russian" width="20" height="20"><img src="flag-gb.png" alt="English" width="20" height="20"><img src="flag-sa.png" alt="Arabic" width="20" height="20"><img src="flag-cn.png" alt="Chinese" width="20" height="20"><b>Guides in 5 languages</b></div>
+            <div class="tags"><span>Hotel transfer</span><span>Halal lunch</span><span>Insurance</span><span>3 jet ski models</span></div>
+            <div class="tprice"><small style="margin:0 0 4px;">From</small><span class="amt">7,900</span> <span class="cur">THB</span><small>Per jet ski &middot; 2 people</small></div>
+            <div class="tbtns"><a class="btn-book alt" href="jet-ski.html">See route &amp; choose jet ski</a></div>
           </div>
-          <div>
-            <label>Full name</label>
-            <input id="f-name" type="text" required placeholder="Your name">
+        </article>
+        <article class="tcard">
+          <div class="tphoto" style="font-size:72px;">&#127949;&#65039;<span class="dur">1 hour</span></div>
+          <div class="tbody">
+            <h3>ATV Jungle Ride</h3>
+            <div class="by">Guided off-road ride</div>
+            <p class="desc">Ride an ATV through Phuket&#8217;s jungle trails with a guide. Muddy, fun and easy for beginners.</p>
+            <div class="tags"><span>Helmet</span><span>Guide</span><span>Accident insurance</span></div>
+            <div class="tprice"><span class="amt">1,300</span> <span class="cur">THB</span><small>Per person</small></div>
+            <div class="tbtns"><a class="btn-book" href="#book" data-tour="ATV jungle ride (1 hour)">Book this tour</a></div>
           </div>
-          <div>
-            <label>WhatsApp / LINE number</label>
-            <input id="f-contact" type="text" required placeholder="+66...">
-          </div>
-          <div>
-            <label>Preferred date</label>
-            <input id="f-date" type="date" required>
-          </div>
-          <div>
-            <label>Number of people</label>
-            <input id="f-pax" type="text" placeholder="e.g. 2 adults, 1 child" required>
-          </div>
-          <div class="full">
-            <label>Hotel / pickup location</label>
-            <input id="f-pickup" type="text" placeholder="Hotel name or area">
-          </div>
-        </div>
-        <button type="submit" class="btn form-submit">Send via WhatsApp</button>
-        <p class="form-note">This form opens WhatsApp with your details pre-filled &mdash; nothing is stored automatically yet, our team will confirm and log your booking.</p>
-      </form>
+        </article>
+      </div>
     </div>
   </section>
+
+  <section class="sec" id="book">
+    <div class="wrap book">
+      <div class="book-copy">
+        <span class="eyebrow">Book your trip</span>
+        <h2>Ready to go?</h2>
+        <p>Send us your details and we&#8217;ll confirm availability, pickup time and price on WhatsApp.</p>
+        <ul><li>Hotel pickup and drop-off</li><li>Fast replies during working hours</li><li>Private trips and groups welcome</li></ul>
+        <a class="btn-wa" href="https://wa.me/66803140043" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Chat on WhatsApp</a>
+      </div>
+      <div class="form-card">
+        <h3>Book a tour</h3>
+        <form id="inquiry-form">
+          <div class="fgrid">
+            <div class="full"><label for="f-tour">Tour</label><select id="f-tour" required>
+              <optgroup label="Island Tours">
+                <option>Phi Phi &amp; Bamboo Island by speed catamaran</option>
+                <option>James Bond Island by speed catamaran</option>
+                <option>Coral &amp; Khai Island snorkeling</option>
+              </optgroup>
+              <optgroup label="Adventure Tours">
+                <option>Jet ski tour - Yamaha 1100cc (7,900 THB)</option>
+                <option>Jet ski tour - Sea-Doo GTX Pro 1630cc (9,500 THB)</option>
+                <option>Jet ski tour - Yamaha FX 1900cc (13,500 THB)</option>
+                <option>ATV jungle ride (1 hour)</option>
+              </optgroup></select></div>
+            <div><label for="f-name">Full name</label><input id="f-name" type="text" required placeholder="Your name"></div>
+            <div><label for="f-contact">WhatsApp / LINE</label><input id="f-contact" type="text" required placeholder="+66..."></div>
+            <div><label for="f-date">Date</label><input id="f-date" type="date" required></div>
+            <div><label for="f-pax">Number of people</label><input id="f-pax" type="text" required placeholder="e.g. 2 adults, 1 child"></div>
+            <div class="full"><label for="f-pickup">Hotel / pickup</label><input id="f-pickup" type="text" placeholder="Hotel name or area"></div>
+          </div>
+          <button type="submit" class="btn-wa send"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Send via WhatsApp</button>
+          <p class="fnote">Opens WhatsApp with your details filled in. Nothing is charged until we confirm.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <div class="mbar"><a class="btn-wa" href="#book"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Book a tour</a></div>
 
   <footer class="site">
     <div class="fname">ISLAND RIDES PHUKET</div>
-    <div class="services">Motorbike &middot; Car &middot; Island Tours &middot; Visa Assistance &middot; Driver License Service &middot; Ferry Tickets</div>
+    <div class="services">Motorbike &middot; Car &middot; Island &amp; Adventure Tours &middot; Visa Assistance &middot; Driver License Service &middot; Ferry Tickets</div>
     <div class="contacts">
       <a href="https://wa.me/66803140043" target="_blank" rel="noopener">WhatsApp +66 80 314 0043</a>
       <a href="https://line.me/ti/p/~islandrides" target="_blank" rel="noopener">LINE: islandrides</a>
@@ -152,7 +264,7 @@
       <a href="index.html">Home</a> &middot;
       <a href="motorcycle-rental.html">Motorcycle</a> &middot;
       <a href="car-rental.html">Car Rental</a> &middot;
-      <a href="tours.html">Island Tours</a> &middot;
+      <a href="tours.html">Tours</a> &middot;
       <a href="visa-services.html">Visa</a> &middot;
       <a href="driver-license.html">Driver License</a> &middot;
       <a href="ferry-tickets.html">Ferry Tickets</a>
@@ -160,96 +272,22 @@
     <p style="margin-top:10px; color:#7b8fa1;">Chalong, Phuket, Thailand</p>
   </footer>
 
+<script src="nav.js" defer></script>
 <script>
-  const TOURS = [
-    { id: "TOUR-001", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", photo: "phiphi.jpg", name: "Phi Phi - Bamboo Island by Speed Catamaran",
-      duration: "Full day", desc: "Phi Phi, Pileh Lagoon, Viking Cave, Maya Bay, Bamboo Island by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
-      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
-    { id: "TOUR-002", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "James Bond Island by Speed Catamaran",
-      duration: "Full day", desc: "Phang Nga Bay, James Bond Island (Ko Tapu), cave, by speed catamaran (Fernnie 4-engine or Lexi 2-engine). Operated by Sawanu Travel.",
-      included: "Hotel transfer, certified guide, national park fees, lunch, life jackets, travel insurance, drinks/snacks on board, snorkel gear", priceAdult: 3800, priceChild: 2800, unit: "adult" },
-    { id: "TOUR-003", cat: "island-tours", icon: "\uD83C\uDFDD\uFE0F", name: "Coral / Khai Island Snorkeling Tour",
-      duration: "Half day", desc: "Snorkeling at Coral Island and Khai Island.",
-      included: "Hotel pickup, snorkel gear, drinks", priceAdult: 1200, priceChild: 800, unit: "adult" },
-    { id: "TOUR-004", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-yamaha-1100.jpg", name: "Jet Ski Tour - Yamaha 1100cc",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "9-point island route by jet ski. Max weight 120 kg, 2 people per jet ski. Insurance covers jet ski damage up to 50,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 7900, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-007", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-seadoo-1630.jpg", name: "Jet Ski Tour - Sea-Doo GTX Pro 130 (1630cc)",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "Same 9-point route on an all-new Sea-Doo GTX Pro. Max weight 160 kg, 2 people per jet ski. Insurance covers jet ski damage up to 70,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 9500, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-006", cat: "jet-ski", icon: "\uD83D\uDEA4", photo: "jetski-yamaha-1900.jpg", name: "Jet Ski Tour - Yamaha FX 1900cc (Premium)",
-      duration: "4 hours \u00b7 09:00-13:00 or 13:30-17:30", desc: "Same 9-point route on the premium Yamaha FX. Max weight 160 kg, 2 people per jet ski. Insurance covers jet ski damage up to 100,000 THB per collision.",
-      included: "Hotel transfer, guide (Thai, English, Russian, Chinese, Arabic), life jacket, mask &amp; snorkel, beach chairs, halal buffet lunch on the island, island fees, soft drinks &amp; drinking water, safety locker, accident + jet ski insurance, VAT 7%", priceAdult: 13500, priceChild: null, unit: "jet ski (2 people)" },
-    { id: "TOUR-005", cat: "atv", icon: "\uD83C\uDFCD\uFE0F", name: "ATV Jungle Ride (1 hour)",
-      duration: "1 hour", desc: "Off-road ATV ride through Phuket jungle trails with a guide.",
-      included: "Helmet, guide, accident insurance", priceAdult: 1300, priceChild: null, unit: "person" },
-  ];
-  const WHATSAPP_NUMBER = "66803140043";
-
-  function renderCards() {
-    const grids = { "island-tours": document.getElementById("tours-grid"), "jet-ski": document.getElementById("jetski-grid"), "atv": document.getElementById("atv-grid") };
-    const select = document.getElementById("f-tour");
-    TOURS.forEach(t => {
-      if (!grids[t.cat]) return;
-      const compact = t.cat === "jet-ski" && !window.JETSKI_DETAIL_PAGE;
-      const card = document.createElement("div");
-      card.className = "card";
-      const childPrice = t.priceChild ? `<div class="price-child">Child: ${t.priceChild.toLocaleString()} THB</div>` : "";
-      const photoHtml = t.photo ? `<img src="${t.photo}" alt="${t.name}">` : t.icon;
-      card.innerHTML = `
-        <div class="card-photo">${photoHtml}</div>
-        <div class="card-body">
-          <h3>${t.name}</h3>
-          <div class="duration">${t.duration}</div>
-          <div class="desc">${t.desc}</div>
-          ${compact ? "" : `<div class="included"><b>Included:</b> ${t.included}</div>`}
-          <div class="price-row">
-            <div>
-              <div class="price">${t.priceAdult.toLocaleString()}<small> THB</small></div>
-              <div class="price-unit">per ${t.unit}</div>
-              ${childPrice}
-            </div>
-          </div>
-          <a class="book-btn" href="#inquiry" onclick="document.getElementById('f-tour').value='${t.id}'">Book This</a>
-        </div>`;
-      grids[t.cat].appendChild(card);
-
-      const opt = document.createElement("option");
-      opt.value = t.id;
-      opt.textContent = t.name;
-      select.appendChild(opt);
+  document.querySelectorAll('.btn-book[data-tour]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = document.getElementById('f-tour'), want = a.dataset.tour.replace(/&amp;/g,'&');
+      for (var i = 0; i < sel.options.length; i++) if (sel.options[i].text === want) sel.selectedIndex = i;
     });
-  }
-  renderCards();
-
-  document.getElementById("inquiry-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const tour = TOURS.find(t => t.id === document.getElementById("f-tour").value) || TOURS[0];
-    const name = document.getElementById("f-name").value;
-    const contact = document.getElementById("f-contact").value;
-    const date = document.getElementById("f-date").value;
-    const pax = document.getElementById("f-pax").value;
-    const pickup = document.getElementById("f-pickup").value;
-
-    const msg = "Hi Island Rides Phuket! %0A" +
-      "I'd like to book: " + tour.name + "%0A" +
-      "Name: " + name + "%0A" +
-      "Contact: " + contact + "%0A" +
-      "Preferred date: " + date + "%0A" +
-      "Number of people: " + pax + "%0A" +
-      "Pickup location: " + (pickup || "-");
-
-    window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg, "_blank");
   });
-
-  var navToggle = document.querySelector('.nav-toggle');
-  var navSite = document.querySelector('nav.site');
-  if (navToggle && navSite) {
-    navToggle.addEventListener('click', function () { navSite.classList.toggle('open'); });
-    navSite.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () { navSite.classList.remove('open'); });
-    });
-  }
+  document.getElementById('inquiry-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (id) { return document.getElementById(id).value; };
+    var msg = "Hi Island Rides Phuket! I'd like to book a tour.\n" +
+      "Tour: " + v('f-tour') + "\nName: " + v('f-name') + "\nContact: " + v('f-contact') +
+      "\nDate: " + v('f-date') + "\nPeople: " + v('f-pax') + "\nPickup: " + (v('f-pickup') || "-");
+    window.open("https://wa.me/66803140043?text=" + encodeURIComponent(msg), "_blank");
+  });
 </script>
 </body>
 </html>
