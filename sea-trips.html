@@ -222,6 +222,37 @@
   .step p { color:var(--gray-600); font-size:14.5px; margin-top:4px; }
   .strip { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px; }
   .strip img { height:240px; width:auto; flex-shrink:0; border-radius:14px; scroll-snap-align:start; box-shadow:0 6px 16px rgba(15,42,71,.10); }
+  .boat { display:grid; grid-template-columns:1.4fr 1fr; gap:24px; align-items:center; background:#fff; border-radius:20px; padding:20px; box-shadow:0 10px 28px rgba(15,42,71,.10); }
+  .boat > img { width:100%; border-radius:14px; display:block; }
+  .boat h3 { font-family:Poppins,sans-serif; font-size:30px; color:#0F2A47; margin:0 0 4px; }
+  .boat .slide { display:inline-block; background:#F2790F; color:#fff; font-weight:700; font-size:13px; padding:4px 12px; border-radius:99px; margin-bottom:14px; }
+  .specs { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .specs div { background:#EEF7F9; border-radius:12px; padding:10px 12px; }
+  .specs b { display:block; font-family:Poppins,sans-serif; font-size:19px; color:#0E6E8C; }
+  .specs span { font-size:13px; color:#5b6b7c; }
+  .gal { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px; margin-top:14px; }
+  .gal figure { margin:0; background:#fff; border-radius:14px; overflow:hidden; box-shadow:0 6px 16px rgba(15,42,71,.08); }
+  .gal img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; }
+  .gal figcaption { padding:8px 12px; font-weight:600; font-size:14px; color:#0F2A47; }
+  .sub-h { font-family:Poppins,sans-serif; font-size:26px; color:#0F2A47; margin:44px 0 6px; }
+  .sub-p { color:#5b6b7c; margin:0 0 6px; }
+  .acts { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:14px; }
+  .acts figure { margin:0; position:relative; border-radius:18px; overflow:hidden; box-shadow:0 8px 22px rgba(15,42,71,.12); }
+  .acts img { width:100%; aspect-ratio:1/1; object-fit:cover; display:block; }
+  .acts figcaption { position:absolute; left:0; right:0; bottom:0; padding:28px 14px 12px; background:linear-gradient(transparent,rgba(15,42,71,.85)); color:#fff; font-family:Poppins,sans-serif; font-weight:700; font-size:20px; }
+  .acts figcaption small { display:block; font-family:Inter,sans-serif; font-weight:500; font-size:12px; color:#FFD9B5; }
+  .lunch { display:grid; grid-template-columns:1fr 1.2fr; gap:20px; margin-top:14px; align-items:start; }
+  .menu { background:#fff; border-radius:18px; padding:20px 22px; box-shadow:0 8px 22px rgba(15,42,71,.10); }
+  .menu h4 { color:#F2790F; font-family:Poppins,sans-serif; font-size:17px; margin:0 0 6px; }
+  .menu ul { margin:0 0 14px; padding-left:18px; line-height:1.8; }
+  .menu > img { width:100%; border-radius:12px; margin-bottom:14px; display:block; }
+  .food { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  .food img { width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:14px; display:block; }
+  .food img.wide { grid-column:1/-1; aspect-ratio:16/6; }
+  .routemap { width:100%; border-radius:14px; margin-top:16px; display:block; box-shadow:0 6px 16px rgba(15,42,71,.10); }
+  .incl-tag { display:inline-block; background:#E6F6F5; color:#0E6E8C; font-weight:600; font-size:13px; padding:5px 12px; border-radius:99px; margin:4px 4px 0 0; }
+  @media (max-width:800px) { .boat, .lunch { grid-template-columns:1fr; } .acts { grid-template-columns:1fr 1fr; } .boat h3 { font-size:24px; } }
+  @media (max-width:480px) { .acts { grid-template-columns:1fr; } }
   @media (max-width:600px) { .strip img { height:180px; } .step h3 { font-size:18px; } }
   .prog-label { display:inline-block; background:var(--orange); color:#fff; font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; padding:5px 14px; border-radius:999px; margin-bottom:10px; }
   .sec-title h2.prog-name { font-size:46px; font-weight:800; color:#1E7B3A; letter-spacing:-.02em; line-height:1.1; }
@@ -309,10 +340,36 @@
         <div>
           <div class="info"><h3><i>&#128176;</i>Price per person</h3>
             <div class="pbox"><div><b>3,600</b><span>Adult (THB)</span></div><div><b>2,700</b><span>Child 4&ndash;11 (THB)</span></div><div class="free"><b>Free</b><span>Infant 1&ndash;3</span></div></div>
-            <p class="note2">Long-tail boat service is not included.</p>
+            <div style="margin-top:12px;"><span class="incl-tag">&#128656; Hotel transfer included</span><span class="incl-tag">&#128675; Kelly 3 catamaran</span><span class="incl-tag">&#128758; Clear kayak</span></div>
+            <p class="note2">Long-tail boat service is not included. The program may be changed or cancelled due to weather without prior notice.</p>
             <a class="btn-book" style="margin-top:16px;" href="#book" data-p="Phi Phi &amp; Khai Island">Book Phi Phi &amp; Khai Island</a>
           </div>
+          <a href="pk-routemap.jpg" target="_blank" rel="noopener"><img class="routemap" src="pk-routemap.jpg" alt="Phi Phi &amp; Khai Island route map from Royal Phuket Marina" loading="lazy"></a>
         </div>
+      </div>
+
+      <h3 class="sub-h">Your boat: Kelly 3</h3>
+      <p class="sub-p">Brand-new 4-engine power catamaran with a water slider &mdash; fast, stable and comfortable.</p>
+      <div class="boat">
+        <img src="kelly3-boat.jpg" alt="Kelly 3 power catamaran with water slider" loading="lazy">
+        <div>
+          <h3>Kelly 3</h3><span class="slide">With water slider</span>
+          <div class="specs"><div><b>Catamaran</b><span>Type of vessel</span></div><div><b>Aluminium</b><span>Hull</span></div><div><b>4 engines</b><span>Power</span></div><div><b>62 ft</b><span>Length</span></div><div><b>68 pax</b><span>Capacity</span></div><div><b>2026</b><span>Built</span></div></div>
+        </div>
+      </div>
+      <div class="gal"><figure><img src="kelly3-sundeck.jpg" alt="Kelly 3 sun deck" loading="lazy"><figcaption>Sun deck</figcaption></figure><figure><img src="kelly3-cabin.jpg" alt="Kelly 3 cabin seating" loading="lazy"><figcaption>Shaded cabin seats</figcaption></figure><figure><img src="kelly3-stern.jpg" alt="Kelly 3 stern with 4 engines" loading="lazy"><figcaption>4 engines &middot; easy boarding</figcaption></figure><figure><img src="kelly3-wheelhouse.jpg" alt="Kelly 3 wheelhouse and front deck" loading="lazy"><figcaption>Wheelhouse &amp; front deck</figcaption></figure><figure><img src="kelly3-toilet.jpg" alt="Kelly 3 toilet on board" loading="lazy"><figcaption>Clean toilet on board</figcaption></figure></div>
+
+      <h3 class="sub-h">Activities included</h3>
+      <p class="sub-p">Play time in the water &mdash; free on this trip.</p>
+      <div class="acts"><figure><img src="act-paddle.jpg" alt="Paddle board" loading="lazy"><figcaption>Paddle board</figcaption></figure><figure><img src="act-mat.jpg" alt="Floating mat" loading="lazy"><figcaption>Floating mat</figcaption></figure><figure><img src="act-kayak.jpg" alt="Clear kayak" loading="lazy"><figcaption>Clear kayak<small>Only on Phi Phi + Khai Island</small></figcaption></figure></div>
+
+      <h3 class="sub-h">Lunch on Phi Phi Don</h3>
+      <p class="sub-p">Buffet lunch at a beachfront local restaurant.</p>
+      <div class="lunch">
+        <div class="menu"><img src="pk-restaurant.jpg" alt="Beachfront restaurant on Phi Phi Don" loading="lazy">
+          <h4>Thai food</h4><ul><li>Steamed rice</li><li>Spaghetti tomato sauce</li><li>Chicken massaman curry</li><li>Fried chicken</li><li>Mixed tom yum seafood</li><li>Pad thai</li><li>Salad dressing</li></ul>
+          <h4>Others</h4><ul style="margin-bottom:0;"><li>Watermelon</li><li>Tea &amp; coffee</li></ul></div>
+        <div class="food"><img src="pk-salad.jpg" alt="Thai salad" loading="lazy"><img src="pk-chicken.jpg" alt="Fried chicken" loading="lazy"><img src="pk-curry.jpg" alt="Chicken massaman curry" loading="lazy"><img src="pk-tomyum.jpg" alt="Mixed tom yum seafood" loading="lazy"><img class="wide" src="pk-buffet.jpg" alt="Buffet line at the restaurant" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -359,9 +416,9 @@
         <div class="info warn"><h3><i>&#9888;&#65039;</i>Safety</h3><ul>
           <li>Pregnant travellers are not allowed</li><li>Infants under 1 year are not recommended</li><li>Travellers with spinal problems are not allowed</li><li>Travellers with heart disease or other serious health issues are not allowed</li></ul></div>
         <div class="info"><h3><i>&#127890;</i>What to bring</h3><ul>
-          <li>Swimsuit</li><li>Camera</li><li>Eco-friendly sunscreen</li><li>Cap and sunglasses</li><li>Cash</li></ul></div>
+          <li>Swimsuit</li><li>Camera</li><li>Eco-friendly sunscreen</li><li>Cap and sunglasses</li><li>Cash</li><li>Towels</li></ul></div>
         <div class="info"><h3><i>&#8505;&#65039;</i>Good to know</h3><ul>
-          <li>Check-in at the Sawanu Lounge before departure</li><li>Jet skis and long-tail boats are optional extras, not included</li><li>Times can change with weather and sea conditions</li></ul></div>
+          <li>Check-in at the Sawanu Lounge before departure</li><li>Jet skis and long-tail boats are optional extras, not included</li><li>The program may be changed or cancelled due to weather without prior notice</li></ul></div>
       </div>
     </div>
   </section>
