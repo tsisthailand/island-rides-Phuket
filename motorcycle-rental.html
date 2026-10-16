@@ -65,6 +65,8 @@
   .bm-seg { display:flex; gap:6px; margin-top:16px; }
   .bm-seg button { flex:1; border:1px solid var(--gray-200); background:#fff; border-radius:10px; padding:8px; font-family:var(--font-head); font-weight:700; font-size:13px; cursor:pointer; color:var(--navy); }
   .bm-seg button.on { background:var(--navy); color:#fff; border-color:var(--navy); }
+  .bm-seg button small { display:block; font-family:var(--font-body); font-weight:500; font-size:11.5px; opacity:.75; margin-top:2px; }
+  .season-tag { display:block; font-size:11.5px; font-weight:600; color:#0E6E8C; margin:2px 0 4px; }
   .bm-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:13.5px; }
   .bm-table th, .bm-table td { padding:7px 8px; text-align:left; border-bottom:1px solid var(--gray-200); }
   .bm-table thead th { font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--gray-600); }
@@ -181,7 +183,7 @@
         <h2 id="bm-name"></h2>
         <div class="bm-year" id="bm-year"></div>
         <p class="bm-about" id="bm-about"></p>
-        <div class="bm-seg" id="bm-seg"><button data-s="low">Low season</button><button data-s="high">High season</button></div>
+        <div class="bm-seg" id="bm-seg"><button data-s="low">Low season<small>1 May &ndash; 31 Oct</small></button><button data-s="high">High season<small>1 Nov &ndash; 30 Apr</small></button></div>
         <div class="bm-wrapt" id="bm-rates"></div>
         <p class="bm-small" id="bm-snote"></p>
         <ul class="bm-list" id="bm-list"></ul>
@@ -230,7 +232,7 @@
           : '<div class="price-row"><div class="price" style="font-size:15px;">Message for price</div></div>';
         return '<div class="card bike" data-bike="' + b.id + '" tabindex="0" role="button" aria-label="View ' + esc(b.name) + ' details">' +
           '<div class="card-photo"><span class="zoom">View details &amp; rates</span>' + (b.photos.length ? '<img src="' + b.photos[0] + '" alt="' + esc(b.name) + '" loading="lazy">' : '<div class="nophoto">&#128757;<small>Photo coming soon</small></div>') + '</div>' +
-          '<div class="card-body"><h3>' + esc(b.name) + '</h3><div class="year">' + esc(b.year) + '</div>' + price +
+          '<div class="card-body"><h3>' + esc(b.name) + '</h3><div class="year">' + esc(b.year) + '</div><span class="season-tag">' + (SEASON === 'low' ? 'Low season price \u00b7 1 May \u2013 31 Oct' : 'High season price \u00b7 1 Nov \u2013 30 Apr') + '</span>' + price +
           ((vs[0] || b.low[0]).dep ? '<div class="included">Deposit: ' + esc((vs[0] || b.low[0]).dep) + '</div>' : '<div class="included">Ask us on WhatsApp for rates &amp; deposit</div>') +
           '<a class="book-btn" href="https://wa.me/66803140043?text=' + encodeURIComponent("Hi, I'd like to rent a " + b.name) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Check Availability</a></div></div>';
       }).join('');
