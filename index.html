@@ -349,9 +349,10 @@
     <div class="section-head">
       <span class="tag">Reviews</span>
       <h2>What our customers say</h2>
-      <p>A few of our five-star reviews on Google.</p>
+      <p>Real reviews from our customers on Google.</p>
     </div>
-    <div class="testimonial-grid">
+    <div id="ti-reviews"><script defer async src='https://cdn.trustindex.io/loader.js?f49f49783ca08679c10635dbf0f'></script></div>
+    <div class="testimonial-grid" id="static-reviews">
       <div class="testimonial">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <p class="quote">&#8220;I rented an ADV350 for 3 months. They were very attentive and kind. Next time I go to Phuket, it will be my first stop.&#8221;</p>
@@ -414,5 +415,9 @@
   </footer>
 
 <script src="nav.js" defer></script>
+<script>
+/* Hide the backup reviews once the Google reviews widget has loaded */
+(function(){var n=0,t=setInterval(function(){var w=document.querySelector('#ti-reviews .ti-widget, #ti-reviews [class*="ti-widget"]');if(w&&w.offsetHeight>50){var s=document.getElementById('static-reviews');if(s)s.style.display='none';clearInterval(t);}if(++n>40)clearInterval(t);},500);})();
+</script>
 </body>
 </html>
