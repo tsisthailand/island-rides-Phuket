@@ -23,7 +23,8 @@
 <link rel="stylesheet" href="styles.css">
 <style>
   .bike { cursor:pointer; }
-  .bike .card-photo { position:relative; }
+  .bike .card-photo { position:relative; height:250px; }
+  @media (max-width:600px) { .bike .card-photo { height:280px; } }
   .bike .zoom { position:absolute; z-index:2; bottom:10px; left:50%; transform:translate(-50%,6px); background:rgba(15,42,71,.85); color:#fff; font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:999px; opacity:0; transition:.2s; white-space:nowrap; }
   .bike:hover .zoom, .bike:focus .zoom { opacity:1; transform:translate(-50%,0); }
   @media (hover:none) { .bike .zoom { opacity:1; transform:translate(-50%,0); } }
