@@ -700,7 +700,7 @@
     <a class="btn btn-orange" href="https://wa.me/66803140043?text=Hi%2C%20I%27d%20like%20to%20check%20motorcycle%20rental%20availability" target="_blank" rel="noopener">Check Availability on WhatsApp</a>
   </section>
 
-  <nav class="quick-links" aria-label="Motorbike rental info"><a href="/motorbike-rental-terms"><span class="qi">&#128203;</span><span><b>Rental Rules</b><small>Deposit, riding area, damage &amp; fines</small></span></a><a href="/motorbike-help"><span class="qi">&#128736;&#65039;</span><span><b>Help Guide</b><small>Won&#8217;t start, flat tyre, accident, police</small></span></a></nav>
+  <nav class="quick-links" aria-label="Motorbike rental info"><div class="ql-head">&#9888;&#65039; Read before you ride &middot; for all our scooters &amp; big bikes</div><div class="ql-row"><a class="ql-rules" href="/motorbike-rental-terms"><span class="qi">&#128203;</span><span><b>Rental Rules</b><small>Deposit, riding area, damage &amp; fines</small></span><span class="go">&rarr;</span></a><a class="ql-help" href="/motorbike-help"><span class="qi">&#128736;&#65039;</span><span><b>Help Guide</b><small>Won&#8217;t start, flat tyre, accident, police</small></span><span class="go">&rarr;</span></a></div></nav>
 
   <section class="section">
     <div class="section-head">
@@ -888,7 +888,8 @@
         '<b>Free:</b> 2 helmets and a phone holder',
         '<b>Compulsory insurance</b> included',
         '<b>Delivery</b> and pick-up available (extra fee)',
-        '<b>Pay by</b> cash, transfer, card (+5%) or USDT (+3%)'
+        '<b>Pay by</b> cash, transfer, card (+5%) or USDT (+3%)',
+        '<b>Before you ride:</b> <a href="/motorbike-rental-terms" style="color:var(--orange);font-weight:700;">Rental Rules</a> &middot; <a href="/motorbike-help" style="color:var(--turquoise);font-weight:700;">Help Guide</a> (same for every bike)'
       ].map(function (t) { return '<li>' + t + '</li>'; }).join('');
       el('bm-book').href = 'https://wa.me/66803140043?text=' + encodeURIComponent("Hi, I'd like to rent a " + cur.name + '. Is it available?');
       el('bm-thumbs').innerHTML = cur.photos.length > 1 ? cur.photos.map(function (p, k) { return '<img src="' + p + '" alt="' + esc(cur.name) + ' photo ' + (k + 1) + '" data-k="' + k + '">'; }).join('') : '';
