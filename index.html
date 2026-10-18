@@ -25,6 +25,38 @@
   .home-services { display:flex; flex-wrap:wrap; justify-content:center; }
   .home-services .service-card { flex:0 1 calc(25% - 15px); min-width:240px; }
   @media (max-width:600px) { .home-services .service-card { flex-basis:100%; } }
+  .home-hero { min-height:600px; display:flex; align-items:center; text-align:left; padding:60px 5%; background:var(--navy); }
+  .home-hero::before { content:""; position:absolute; top:0; bottom:0; right:0; left:auto; width:66%; background:url(home-hero.jpg) center 60%/cover no-repeat; -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 30%); mask-image:linear-gradient(90deg, transparent 0%, #000 30%); }
+  .home-hero .hh-in { position:relative; text-shadow:0 2px 14px rgba(15,42,71,.55); max-width:640px; width:100%; margin:0 auto 0 0; }
+  .home-hero h1 { font-size:clamp(40px,6.2vw,74px); line-height:1.02; margin-bottom:16px; }
+  .home-hero .hh-kicker { display:block; color:#fff; font-size:clamp(13px,1.5vw,16px); font-weight:700; letter-spacing:.08em; text-transform:uppercase; margin-bottom:14px; opacity:.92; }
+  .home-hero p { margin:0 0 26px; font-size:clamp(16px,1.8vw,19.5px); color:#E3EAF2; max-width:600px; }
+  .home-hero .hh-btns { display:flex; gap:12px; flex-wrap:wrap; }
+  .home-hero .btn { padding:17px 30px; font-size:16px; }
+  @media (max-width:900px) {
+    .home-hero { min-height:0; align-items:flex-end; padding:calc(75vw - 50px) 20px 36px; background:var(--navy); }
+    .home-hero::before { left:0; right:0; top:0; bottom:auto; width:100%; aspect-ratio:4/3; background:url(home-hero.jpg) center/cover no-repeat; -webkit-mask-image:linear-gradient(180deg, #000 55%, transparent 100%); mask-image:linear-gradient(180deg, #000 55%, transparent 100%); }
+  }
+  .hh-strip { background:var(--orange); color:#fff; display:grid; grid-template-columns:repeat(4,1fr); text-align:center; padding:18px 5%; gap:10px; }
+  .hh-strip > * { color:#fff; text-decoration:none; }
+  .hh-strip b { display:block; font-family:var(--font-head); font-size:17px; }
+  .hh-strip small { display:block; font-size:13px; opacity:.92; }
+  .home-services .service-card { padding:0; border-top:5px solid var(--orange); border-radius:18px; box-shadow:0 8px 24px rgba(15,42,71,.1); }
+  .home-services .service-card .sc-photo { height:170px; background:linear-gradient(135deg,#FFE6CF,#D7F1EF); display:flex; align-items:center; justify-content:center; font-size:56px; overflow:hidden; }
+  .home-services .service-card .sc-photo img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s ease; }
+  .home-services .service-card:hover .sc-photo img { transform:scale(1.05); }
+  .home-services .service-card .sc-body { padding:18px 20px 20px; }
+  .home-services .service-card h3 { font-size:19px; }
+  @media (max-width:600px) {
+    .home-hero .btn { width:100%; justify-content:center; }
+    .hh-strip { grid-template-columns:1fr 1fr; }
+    .home-services { gap:12px !important; }
+    .home-services .service-card { flex:0 0 calc(50% - 6px) !important; min-width:0 !important; }
+    .home-services .service-card .sc-photo { height:110px; font-size:40px; }
+    .home-services .service-card .sc-body { padding:12px 12px 14px; }
+    .home-services .service-card h3 { font-size:15.5px; }
+    .home-services .service-card p { font-size:12.5px; }
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -219,22 +251,22 @@
 
   <main>
 
-  <section class="hero">
-    <h1>Motorbike &amp; Car Rental in <span>Chalong, Phuket</span></h1>
-    <p>Your trusted local service hub: scooter, big bike and car rental, plus island tours, visa help, driver license service, and ferry tickets &mdash; handled by a small local team you can actually reach.</p>
-    <div class="hero-badges">
-      <span class="badge">&#10003; Clear pricing</span>
-      <span class="badge">&#10003; Fast honest replies</span>
-      <span class="badge">&#10003; Local Phuket experts</span>
+  <section class="hero home-hero">
+    <div class="hh-in">
+      <h1><span class="hh-kicker">Motorbike &amp; Car Rental in Chalong, Phuket</span>Phuket life, <span>made easy.</span></h1>
+      <p>Here for a week or here for a year? We look after your wheels, your visa and your island trips &mdash; so you can stop worrying and start enjoying Phuket.</p>
+      <div class="hh-btns">
+        <a class="btn btn-orange" href="https://wa.me/66803140043" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn btn-outline" href="/motorcycle-rental">See bikes &amp; cars</a>
+      </div>
     </div>
-    <a class="btn btn-orange" href="https://wa.me/66803140043" target="_blank" rel="noopener">Chat on WhatsApp</a>
   </section>
 
-  <div class="trust-strip">
-    <a class="rating" href="https://maps.app.goo.gl/2uL5Y7iAWs8wSzfd9" target="_blank" rel="noopener" style="text-decoration:none;">&#9733; 5.0 on Google Reviews</a>
-    <span>&#128337; Fast replies during working hours</span>
-    <span>&#128181; No hidden fees</span>
-    <span>&#128205; Based in Chalong, Phuket</span>
+  <div class="hh-strip">
+    <a href="https://maps.app.goo.gl/2uL5Y7iAWs8wSzfd9" target="_blank" rel="noopener"><b>&#9733; 5.0</b><small>Google reviews</small></a>
+    <div><b>No hidden fees</b><small>Clear pricing</small></div>
+    <div><b>Fast replies</b><small>Real people, working hours</small></div>
+    <div><b>Local team</b><small>Based in Chalong</small></div>
   </div>
 
   <section class="section">
@@ -245,52 +277,68 @@
     </div>
     <div class="services-grid home-services">
       <a class="service-card" href="/motorcycle-rental">
-        <div class="icon">&#128757;</div>
+        <div class="sc-photo"><img src="adv350-photo-1.jpg" alt="Motorcycle Rental in Phuket" loading="lazy"></div>
+        <div class="sc-body">
         <h3>Motorcycle Rental</h3>
         <p>Daily, weekly, monthly and long-term rentals. Our core service.</p>
         <div class="go">See rates &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/car-rental">
-        <div class="icon">&#128663;</div>
+        <div class="sc-photo"><img src="raptor3-2.jpg" alt="Car Rental in Phuket" loading="lazy"></div>
+        <div class="sc-body">
         <h3>Car Rental</h3>
         <p>Cars from our own managed fleet, for tourists, families and long stays.</p>
         <div class="go">See fleet &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/tours#island-tours">
-        <div class="icon">&#127965;&#65039;</div>
+        <div class="sc-photo"><img src="phiphi.jpg" alt="Island Tours in Phuket" loading="lazy"></div>
+        <div class="sc-body">
         <h3>Island Tours</h3>
         <p>Phi Phi, James Bond Island and Coral Island day trips with hotel pickup.</p>
         <div class="go">See island tours &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/tours#adventure-tours">
-        <div class="icon">&#128676;</div>
+        <div class="sc-photo"><img src="jetski-hero.jpg" alt="Adventure Tours in Phuket" loading="lazy"></div>
+        <div class="sc-body">
         <h3>Adventure Tours</h3>
         <p>Jet ski island-hopping with guides in 5 languages, plus ATV jungle rides.</p>
         <div class="go">See adventure tours &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/visa-services">
-        <div class="icon">&#128196;</div>
+        <div class="sc-photo">&#128196;</div>
+        <div class="sc-body">
         <h3>Visa Services</h3>
         <p>Visa extension guidance, ED visa, retirement visa, visa run support.</p>
         <div class="go">Learn more &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/driver-license">
-        <div class="icon">&#129706;</div>
+        <div class="sc-photo">&#129706;</div>
+        <div class="sc-body">
         <h3>Driver License</h3>
         <p>Thai motorcycle/car license and conversion for foreigners.</p>
         <div class="go">Learn more &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="/ferry-tickets">
-        <div class="icon">&#9973;</div>
+        <div class="sc-photo">&#9973;</div>
+        <div class="sc-body">
         <h3>Ferry Tickets</h3>
         <p>Ferry &amp; speedboat tickets to nearby islands, via trusted partners.</p>
         <div class="go">See routes &rarr;</div>
+        </div>
       </a>
       <a class="service-card" href="https://sktproperty.jutarat-sp.workers.dev/" target="_blank" rel="noopener">
-        <div class="icon">&#127968;</div>
+        <div class="sc-photo">&#127968;</div>
+        <div class="sc-body">
         <h3>Property</h3>
         <p>Houses, apartments, land and commercial property for rent or sale in Phuket and Bangkok, through our own property agency, SKT Property.</p>
         <div class="go">See properties &rarr;</div>
+        </div>
       </a>
     </div>
     <div class="popular">Popular rentals: <a href="/honda-adv-350-rental">Honda ADV 350</a> &middot; <a href="/honda-x-adv-750-rental">Honda X-ADV 750</a> &middot; <a href="/monthly-scooter-rental-phuket">Monthly scooter rental</a> &middot; <a href="/ford-ranger-raptor-rental">Ford Ranger Raptor</a> &middot; <a href="/motorcycle-rental">All motorbikes</a></div>
