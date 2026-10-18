@@ -182,8 +182,8 @@ table.rates td:not(:first-child), table.rates th:not(:first-child) { text-align:
 @media (max-width: 760px) { .model-top { grid-template-columns: 1fr; } .model-gallery { grid-template-columns: repeat(3, 1fr); } }
 
 /* Social icons */
-.si { display:inline-flex; width:16px; height:16px; margin-right:6px; vertical-align:-3px; border-radius:4px; align-items:center; justify-content:center; }
-.si svg { width:16px; height:16px; }
+.si { display:inline-flex; width:14px; height:14px; margin-right:6px; vertical-align:-3px; border-radius:4px; align-items:center; justify-content:center; }
+.si svg { width:14px; height:14px; }
 .topbar a { display:inline-flex; align-items:center; }
 .si-wa { color:#25D366; } .si-line { color:#06C755; } .si-ig { color:#E1306C; } .si-map { color:#EA4335; }
 .topbar .si-ig, .topbar .si-map, .topbar .si-wa, .topbar .si-line { filter:brightness(1.15); }
