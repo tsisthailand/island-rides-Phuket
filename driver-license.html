@@ -46,11 +46,12 @@
 </script>
 <style>
   .dl-help { display:grid; grid-template-columns:300px 1fr; gap:24px; align-items:center; }
-  .dl-poster { width:100%; height:auto; border-radius:12px; display:block; }
+  .dl-poster-wrap { text-align:center; margin:0 auto 24px; }
+  .dl-poster { width:100%; max-width:440px; height:auto; border-radius:12px; display:inline-block; box-shadow:0 8px 24px rgba(0,0,0,.12); }
   .content-block ul.dl-checks { list-style:none; margin:10px 0; padding:0; }
   .dl-checks li { margin-bottom:10px; }
   .dl-note { font-weight:700; color:var(--navy,#0f2340); }
-  @media (max-width:800px) { .dl-help { grid-template-columns:1fr; } .dl-poster { max-width:340px; margin:0 auto; } }
+  @media (max-width:800px) { .dl-help { grid-template-columns:1fr; }  }
 </style>
 </head>
 <body>
@@ -92,6 +93,7 @@
       <h2>Two ways to get a Thai license</h2>
       <p>For a motorbike license, a car license, or both.</p>
     </div>
+    <div class="dl-poster-wrap"><img class="dl-poster" src="driver-license-poster.jpg" alt="Thai driver&#8217;s licence consultation by Stamped Visa Service" width="800" height="1000"></div>
 
     <div class="content-block">
       <h3>&#127381; No license yet &mdash; new Thai license</h3>
@@ -105,8 +107,7 @@
       <p><b>Usually needed:</b> passport, your original home license, medical certificate, certificate of residence, TM30. Depending on your nationality, your license may need translation and legalization at your consulate first.</p>
     </div>
 
-    <div class="content-block dl-help">
-      <img class="dl-poster" src="driver-license-poster.jpg" alt="Thai driver&#8217;s licence consultation by Stamped Visa Service" width="800" height="1000" loading="lazy">
+    <div class="content-block">
       <div>
         <h3>&#128172; How we can help</h3>
         <ul class="dl-checks">
