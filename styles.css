@@ -180,3 +180,19 @@ footer.site .sitelinks a:hover { color: #fff; }
 .review cite { display: block; margin-top: 6px; font-style: normal; font-size: 12.5px; color: var(--gray-600); }
 table.rates td:not(:first-child), table.rates th:not(:first-child) { text-align: right; white-space: nowrap; }
 @media (max-width: 760px) { .model-top { grid-template-columns: 1fr; } .model-gallery { grid-template-columns: repeat(3, 1fr); } }
+
+/* Social icons */
+.si { display:inline-flex; width:16px; height:16px; margin-right:6px; vertical-align:-3px; border-radius:4px; align-items:center; justify-content:center; }
+.si svg { width:16px; height:16px; }
+.topbar a { display:inline-flex; align-items:center; }
+.si-wa { color:#25D366; } .si-line { color:#06C755; } .si-ig { color:#E1306C; } .si-map { color:#EA4335; }
+.topbar .si-ig, .topbar .si-map, .topbar .si-wa, .topbar .si-line { filter:brightness(1.15); }
+footer.site .contacts a { display:inline-flex; align-items:center; }
+.social-icons { display:flex; justify-content:center; gap:12px; margin:14px 0 4px; }
+.social-icons a { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; transition:transform .15s ease, opacity .15s; }
+.social-icons a:hover { transform:translateY(-2px); opacity:.9; }
+.social-icons svg { width:22px; height:22px; }
+.social-icons a.si-wa { background:#25D366; } .social-icons a.si-line { background:#06C755; }
+.social-icons a.si-ig { background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-icons a.si-map { background:#EA4335; }
+@media (max-width:600px) { .topbar { gap:8px 16px; font-size:12px; } }
