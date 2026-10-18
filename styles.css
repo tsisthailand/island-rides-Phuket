@@ -180,3 +180,11 @@ footer.site .sitelinks a:hover { color: #fff; }
 .review cite { display: block; margin-top: 6px; font-style: normal; font-size: 12.5px; color: var(--gray-600); }
 table.rates td:not(:first-child), table.rates th:not(:first-child) { text-align: right; white-space: nowrap; }
 @media (max-width: 760px) { .model-top { grid-template-columns: 1fr; } .model-gallery { grid-template-columns: repeat(3, 1fr); } }
+.quick-links { display:grid; grid-template-columns:1fr 1fr; gap:12px; max-width:760px; margin:-28px auto 8px; padding:0 16px; position:relative; z-index:3; }
+.quick-links a { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--gray-200); border-radius:14px; padding:14px 16px; text-decoration:none; color:var(--navy); box-shadow:0 8px 24px rgba(15,42,71,.12); transition:transform .15s ease, border-color .15s ease; }
+.quick-links a:hover { transform:translateY(-2px); border-color:var(--orange); }
+.quick-links .qi { font-size:26px; line-height:1; flex:none; }
+.quick-links b { display:block; font-family:var(--font-head); font-size:15.5px; }
+.quick-links small { display:block; color:var(--gray-600); font-size:12.5px; margin-top:2px; }
+.quick-links a.on { border-color:var(--orange); background:#FFF6EE; }
+@media (max-width:520px) { .quick-links { gap:8px; } .quick-links a { padding:12px; gap:8px; } .quick-links .qi { font-size:22px; } .quick-links b { font-size:14px; } .quick-links small { font-size:11.5px; } }
