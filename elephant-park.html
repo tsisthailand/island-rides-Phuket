@@ -258,6 +258,21 @@
  ]
 }
 </script>
+<style>
+  .story-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:22px; }
+  .story-card { background:#fff; border-radius:16px; padding:18px; box-shadow:0 6px 18px rgba(15,42,71,.08); }
+  .story-card .ic { font-size:26px; margin-bottom:6px; }
+  .story-card b { display:block; color:var(--navy); font-size:15.5px; margin-bottom:4px; }
+  .story-card span { font-size:13.5px; color:var(--gray-600); }
+  .story-strip { display:grid; grid-auto-flow:column; grid-auto-columns:82%; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px; -webkit-overflow-scrolling:touch; }
+  .story-strip a { scroll-snap-align:start; display:block; border-radius:16px; overflow:hidden; box-shadow:0 6px 18px rgba(15,42,71,.12); }
+  .story-strip img { width:100%; aspect-ratio:6/5; object-fit:cover; display:block; }
+  .story-note { text-align:center; font-size:13px; color:var(--gray-600); margin-top:8px; }
+  @media (min-width:700px) { .story-strip { grid-auto-columns:45%; } }
+  @media (min-width:1100px) { .story-strip { grid-auto-columns:31.5%; } }
+  @media (max-width:900px) { .story-grid { grid-template-columns:1fr 1fr; } }
+  @media (max-width:480px) { .story-grid { gap:10px; } .story-card { padding:14px 12px; } .story-card b { font-size:14px; } .story-card span { font-size:12.5px; } }
+</style>
 </head>
 <body>
 
@@ -310,7 +325,21 @@
     </div>
   </section>
 
-  <section class="sec sec-sky" id="programs">
+
+  <section class="sec sec-sky" id="story">
+    <div class="wrap">
+      <div class="sec-title"><span class="eyebrow">Their story</span><h2>Meet the family at Bukit</h2><p>Every elephant here has a name, a personality and a story &mdash; like Asia, our &#8220;Little Giant&#8221; and the tallest elephant at the park, who calls out for Grandma whenever she is away.</p></div>
+      <div class="story-strip"><a href="eleph-story-01.jpg" target="_blank" rel="noopener"><img src="eleph-story-01.jpg" alt="Welcome to Bukit Elephant Park, Phuket" loading="lazy"></a><a href="eleph-story-10.jpg" target="_blank" rel="noopener"><img src="eleph-story-10.jpg" alt="Meet Asia, our Little Giant, the tallest elephant at the park" loading="lazy"></a><a href="eleph-story-02.jpg" target="_blank" rel="noopener"><img src="eleph-story-02.jpg" alt="A mahout walking with Asia the elephant" loading="lazy"></a><a href="eleph-story-08.jpg" target="_blank" rel="noopener"><img src="eleph-story-08.jpg" alt="An echoing call: when Grandma is away, Asia calls for her" loading="lazy"></a><a href="eleph-story-09.jpg" target="_blank" rel="noopener"><img src="eleph-story-09.jpg" alt="Two elephants spending peaceful time together" loading="lazy"></a><a href="eleph-story-05.jpg" target="_blank" rel="noopener"><img src="eleph-story-05.jpg" alt="A naughty baby in a large body" loading="lazy"></a><a href="eleph-story-07.jpg" target="_blank" rel="noopener"><img src="eleph-story-07.jpg" alt="Once, they had more space than they could ever need" loading="lazy"></a><a href="eleph-story-03.jpg" target="_blank" rel="noopener"><img src="eleph-story-03.jpg" alt="The forest home we never want to lose" loading="lazy"></a><a href="eleph-story-04.jpg" target="_blank" rel="noopener"><img src="eleph-story-04.jpg" alt="Half of their home is gone" loading="lazy"></a><a href="eleph-story-06.jpg" target="_blank" rel="noopener"><img src="eleph-story-06.jpg" alt="Guest feeding an elephant at Bukit Elephant Park" loading="lazy"></a></div>
+      <p class="story-note">Swipe to see more &rarr;</p>
+      <div class="story-grid" style="margin-top:20px;margin-bottom:0;">
+        <div class="story-card"><div class="ic">&#128024;</div><b>Asia, the Little Giant</b><span>The tallest elephant at the park &mdash; and still a naughty baby at heart. She loves splashing in the water.</span></div>
+        <div class="story-card"><div class="ic">&#128140;</div><b>Grandma &amp; Asia</b><span>They spend peaceful time together in the forest. When Grandma is away, Asia calls for her.</span></div>
+        <div class="story-card"><div class="ic">&#129489;</div><b>Their mahouts</b><span>Each elephant has a mahout who walks beside them every day &mdash; their biggest protector.</span></div>
+        <div class="story-card"><div class="ic">&#127795;</div><b>A home worth keeping</b><span>Elephants once had all the space they needed. Much of their forest home is gone &mdash; your visit helps care for the land they still have.</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="sec" id="programs">
     <div class="wrap">
       <div class="sec-title"><span class="eyebrow">Choose your program</span><h2>3 ways to spend time with the elephants</h2><p>Children under 4 join free. Prices include hotel pickup from the free transfer areas below.</p></div>
       <div class="progs">
