@@ -73,6 +73,12 @@
   }
   @media (max-width:420px) { .visa-grid .service-card { padding:16px 14px; } .vprice { font-size:19px; } }
 </style>
+<style>
+  .visa-grid .service-card { --card-pad:24px; padding-top:0; overflow:hidden; }
+  @media (max-width:420px) { .visa-grid .service-card { --card-pad:14px; } }
+  .vcard-img { display:block; width:calc(100% + 2*var(--card-pad,24px)); max-width:none; margin:0 calc(-1*var(--card-pad,24px)) 16px; aspect-ratio:4/5; object-fit:cover; object-position:top; }
+  .visa-grid .vprice { font-size:16px !important; line-height:1.3; }
+</style>
 </head>
 <body>
   <div class="topbar">
@@ -114,10 +120,10 @@
       <p>Documents prepared and checked, and a local team that goes to Immigration for you. Message us for a quote.</p>
     </div>
     <div class="services-grid visa-grid">
-      <a class="service-card" href="#extension"><div class="icon">&#128260;</div><h3>Visa Extension</h3><p>All visa types. We submit for you &mdash; no queues, no stress.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
-      <a class="service-card" href="#ed-visa"><div class="icon">&#128218;</div><h3>1-Year ED Visa</h3><p>Study Thai or English and stay 12 months.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
-      <a class="service-card" href="#retirement"><div class="icon">&#127958;&#65039;</div><h3>Retirement Visa</h3><p>For age 50+. We&#8217;ll show you how to qualify financially.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
-      <a class="service-card" href="#border-run"><div class="icon">&#128652;</div><h3>Border Run</h3><p>Same-day trips from Phuket to Myanmar or Malaysia.</p><div class="vprice">Ask for a quote</div><div class="go">See routes &rarr;</div></a>
+      <a class="service-card" href="#extension"><img class="vcard-img" src="visa-poster-extension.jpg" alt="Visa extension in Thailand — Stamped Visa Service" width="800" height="1000" loading="lazy"><h3>Visa Extension</h3><p>All visa types. We submit for you &mdash; no queues, no stress.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
+      <a class="service-card" href="#ed-visa"><img class="vcard-img" src="visa-poster-ed.jpg" alt="1-Year Thai ED Visa" width="800" height="1000" loading="lazy"><h3>1-Year ED Visa</h3><p>Study Thai or English and stay 12 months.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
+      <a class="service-card" href="#retirement"><img class="vcard-img" src="visa-retirement.jpg" alt="Thai Retirement Visa" width="800" height="1000" loading="lazy"><h3>Retirement Visa</h3><p>For age 50+. We&#8217;ll show you how to qualify financially.</p><div class="vprice">Ask for a quote</div><div class="go">Details &rarr;</div></a>
+      <a class="service-card" href="#border-run"><img class="vcard-img" src="visa-poster-borderrun.jpg" alt="Border run from Phuket" width="800" height="1000" loading="lazy"><h3>Border Run</h3><p>Same-day trips from Phuket to Myanmar or Malaysia.</p><div class="vprice">Ask for a quote</div><div class="go">See routes &rarr;</div></a>
     </div>
 
     <div class="content-block" id="extension">
