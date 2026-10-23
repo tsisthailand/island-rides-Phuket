@@ -282,7 +282,7 @@
 
   <section class="rd-sec" style="padding-bottom:0"><div class="rd-wrap">
     <div class="rd-search">
-      <div class="rd-chips" role="group" aria-label="Search for" style="margin-bottom:14px"><button type="button" class="rd-chip" data-qs="tours" aria-pressed="true">Tours</button><button type="button" class="rd-chip" data-qs="bikes" aria-pressed="false">Motorbike rental</button></div>
+      <div class="rd-chips" role="group" aria-label="Search for" style="margin-bottom:14px"><button type="button" class="rd-chip" data-qs="tours" aria-pressed="true">Tours</button><button type="button" class="rd-chip" data-qs="bikes" aria-pressed="false">Motorbike rental</button><button type="button" class="rd-chip" data-qs="cars" aria-pressed="false">Car rental</button></div>
       <div class="rd-fgrid two" id="qs-tours">
         <label class="rd-fld"><span>Trip type</span><select id="qs-cat"><option value="island-tours">Island day trips</option><option value="private-boats">Private boats</option><option value="nature-tours">Elephants</option><option value="adventure-tours">Jet ski &amp; ATV</option></select></label>
         <a class="rd-btn rd-btn-o" id="qs-go" href="/tours#island-tours">Find tours</a>
@@ -290,6 +290,10 @@
       <div class="rd-fgrid two" id="qs-bikes" hidden>
         <label class="rd-fld"><span>Bike type</span><select id="qs-bike"><option value="">All motorbikes</option><option value="click125">Honda Click 125</option><option value="nmax">Yamaha NMAX 155</option><option value="pcx160">Honda PCX 160</option><option value="adv160">Honda ADV 160</option><option value="adv350">Honda ADV 350</option><option value="forza350">Honda Forza 350</option><option value="xadv750">Honda X-ADV 750</option></select></label>
         <a class="rd-btn rd-btn-o" id="qs-bgo" href="/motorcycle-rental">See bikes &amp; rates</a>
+      </div>
+      <div class="rd-fgrid two" id="qs-cars" hidden>
+        <label class="rd-fld"><span>Car type</span><select id="qs-car"><option value="">All cars</option><option value="raptor">Ford Ranger Raptor</option><option value="stormtrak">Ford Ranger Stormtrak</option><option value="wildtrak">Ford Ranger Wildtrak 4x4</option><option value="everest">Ford Everest (7 seats)</option><option value="xpander">Mitsubishi Xpander (7 seats)</option><option value="civic">Honda Civic</option><option value="almera">Nissan Almera</option><option value="yaris">Toyota Yaris</option></select></label>
+        <a class="rd-btn rd-btn-o" id="qs-cgo" href="/car-rental">See cars &amp; rates</a>
       </div>
     </div>
   </div></section>
@@ -407,16 +411,18 @@
 </script>
 <script>
 (function () {
-  var t = document.getElementById('qs-tours'), b = document.getElementById('qs-bikes');
+  var t = document.getElementById('qs-tours'), b = document.getElementById('qs-bikes'), c = document.getElementById('qs-cars');
   [].forEach.call(document.querySelectorAll('[data-qs]'), function (btn) {
     btn.addEventListener('click', function () {
       [].forEach.call(document.querySelectorAll('[data-qs]'), function (x) { x.setAttribute('aria-pressed', x === btn); });
-      t.hidden = btn.dataset.qs !== 'tours'; b.hidden = btn.dataset.qs !== 'bikes';
+      t.hidden = btn.dataset.qs !== 'tours'; b.hidden = btn.dataset.qs !== 'bikes'; c.hidden = btn.dataset.qs !== 'cars';
     });
   });
   var cat = document.getElementById('qs-cat'), go = document.getElementById('qs-go');
   cat.addEventListener('change', function () { go.href = '/tours#' + cat.value; });
   var bk = document.getElementById('qs-bike'), bgo = document.getElementById('qs-bgo');
+  var ck = document.getElementById('qs-car'), cgo = document.getElementById('qs-cgo');
+  ck.addEventListener('change', function () { cgo.href = '/car-rental' + (ck.value ? '#' + ck.value : ''); });
   bk.addEventListener('change', function () { bgo.href = '/motorcycle-rental' + (bk.value ? '#' + bk.value : ''); });
 })();
 </script>
