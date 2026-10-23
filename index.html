@@ -21,6 +21,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="styles.css?v=20261018">
+<link rel="stylesheet" href="ir-rd.css?v=1">
 <style>
   .home-services { display:flex; flex-wrap:wrap; justify-content:center; }
   .home-services .service-card { flex:0 1 calc(25% - 15px); min-width:240px; }
@@ -279,80 +280,45 @@
     <div><b>Local team</b><small>Based in Chalong</small></div>
   </div>
 
-  <section class="section">
-    <div class="section-head">
-      <span class="tag">Our Services</span>
-      <h2>We don&#8217;t do everything &mdash; we do a few things really well</h2>
-      <p>Our core services, chosen because we can deliver them consistently and honestly.</p>
+  <section class="rd-sec" style="padding-bottom:0"><div class="rd-wrap">
+    <div class="rd-search">
+      <div class="rd-chips" role="group" aria-label="Search for" style="margin-bottom:14px"><button type="button" class="rd-chip" data-qs="tours" aria-pressed="true">Tours</button><button type="button" class="rd-chip" data-qs="bikes" aria-pressed="false">Motorbike rental</button></div>
+      <div class="rd-fgrid two" id="qs-tours">
+        <label class="rd-fld"><span>Trip type</span><select id="qs-cat"><option value="island-tours">Island day trips</option><option value="private-boats">Private boats</option><option value="nature-tours">Elephants</option><option value="adventure-tours">Jet ski &amp; ATV</option></select></label>
+        <a class="rd-btn rd-btn-o" id="qs-go" href="/tours#island-tours">Find tours</a>
+      </div>
+      <div class="rd-fgrid two" id="qs-bikes" hidden>
+        <label class="rd-fld"><span>Bike type</span><select id="qs-bike"><option value="">All motorbikes</option><option value="click125">Honda Click 125</option><option value="nmax">Yamaha NMAX 155</option><option value="pcx160">Honda PCX 160</option><option value="adv160">Honda ADV 160</option><option value="adv350">Honda ADV 350</option><option value="forza350">Honda Forza 350</option><option value="xadv750">Honda X-ADV 750</option></select></label>
+        <a class="rd-btn rd-btn-o" id="qs-bgo" href="/motorcycle-rental">See bikes &amp; rates</a>
+      </div>
     </div>
-    <div class="services-grid home-services">
-      <a class="service-card" href="/motorcycle-rental">
-        <div class="sc-photo"><img src="adv350-photo-1.jpg" alt="Motorcycle Rental in Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Motorcycle Rental</h3>
-        <p>Daily, weekly, monthly and long-term rentals. Our core service.</p>
-        <div class="go">See rates &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/car-rental">
-        <div class="sc-photo"><img src="raptor3-2.jpg" alt="Car Rental in Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Car Rental</h3>
-        <p>Cars from our own managed fleet, for tourists, families and long stays.</p>
-        <div class="go">See fleet &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/tours#island-tours">
-        <div class="sc-photo"><img src="card-island.jpg?v=2" alt="Island Tours in Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Island Tours</h3>
-        <p>Phi Phi, James Bond Island and Coral Island day trips with hotel pickup.</p>
-        <div class="go">See island tours &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/tours#adventure-tours">
-        <div class="sc-photo"><img src="card-adventure.jpg?v=2" alt="Adventure Tours in Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Adventure Tours</h3>
-        <p>Jet ski island-hopping with guides in 5 languages, plus ATV jungle rides.</p>
-        <div class="go">See adventure tours &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/visa-services">
-        <div class="sc-photo"><img src="card-visa.jpg?v=2" alt="Visa services in Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Visa Services</h3>
-        <p>Visa extension guidance, ED visa, retirement visa, visa run support.</p>
-        <div class="go">Learn more &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/driver-license">
-        <div class="sc-photo"><img src="card-license.jpg?v=2" alt="Thai driver&#8217;s licence advice" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Driver License</h3>
-        <p>Free advice on getting a Thai motorbike or car license.</p>
-        <div class="go">Learn more &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="/ferry-tickets">
-        <div class="sc-photo"><img src="card-ferry.jpg?v=2" alt="Speedboat and ferry from Phuket" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Ferry Tickets</h3>
-        <p>Ferry &amp; speedboat tickets to Phi Phi, Krabi, Ao Nang and Lanta, with hotel transfer.</p>
-        <div class="go">See routes &rarr;</div>
-        </div>
-      </a>
-      <a class="service-card" href="https://sktproperty.jutarat-sp.workers.dev/" target="_blank" rel="noopener">
-        <div class="sc-photo"><img src="card-property.jpg?v=2" alt="SKT Property — Phuket and Bangkok" loading="lazy"></div>
-        <div class="sc-body">
-        <h3>Property</h3>
-        <p>Houses, apartments, land and commercial property for rent or sale in Phuket and Bangkok, through our own property agency, SKT Property.</p>
-        <div class="go">See properties &rarr;</div>
-        </div>
-      </a>
-    </div>
+  </div></section>
+
+  <section class="rd-sec"><div class="rd-wrap">
+    <div class="rd-head"><div><div class="rd-eyebrow">Our Services</div><h2 class="rd-h2">We don&#8217;t do everything &mdash; we do a few things really well</h2><p class="rd-lead">Our core services, chosen because we can deliver them consistently and honestly.</p></div></div>
+    <div class="rd-grid g4 rd-svc"><a class="rd-card" href="/motorcycle-rental"><div class="m"><img width="900" height="493" src="adv350-photo-1.jpg" alt="Motorcycle Rental in Phuket" loading="lazy"></div><div class="b"><h3>Motorcycle Rental</h3><p>Daily, weekly, monthly and long-term rentals. Our core service.</p><span class="go">See rates &rarr;</span></div></a><a class="rd-card" href="/car-rental"><div class="m"><img width="900" height="493" src="raptor3-2.jpg" alt="Car Rental in Phuket" loading="lazy"></div><div class="b"><h3>Car Rental</h3><p>Cars from our own managed fleet, for tourists, families and long stays.</p><span class="go">See fleet &rarr;</span></div></a><a class="rd-card" href="/tours#island-tours"><div class="m"><img width="900" height="493" src="card-island.jpg?v=2" alt="Island Tours in Phuket" loading="lazy"></div><div class="b"><h3>Island Tours</h3><p>Phi Phi, James Bond Island and Coral Island day trips with hotel pickup.</p><span class="go">See island tours &rarr;</span></div></a><a class="rd-card" href="/tours#adventure-tours"><div class="m"><img width="900" height="493" src="card-adventure.jpg?v=2" alt="Adventure Tours in Phuket" loading="lazy"></div><div class="b"><h3>Adventure Tours</h3><p>Jet ski island-hopping with guides in 5 languages, plus ATV jungle rides.</p><span class="go">See adventure tours &rarr;</span></div></a><a class="rd-card" href="/visa-services"><div class="m"><img width="900" height="493" src="card-visa.jpg?v=2" alt="Visa services in Phuket" loading="lazy"></div><div class="b"><h3>Visa Services</h3><p>Visa extension guidance, ED visa, retirement visa, visa run support.</p><span class="go">Learn more &rarr;</span></div></a><a class="rd-card" href="/driver-license"><div class="m"><img width="900" height="493" src="card-license.jpg?v=2" alt="Thai driver&#8217;s licence advice" loading="lazy"></div><div class="b"><h3>Driver License</h3><p>Free advice on getting a Thai motorbike or car license.</p><span class="go">Learn more &rarr;</span></div></a><a class="rd-card" href="/ferry-tickets"><div class="m"><img width="900" height="493" src="card-ferry.jpg?v=2" alt="Speedboat and ferry from Phuket" loading="lazy"></div><div class="b"><h3>Ferry Tickets</h3><p>Ferry &amp; speedboat tickets to Phi Phi, Krabi, Ao Nang and Lanta, with hotel transfer.</p><span class="go">See routes &rarr;</span></div></a><a class="rd-card" href="https://sktproperty.jutarat-sp.workers.dev/" target="_blank" rel="noopener"><div class="m"><img width="900" height="493" src="card-property.jpg?v=2" alt="SKT Property — Phuket and Bangkok" loading="lazy"></div><div class="b"><h3>Property</h3><p>Houses, apartments, land and commercial property for rent or sale in Phuket and Bangkok, through our own property agency, SKT Property.</p><span class="go">See properties &rarr;</span></div></a></div>
     <div class="popular">Popular rentals: <a href="/honda-adv-350-rental">Honda ADV 350</a> &middot; <a href="/honda-x-adv-750-rental">Honda X-ADV 750</a> &middot; <a href="/monthly-scooter-rental-phuket">Monthly scooter rental</a> &middot; <a href="/ford-ranger-raptor-rental">Ford Ranger Raptor</a> &middot; <a href="/motorcycle-rental">All motorbikes</a></div>
-  </section>
+  </div></section>
+
+  <section class="rd-sec" style="padding-top:0"><div class="rd-wrap">
+    <div class="rd-head"><div><div class="rd-eyebrow">Popular right now</div><h2 class="rd-h2">Featured tours</h2></div><a class="rd-btn rd-btn-l" href="/tours">View all tours</a></div>
+    <div class="rd-grid g4 rd-rail"><a class="rd-card" href="/sea-trips#phiphi-khai"><div class="m"><img width="800" height="600" src="rd-khai.jpg" alt="Kelly 3 catamaran for the Phi Phi &amp; Khai Island trip" loading="lazy"><span class="rd-badge">Full day</span></div><div class="b"><div class="by">Speed catamaran · Sawanu Travel</div><h3>Phi Phi &amp; Khai Island</h3><div class="ft"><div class="rd-price"><small>from</small><b>3,600 <i>THB per adult</i></b></div><span class="rd-btn rd-btn-n" style="padding:10px 14px;min-height:44px;font-size:14px">View details</span></div></div></a><a class="rd-card" href="/sea-trips#james-bond"><div class="m"><img width="800" height="600" src="rd-jb.jpg" alt="Koh Panyi floating village, Phang Nga Bay" loading="lazy"><span class="rd-badge">Full day</span></div><div class="b"><div class="by">Speed catamaran · Sawanu Travel</div><h3>James Bond Island</h3><div class="ft"><div class="rd-price"><small>from</small><b>3,800 <i>THB per adult</i></b></div><span class="rd-btn rd-btn-n" style="padding:10px 14px;min-height:44px;font-size:14px">View details</span></div></div></a><a class="rd-card" href="/sea-trips#phangnga-private"><div class="m"><img width="800" height="600" src="rd-pnlong.jpg" alt="Private luxury longtail boat in Phang Nga Bay" loading="lazy"><span class="rd-badge o">Private</span></div><div class="b"><div class="by">Luxury longtail · 1–10 guests</div><h3>Phang Nga Bay Private Longtail</h3><div class="ft"><div class="rd-price"><small>from</small><b>4,300 <i>THB per boat</i></b></div><span class="rd-btn rd-btn-n" style="padding:10px 14px;min-height:44px;font-size:14px">View details</span></div></div></a><a class="rd-card" href="/jet-ski"><div class="m"><img width="800" height="600" src="rd-jetski.jpg" alt="Jet ski tour in Phang Nga Bay" loading="lazy"><span class="rd-badge">4 hours</span></div><div class="b"><div class="by">Guided · 9 islands</div><h3>Jet Ski Tour</h3><div class="ft"><div class="rd-price"><small>from</small><b>7,900 <i>THB per jet ski</i></b></div><span class="rd-btn rd-btn-n" style="padding:10px 14px;min-height:44px;font-size:14px">View details</span></div></div></a></div>
+    <div class="rd-rail-hint">Swipe for more tours &rarr;</div>
+  </div></section>
+
+  <section class="rd-sec rd-why"><div class="rd-wrap rd-why-g"><div>
+    <div class="rd-eyebrow">Why Island Rides</div><h2 class="rd-h2">A small local team that answers</h2>
+    <ul>
+      <li><span class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>No hidden fees</b><p>Clear prices, confirmed on WhatsApp before you pay.</p></div></li>
+      <li><span class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Fast replies</b><p>Real people on WhatsApp during working hours.</p></div></li>
+      <li><span class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Local team</b><p>Our shop is on Soi Ta-iad, Chalong.</p></div></li>
+      <li><span class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>5.0 on Google</b><p>Rated by our customers.</p></div></li>
+    </ul></div><img width="800" height="600" src="rd-why.jpg" alt="James Bond Island, Ao Phang Nga National Park" loading="lazy"></div></section>
+
+  <section class="rd-sec"><div class="rd-wrap">
+    <div class="rd-head"><div><div class="rd-eyebrow">How booking works</div><h2 class="rd-h2">Three steps to a booking request</h2></div></div>
+    <ol class="rd-steps"><li><span class="n">1</span><h3>Fill in your trip</h3><p>Choose a tour or a bike, your dates and how many people.</p></li><li><span class="n">2</span><h3>Check the details</h3><p>See the summary and the price estimate before you send.</p></li><li><span class="n">3</span><h3>Send on WhatsApp</h3><p>Our team confirms the price and details on WhatsApp. Nothing is charged until we confirm.</p></li></ol>
+  </div></section>
 
   <section class="section">
     <div class="section-head">
@@ -437,6 +403,21 @@
 <script>
 /* Hide the backup reviews once the Google reviews widget has loaded */
 (function(){var n=0,t=setInterval(function(){var w=document.querySelector('#ti-reviews .ti-widget, #ti-reviews [class*="ti-widget"]');if(w&&w.offsetHeight>50){var s=document.getElementById('static-reviews');if(s)s.style.display='none';clearInterval(t);}if(++n>40)clearInterval(t);},500);})();
+</script>
+<script>
+(function () {
+  var t = document.getElementById('qs-tours'), b = document.getElementById('qs-bikes');
+  [].forEach.call(document.querySelectorAll('[data-qs]'), function (btn) {
+    btn.addEventListener('click', function () {
+      [].forEach.call(document.querySelectorAll('[data-qs]'), function (x) { x.setAttribute('aria-pressed', x === btn); });
+      t.hidden = btn.dataset.qs !== 'tours'; b.hidden = btn.dataset.qs !== 'bikes';
+    });
+  });
+  var cat = document.getElementById('qs-cat'), go = document.getElementById('qs-go');
+  cat.addEventListener('change', function () { go.href = '/tours#' + cat.value; });
+  var bk = document.getElementById('qs-bike'), bgo = document.getElementById('qs-bgo');
+  bk.addEventListener('change', function () { bgo.href = '/motorcycle-rental' + (bk.value ? '#' + bk.value : ''); });
+})();
 </script>
 </body>
 </html>
