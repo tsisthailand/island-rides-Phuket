@@ -11,6 +11,8 @@
   var items = [], bike = null, car = null, back = null, lastFocus = null;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function dmy(d) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : ''; }
+  function today() { var t = new Date(); return t.getFullYear() + '-' + ('0' + (t.getMonth() + 1)).slice(-2) + '-' + ('0' + t.getDate()).slice(-2); }
   function fmt(n) { return Number(n).toLocaleString('en-US'); }
   function num(s) { return parseInt(String(s).replace(/[^\d]/g, ''), 10); }
   function seasonOf(d) { var m = new Date(d + 'T00:00:00').getMonth() + 1; return (m >= 5 && m <= 10) ? 'low' : 'high'; }
@@ -60,14 +62,14 @@
   function summary() {
     if (st.kind === 'bike') {
       var b = st.bike, q = bikeQuote();
-      return [['Motorbike', bike.name + (q.v && bike[q.se].length > 1 ? ' — ' + q.v.name : '')], ['Pickup date', b.pick || '—'], ['Return date', b.ret || '—'], ['Days', q.days ? String(q.days) : '—'], ['Pickup', b.method === 'delivery' ? 'Delivery to ' + (b.addr || '—') : 'Collect at our shop in Chalong']];
+      return [['Motorbike', bike.name + (q.v && bike[q.se].length > 1 ? ' — ' + q.v.name : '')], ['Pickup date', dmy(b.pick) || '—'], ['Return date', dmy(b.ret) || '—'], ['Days', q.days ? String(q.days) : '—'], ['Pickup', b.method === 'delivery' ? 'Delivery to ' + (b.addr || '—') : 'Collect at our shop in Chalong']];
     }
     if (st.kind === 'car') {
       var c = st.car, cq = carQuote();
-      return [['Car', car.name], ['Pickup date', c.pick || '—'], ['Return date', c.ret || '—'], ['Days', cq.days ? String(cq.days) : '—'], ['Pickup', c.method === 'delivery' ? 'Delivery / airport: ' + (c.addr || '—') : 'Collect at our shop in Chalong']];
+      return [['Car', car.name], ['Pickup date', dmy(c.pick) || '—'], ['Return date', dmy(c.ret) || '—'], ['Days', cq.days ? String(cq.days) : '—'], ['Pickup', c.method === 'delivery' ? 'Delivery / airport: ' + (c.addr || '—') : 'Collect at our shop in Chalong']];
     }
     var t = tourOf(), s = st.tour;
-    return [['Tour', t.title], ['Date', s.date || '—'], ['Guests', s.adults + ' adult' + (s.adults > 1 ? 's' : '') + (t.child ? ', ' + s.kids + ' child' + (s.kids === 1 ? '' : 'ren') : '')], ['Hotel / pickup', s.hotel || '—']];
+    return [['Tour', t.title], ['Date', dmy(s.date) || '—'], ['Guests', s.adults + ' adult' + (s.adults > 1 ? 's' : '') + (t.child ? ', ' + s.kids + ' child' + (s.kids === 1 ? '' : 'ren') : '')], ['Hotel / pickup', s.hotel || '—']];
   }
   function message() {
     var L = ["Hi Island Rides! I'd like to book:"];
@@ -82,6 +84,7 @@
   /* ---------- views ---------- */
   function fld(key, label, type, val, ph, extra) {
     var e = st.err[key];
+    if (type === 'date') return '<label class="rd-fld' + (e ? ' bad' : '') + '"><span>' + label + '</span><div class="rd-date"><input id="rdm-' + key + '" data-k="' + key + '" type="date" min="' + today() + '" value="' + esc(val) + '" aria-label="' + esc(label) + ' (day/month/year)"><span class="rd-date-v' + (val ? '' : ' ph') + '" aria-hidden="true">' + (val ? dmy(val) : 'dd/mm/yyyy') + '</span></div>' + (e ? '<span class="err">' + esc(e) + '</span>' : '') + '</label>';
     return '<label class="rd-fld' + (e ? ' bad' : '') + '"><span>' + label + '</span><input id="rdm-' + key + '" data-k="' + key + '" type="' + type + '" value="' + esc(val) + '"' + (ph ? ' placeholder="' + esc(ph) + '"' : '') + (extra || '') + '>' + (e ? '<span class="err">' + esc(e) + '</span>' : '') + '</label>';
   }
   function cnt(key, label, sub, val) {
@@ -190,6 +193,7 @@
   function onInput(e) {
     var k = e.target.dataset && e.target.dataset.k; if (!k) return;
     setVal(k, e.target.value);
+    if (e.target.type === 'date') { var dv = e.target.nextElementSibling; if (dv) { dv.textContent = dmy(e.target.value) || 'dd/mm/yyyy'; dv.classList.toggle('ph', !e.target.value); } }
     if (st.err[k]) { delete st.err[k]; var f = e.target.closest('.rd-fld'); if (f) { f.classList.remove('bad'); var m = f.querySelector('.err'); if (m) m.remove(); } }
   }
   function onChange(e) {
@@ -199,6 +203,7 @@
   }
   function onClick(e) {
     if (e.target === back) { close(); return; }
+    if (e.target.type === 'date' && e.target.showPicker) { try { e.target.showPicker(); } catch (x) {} return; }
     var btn = e.target.closest('button'); if (!btn) return;
     var d = btn.dataset;
     if (d.cnt) { var p = d.cnt.split(':'), k = p[0], min = k === 'adults' ? 1 : 0; st.tour[k] = Math.max(min, Math.min(30, (st.tour[k] || 0) + Number(p[1]))); render(); return; }

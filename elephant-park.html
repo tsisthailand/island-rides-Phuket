@@ -550,9 +550,10 @@
   document.getElementById('inquiry-form').addEventListener('submit', function (e) {
     e.preventDefault();
     var v = function (id) { return document.getElementById(id).value; };
-    var msg = "Hi Island Rides Phuket! I'd like to book Bukit Elephant Park.\nProgram: " + v('f-tour') + "\nName: " + v('f-name') + "\nContact: " + v('f-contact') + "\nDate: " + v('f-date') + "\nTime: " + v('f-time') + "\nPeople: " + v('f-pax') + "\nPickup: " + (v('f-pickup') || "-");
+    var msg = "Hi Island Rides Phuket! I'd like to book Bukit Elephant Park.\nProgram: " + v('f-tour') + "\nName: " + v('f-name') + "\nContact: " + v('f-contact') + "\nDate: " + IRdmy(v('f-date')) + "\nTime: " + v('f-time') + "\nPeople: " + v('f-pax') + "\nPickup: " + (v('f-pickup') || "-");
     window.open("https://wa.me/66803140043?text=" + encodeURIComponent(msg), "_blank");
   });
 </script>
+<script src="ir-date.js?v=1"></script>
 </body>
 </html>
