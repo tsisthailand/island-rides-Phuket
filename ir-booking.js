@@ -3,8 +3,8 @@
   var WA = '66803140043';
   var APPS = {
     wa: { name: 'WhatsApp', label: 'WhatsApp number', type: 'tel', ph: '+44 7700 900123', url: function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); } },
-    line: { name: 'LINE', label: 'LINE ID', type: 'text', ph: 'Your LINE ID', url: function () { return 'https://line.me/ti/p/~islandrides'; } },
-    tg: { name: 'Telegram', label: 'Telegram username or phone', type: 'text', ph: '@username', url: function () { return 'https://t.me/islandrides_phuket'; } }
+    line: { name: 'LINE', label: 'LINE ID or phone number', type: 'text', ph: 'LINE ID, or phone with country code', url: function () { return 'https://line.me/ti/p/~islandrides'; } },
+    tg: { name: 'Telegram', label: 'Telegram username or phone number', type: 'text', ph: '@username, or phone with country code', url: function () { return 'https://t.me/islandrides_phuket'; } }
   };
   function app() { return APPS[st.c.app] || APPS.wa; }
   var LOWHEAD = ['1–6 days', '7–14 days', '15–29 days', '30+ days', '3+ months'];
@@ -162,7 +162,7 @@
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(st.c.email.trim())) e.email = 'Enter a valid email address.';
     var ck = st.c.app, cv = String(st.c[ck] || '').trim();
     if (ck === 'wa' && !/^\+?[\d\s()-]{8,}$/.test(cv)) e.wa = 'Enter a WhatsApp number with country code, e.g. +44 7700 900123.';
-    if (ck !== 'wa' && cv.length < 2) e[ck] = 'Enter your ' + app().label + '.';
+    if (ck !== 'wa' && cv.length < 2) e[ck] = 'Enter your ' + app().name + ' ID or phone number (with country code).';
     return e;
   }
   function open() {
