@@ -2,13 +2,12 @@
 (function () {
   var WA = '66803140043';
   var APPS = {
-    wa: { name: 'WhatsApp', label: 'WhatsApp number', type: 'tel', ph: '+44 7700 900123', url: function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); } },
-    line: { name: 'LINE', label: 'LINE ID or phone number', type: 'text', ph: 'LINE ID, or phone with country code', url: function () { return 'https://line.me/ti/p/~islandrides'; } },
-    tg: { name: 'Telegram', label: 'Telegram username or phone number', type: 'text', ph: '@username, or phone with country code', url: function () { return 'https://t.me/islandrides_phuket'; } }
+    wa: { name: 'WhatsApp', label: 'WhatsApp number', type: 'tel', ph: '+44 7700 900123', url: function (m) { return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(m); } }
   };
+  var MAIL = 'https://formsubmit.co/ajax/t.sisthailand@gmail.com';
   function app() { return APPS[st.c.app] || APPS.wa; }
   var LOWHEAD = ['1–6 days', '7–14 days', '15–29 days', '30+ days', '3+ months'];
-  var st = { kind: null, step: 1, sent: false, err: {}, tour: {}, bike: {}, car: {}, c: { name: '', email: '', app: 'wa', wa: '', line: '', tg: '', notes: '' } };
+  var st = { kind: null, step: 1, sent: false, err: {}, tour: {}, bike: {}, car: {}, c: { name: '', email: '', app: 'wa', wa: '', notes: '' }, mail: '' };
   var items = [], bike = null, car = null, back = null, lastFocus = null;
 
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -74,7 +73,7 @@
     var L = ["Hi Island Rides! I'd like to book:"];
     summary().forEach(function (r) { L.push(r[0] + ': ' + r[1]); });
     L.push('Estimate shown: ' + quote().txt);
-    L.push('Name: ' + st.c.name, 'Email: ' + st.c.email, 'Contact me on ' + app().name + ': ' + st.c[st.c.app]);
+    L.push('Name: ' + st.c.name, 'Email: ' + st.c.email, 'WhatsApp: ' + st.c.wa);
     if (st.c.notes) L.push('Notes: ' + st.c.notes);
     L.push('Please confirm my booking.');
     return L.join('\n');
@@ -114,26 +113,35 @@
     h += '<div class="rdm-est"><span>Estimate</span><b>' + esc(q.txt) + '</b></div>' + (q.note ? '<p class="rdm-note">' + esc(q.note) + '</p>' : '');
     h += fld('name', 'Full name', 'text', st.c.name, 'Your name', ' autocomplete="name"');
     h += fld('email', 'Email', 'email', st.c.email, 'you@example.com', ' autocomplete="email"');
-    h += '<div class="rd-fld"><span>Contact me on</span><div class="rdm-tog three" role="group" aria-label="Contact app">' + ['wa', 'line', 'tg'].map(function (k) { return '<button type="button" data-app="' + k + '" aria-pressed="' + (st.c.app === k) + '">' + APPS[k].name + '</button>'; }).join('') + '</div></div>';
     h += fld(st.c.app, app().label, app().type, st.c[st.c.app], app().ph, st.c.app === 'wa' ? ' autocomplete="tel"' : '');
     h += '<label class="rd-fld"><span>Notes (optional)</span><textarea id="rdm-notes" data-k="notes" rows="2" placeholder="Anything we should know">' + esc(st.c.notes) + '</textarea></label>';
     h += payBox();
-    h += '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">' + (st.c.app === 'wa' ? 'Send booking via WhatsApp' : 'Copy booking & open ' + app().name) + '</button></div><p class="rdm-note" style="text-align:center">' + (st.c.app === 'wa' ? 'WhatsApp opens with your details filled in.' : 'Your booking is copied. Paste it in our ' + app().name + ' chat and send.') + ' We confirm your booking there.</p>';
+    h += '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">Send booking via WhatsApp</button></div><p class="rdm-note" style="text-align:center">We get your booking by email, and WhatsApp opens with your details filled in. We confirm your booking on WhatsApp.</p>';
     return h;
   }
   function payBox() {
     var extra = st.kind === 'car' ? '<li>Deposit for this car: ' + esc(car.dep) + '. Refunded within 24–72 hours after return if there is no damage.</li>' + (st.car.method === 'delivery' ? '<li>We confirm delivery or airport pick-up details by message.</li>' : '') : st.kind === 'bike' ? '<li>Deposit: cash or passport, refunded within 24 hours after return if there is no damage.</li>' + (st.bike.method === 'delivery' ? '<li>Delivery fee depends on the area and bike size. We tell you by message.</li>' : '') : '';
     return '<div class="rdm-fee"><b>Payment</b><ul><li>Cash, bank transfer or Wise: no extra fee</li><li>Credit card: +5%</li><li>USDT: +3%</li>' + extra + '<li>You pay after we confirm your booking by message.</li></ul></div>';
   }
+  function mailNote() {
+    return st.mail === 'ok' ? '✓ Your booking details were also sent to our team by email.' : st.mail === 'fail' ? '' : 'Sending your booking to our team by email…';
+  }
   function done() {
-    var A = app(), wa = st.c.app === 'wa';
-    var head = wa ? 'One more step: tap Send in WhatsApp' : 'One more step: paste and send in ' + A.name;
-    var body = wa ? 'Your booking is typed in WhatsApp but <b>not sent yet</b>. Tap the green <b>Send ➤</b> button there. We only see your booking after you send it.'
-      : 'Your booking is <b>copied</b>. In the ' + A.name + ' chat with Island Rides, tap the message box, choose <b>Paste</b>, then tap <b>Send ➤</b>. If you are new to our ' + A.name + ', add us first. We only see your booking after you send it.';
-    var alt = wa ? 'WhatsApp didn\'t open? Message us at <b>+66 80 314 0043</b>' : A.name + ' didn\'t open? Find us on ' + A.name + ' at <b>' + (st.c.app === 'line' ? 'islandrides' : '@islandrides_phuket') + '</b>';
-    return '<div class="rdm-send" role="status"><div class="rdm-send-i" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 20.5 22 12 2.5 3.5l.02 6.6L16 12 2.52 13.9z"/></svg></div><div><h3>' + head + '</h3><p>' + body + '</p></div></div>' +
-      '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">Open ' + A.name + ' again</button></div>' +
-      '<p class="rdm-note" style="margin-top:10px">Our team confirms your booking by message. You pay after we confirm. ' + alt + ' and paste the text below.</p><div class="rdm-msg" id="rdm-msg">' + esc(message()) + '</div><div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="copy">Copy message</button><button type="button" class="rd-btn rd-btn-l" data-act="to1">Edit details</button><button type="button" class="rd-btn rd-btn-n grow" data-act="close">Done</button></div>';
+    return '<div class="rdm-send" role="status"><div class="rdm-send-i" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M2.5 20.5 22 12 2.5 3.5l.02 6.6L16 12 2.52 13.9z"/></svg></div><div><h3>One more step: tap Send in WhatsApp</h3><p>Your booking is typed in WhatsApp but <b>not sent yet</b>. Tap the green <b>Send ➤</b> button there so we can reply to you quickly.</p></div></div>' +
+      '<p class="rdm-note" id="rdm-mail" aria-live="polite" style="margin:0">' + mailNote() + '</p>' +
+      '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">Open WhatsApp again</button></div>' +
+      '<p class="rdm-note" style="margin-top:10px">Our team confirms your booking on WhatsApp. You pay after we confirm. WhatsApp didn\'t open? Message us at <b>+66 80 314 0043</b> and paste the text below.</p><div class="rdm-msg" id="rdm-msg">' + esc(message()) + '</div><div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="copy">Copy message</button><button type="button" class="rd-btn rd-btn-l" data-act="to1">Edit details</button><button type="button" class="rd-btn rd-btn-n grow" data-act="close">Done</button></div>';
+  }
+  function sendMail(msg) {
+    if (st.mailed === msg) return;
+    st.mailed = msg; st.mail = 'sending';
+    var item = summary()[0];
+    var body = { _subject: 'New booking: ' + item[1] + ' — ' + st.c.name, _template: 'table', _captcha: 'false', _replyto: st.c.email, Booking: item[0] + ': ' + item[1], Name: st.c.name, Email: st.c.email, WhatsApp: st.c.wa, Details: msg };
+    var upd = function (r) { st.mail = r; var n = back && back.querySelector('#rdm-mail'); if (n) n.textContent = mailNote(); };
+    try {
+      fetch(MAIL, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(body), keepalive: true })
+        .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { upd(r.ok && String(j.success) !== 'false' ? 'ok' : 'fail'); }); }, function () { upd('fail'); });
+    } catch (x) { upd('fail'); }
   }
   function render(focusFirst) {
     if (!back) return;
@@ -160,9 +168,7 @@
     }
     if (!st.c.name.trim()) e.name = 'Enter your name.';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(st.c.email.trim())) e.email = 'Enter a valid email address.';
-    var ck = st.c.app, cv = String(st.c[ck] || '').trim();
-    if (ck === 'wa' && !/^\+?[\d\s()-]{8,}$/.test(cv)) e.wa = 'Enter a WhatsApp number with country code, e.g. +44 7700 900123.';
-    if (ck !== 'wa' && cv.length < 2) e[ck] = 'Enter your ' + app().name + ' ID or phone number (with country code).';
+    if (!/^\+?[\d\s()-]{8,}$/.test(st.c.wa.trim())) e.wa = 'Enter a WhatsApp number with country code, e.g. +44 7700 900123.';
     return e;
   }
   function open() {
@@ -178,7 +184,7 @@
   }
   function close() { if (!back) return; back.hidden = true; document.body.classList.remove('rdm-open'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
   function setVal(k, v) {
-    if (k === 'name' || k === 'email' || k === 'wa' || k === 'line' || k === 'tg' || k === 'notes') st.c[k] = v;
+    if (k === 'name' || k === 'email' || k === 'wa' || k === 'notes') st.c[k] = v;
     else if (st.kind === 'bike') st.bike[k] = v; else if (st.kind === 'car') st.car[k] = v; else st.tour[k] = v;
   }
   function onInput(e) {
@@ -196,7 +202,6 @@
     var btn = e.target.closest('button'); if (!btn) return;
     var d = btn.dataset;
     if (d.cnt) { var p = d.cnt.split(':'), k = p[0], min = k === 'adults' ? 1 : 0; st.tour[k] = Math.max(min, Math.min(30, (st.tour[k] || 0) + Number(p[1]))); render(); return; }
-    if (d.app) { st.c.app = d.app; delete st.err.wa; delete st.err.line; delete st.err.tg; render(); var ai = back.querySelector('#rdm-' + d.app); if (ai) ai.focus(); return; }
     if (d.method) { (st.kind === 'car' ? st.car : st.bike).method = d.method; render(); return; }
     var a = d.act; if (!a) return;
     if (a === 'close') { close(); return; }
@@ -204,8 +209,8 @@
     if (a === 'send') {
       if (!st.sent) { st.err = validate(); if (Object.keys(st.err).length) { render(true); return; } }
       var msg = message();
-      if (st.c.app !== 'wa') copyText(msg);
       window.open(app().url(msg), '_blank', 'noopener');
+      sendMail(msg);
       if (!st.sent) { st.sent = true; render(true); }
       return;
     }
@@ -215,11 +220,6 @@
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, function () { selectMsg(); });
       else selectMsg();
     }
-  }
-  function copyText(t) {
-    try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(t).catch(fallbackCopy); return; } } catch (x) {}
-    fallbackCopy();
-    function fallbackCopy() { try { var ta = document.createElement('textarea'); ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); } catch (x) {} }
   }
   function selectMsg() { var m = back.querySelector('#rdm-msg'); if (!m) return; var r = document.createRange(); r.selectNodeContents(m); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
 
