@@ -1,5 +1,4 @@
-/* Island Rides booking request — 3 steps: fill in → check → send on WhatsApp.
-   Nothing is booked or charged here: the last step opens WhatsApp with the request and the team confirms. */
+/* Island Rides booking: fill in the form, then WhatsApp opens with the details. The team confirms the booking on WhatsApp. */
 (function () {
   var WA = '66803140043';
   var LOWHEAD = ['1–6 days', '7–14 days', '15–29 days', '30+ days', '3+ months'];
@@ -51,12 +50,12 @@
     return [['Tour', t.title], ['Date', s.date || '—'], ['Guests', s.adults + ' adult' + (s.adults > 1 ? 's' : '') + (t.child ? ', ' + s.kids + ' child' + (s.kids === 1 ? '' : 'ren') : '')], ['Hotel / pickup', s.hotel || '—']];
   }
   function message() {
-    var L = ["Hi Island Rides! I'd like to send a booking request."];
+    var L = ["Hi Island Rides! I'd like to book:"];
     summary().forEach(function (r) { L.push(r[0] + ': ' + r[1]); });
     L.push('Estimate shown: ' + quote().txt);
     L.push('Name: ' + st.c.name, 'WhatsApp: ' + st.c.wa);
     if (st.c.notes) L.push('Notes: ' + st.c.notes);
-    L.push('Please confirm the price and details.');
+    L.push('Please confirm my booking.');
     return L.join('\n');
   }
 
@@ -90,36 +89,21 @@
     h += fld('name', 'Full name', 'text', st.c.name, 'Your name', ' autocomplete="name"');
     h += fld('wa', 'WhatsApp number', 'tel', st.c.wa, '+66 …', ' autocomplete="tel"');
     h += '<label class="rd-fld"><span>Notes (optional)</span><textarea id="rdm-notes" data-k="notes" rows="2" placeholder="Anything we should know">' + esc(st.c.notes) + '</textarea></label>';
-    h += '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-o grow" data-act="to2">Check my request</button></div>';
+    h += payBox();
+    h += '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">Send booking via WhatsApp</button></div><p class="rdm-note" style="text-align:center">WhatsApp opens with your details. We confirm your booking there.</p>';
     return h;
   }
-  function feeBox() {
-    var q = quote(), list = '<li>Estimate: <b>' + esc(q.txt) + '</b></li>' + (q.note ? '<li>' + esc(q.note) + '</li>' : '');
-    if (st.kind === 'bike') {
-      list += '<li>Card payment +5% · USDT +3% · cash, bank transfer or Wise: no extra fee</li><li>Deposit (cash or passport) is refunded within 24 hours after return if there is no damage.</li>' + (st.bike.method === 'delivery' ? '<li>Delivery fee depends on the area and bike size. We quote it on WhatsApp.</li>' : '');
-    } else {
-      list += '<li>We confirm the final price, payment method and any payment fee on WhatsApp before you pay.</li>';
-    }
-    list += '<li>Nothing is charged until our team confirms.</li>';
-    return '<div class="rdm-fee"><b>Price and fees</b><ul>' + list + '</ul></div>';
+  function payBox() {
+    var extra = st.kind === 'bike' ? '<li>Deposit: cash or passport, refunded within 24 hours after return if there is no damage.</li>' + (st.bike.method === 'delivery' ? '<li>Delivery fee depends on the area and bike size. We tell you on WhatsApp.</li>' : '') : '';
+    return '<div class="rdm-fee"><b>Payment</b><ul><li>Cash, bank transfer or Wise: no extra fee</li><li>Credit card: +5%</li><li>USDT: +3%</li>' + extra + '<li>You pay after we confirm your booking on WhatsApp.</li></ul></div>';
   }
-  function step2() {
-    var cells = summary().concat([['Name', st.c.name], ['WhatsApp', st.c.wa]]);
-    if (st.c.notes) cells.push(['Notes', st.c.notes]);
-    return '<p class="rdm-note" style="font-size:14px">Check your request. Nothing has been sent yet.</p><div class="rdm-sum">' + cells.map(function (c) { return '<div><small>' + esc(c[0]) + '</small><b>' + esc(c[1]) + '</b></div>'; }).join('') + '</div>' + feeBox() +
-      '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="to1">Edit details</button><button type="button" class="rd-btn rd-btn-o grow" data-act="to3">Continue</button></div>';
-  }
-  function step3() {
-    if (st.sent) return '<div class="rdm-status" role="status"><h3>Request sent to WhatsApp — waiting for our confirmation</h3><p style="margin:6px 0 0">Your booking is <b>not confirmed yet</b>. Our team replies on WhatsApp with the final price and details. Nothing is charged until we confirm.</p><p class="rdm-note" style="margin-top:8px">WhatsApp didn\'t open? Message us at <b>+66 80 314 0043</b> and paste the message below.</p></div><div class="rdm-msg" id="rdm-msg">' + esc(message()) + '</div><div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="copy">Copy message</button><button type="button" class="rd-btn rd-btn-l" data-act="to2">Edit request</button><button type="button" class="rd-btn rd-btn-n grow" data-act="close">Done</button></div>';
-    return '<p style="margin:0">This message opens in WhatsApp. Our team replies to confirm the price and details. Your booking is not confirmed until we reply.</p><div class="rdm-msg" id="rdm-msg" aria-label="Message preview">' + esc(message()) + '</div>' +
-      '<div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="to2">Back</button><button type="button" class="rd-btn rd-btn-wa grow" data-act="send">Send booking request</button></div>';
+  function done() {
+    return '<div class="rdm-status" role="status"><h3>WhatsApp opened with your booking details</h3><p style="margin:6px 0 0">Send the message in WhatsApp. Our team confirms your booking there. You pay after we confirm.</p><p class="rdm-note" style="margin-top:8px">WhatsApp didn\'t open? Message us at <b>+66 80 314 0043</b> and paste the text below.</p></div><div class="rdm-msg" id="rdm-msg">' + esc(message()) + '</div><div class="rdm-acts"><button type="button" class="rd-btn rd-btn-l" data-act="copy">Copy message</button><button type="button" class="rd-btn rd-btn-l" data-act="to1">Edit details</button><button type="button" class="rd-btn rd-btn-n grow" data-act="close">Done</button></div>';
   }
   function render(focusFirst) {
     if (!back) return;
-    var labels = ['Fill in details', 'Check', 'Send via WhatsApp'];
-    var steps = '<ol class="rdm-steps" aria-label="Booking progress">' + labels.map(function (l, i) { var n = i + 1, cls = (n < st.step || (st.sent && n === 3)) ? 'done' : (n === st.step ? 'now' : ''); return '<li class="' + cls + '"' + (n === st.step ? ' aria-current="step"' : '') + '><span class="d">' + (cls === 'done' ? check : n) + '</span><span>' + l + '</span></li>'; }).join('') + '</ol>';
-    var title = st.kind === 'bike' ? 'Request: ' + bike.name : 'Tour booking request';
-    back.querySelector('.rdm').innerHTML = '<div class="rdm-h"><h2 id="rdm-title">' + esc(title) + '</h2><button type="button" class="rdm-x" data-act="close" aria-label="Close">×</button></div><div class="rdm-b">' + steps + (st.step === 1 ? step1() : st.step === 2 ? step2() : step3()) + '</div>';
+    var title = st.kind === 'bike' ? 'Book: ' + bike.name : 'Book a tour';
+    back.querySelector('.rdm').innerHTML = '<div class="rdm-h"><h2 id="rdm-title">' + esc(title) + '</h2><button type="button" class="rdm-x" data-act="close" aria-label="Close">×</button></div><div class="rdm-b">' + (st.sent ? done() : step1()) + '</div>';
     if (focusFirst) { var el = back.querySelector('.rd-fld.bad input, .rd-fld.bad select') || back.querySelector('.rdm-b input, .rdm-b select, .rdm-b .rd-btn'); if (el) el.focus(); }
   }
   function validate() {
@@ -171,10 +155,9 @@
     if (d.method) { st.bike.method = d.method; render(); return; }
     var a = d.act; if (!a) return;
     if (a === 'close') { close(); return; }
-    if (a === 'to1') { st.step = 1; st.sent = false; render(true); return; }
-    if (a === 'to2') { if (st.step === 1) { st.err = validate(); if (Object.keys(st.err).length) { render(true); return; } } st.step = 2; st.sent = false; render(true); return; }
-    if (a === 'to3') { st.step = 3; st.sent = false; render(true); return; }
+    if (a === 'to1') { st.sent = false; render(true); return; }
     if (a === 'send') {
+      st.err = validate(); if (Object.keys(st.err).length) { render(true); return; }
       window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(message()), '_blank', 'noopener');
       st.sent = true; render(true); return;
     }
@@ -192,13 +175,13 @@
       items = list; if (st.kind !== 'tour') { st.step = 1; st.sent = false; }
       st.kind = 'tour'; st.err = {};
       st.tour.id = id || st.tour.id || list[0].id; if (!st.tour.adults) st.tour.adults = 2; if (st.tour.kids == null) st.tour.kids = 0;
-      if (st.step === 3 && st.sent) { st.step = 1; st.sent = false; }
+      if (st.sent) { st.sent = false; }
       open();
     },
     openBike: function (b) {
       if (st.kind !== 'bike' || !bike || bike.id !== b.id) { st.step = 1; st.sent = false; st.bike = { pick: st.bike.pick || '', ret: st.bike.ret || '', variant: '', method: st.bike.method || 'shop', addr: st.bike.addr || '' }; }
       bike = b; st.kind = 'bike'; st.err = {};
-      if (st.step === 3 && st.sent) { st.step = 1; st.sent = false; }
+      if (st.sent) { st.sent = false; }
       open();
     }
   };
