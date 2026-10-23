@@ -286,6 +286,26 @@
   .icon-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
   @media (max-width:900px) { .trip { grid-template-columns:1fr; } .icon-grid { grid-template-columns:1fr 1fr; } }
   @media (max-width:600px) { .shero h1 { font-size:29px; } .tl time { width:82px; } }
+  .pkgs { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .pkg { background:#fff; border-radius:20px; padding:22px; box-shadow:0 6px 20px rgba(15,42,71,.07); display:flex; flex-direction:column; }
+  .pkg.best { outline:3px solid var(--orange); }
+  .pkg .no { font-family:var(--font-head); font-weight:800; color:var(--turquoise); font-size:14px; letter-spacing:.08em; }
+  .pkg h3 { font-size:19px; font-weight:800; color:#0F2A47; margin-top:2px; }
+  .pkg .dur { color:var(--turquoise); font-weight:700; font-size:13.5px; margin-top:2px; }
+  .pkg ul { list-style:none; display:grid; gap:6px; margin:14px 0 16px; flex:1; align-content:start; }
+  .pkg li { font-size:13.5px; color:var(--gray-600); padding-left:18px; position:relative; }
+  .pkg li::before { content:""; position:absolute; left:2px; top:8px; width:7px; height:7px; border-radius:50%; background:var(--turquoise); }
+  .pkg .amt { font-family:var(--font-head); font-size:30px; font-weight:800; color:var(--orange); line-height:1.1; }
+  .pkg .amt small { display:block; font-family:Inter,sans-serif; font-size:12.5px; font-weight:600; color:var(--gray-600); }
+  .pkg .btn-book { margin-top:14px; text-align:center; }
+  .season { display:inline-block; background:#FFF4EA; color:#B4530A; font-weight:700; font-size:13px; padding:6px 14px; border-radius:99px; margin:0 0 18px; }
+  .xfer { width:100%; border-collapse:collapse; background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 6px 20px rgba(15,42,71,.07); font-size:14px; }
+  .xfer th, .xfer td { padding:12px 16px; text-align:left; border-bottom:1px solid var(--gray-200); }
+  .xfer th { background:#EAF7FA; color:#0E6E8C; font-family:var(--font-head); font-size:13px; letter-spacing:.04em; text-transform:uppercase; }
+  .xfer td.n, .xfer th.n { text-align:right; white-space:nowrap; font-weight:700; }
+  .xfer tr:last-child td { border-bottom:none; }
+  @media (max-width:1000px) { .pkgs { grid-template-columns:1fr 1fr; } }
+  @media (max-width:600px) { .pkgs { grid-template-columns:1fr; } .xfer th, .xfer td { padding:10px 12px; font-size:13px; } }
 </style>
 <script type="application/ld+json">
 {
@@ -364,6 +384,7 @@
         <a class="prog" href="#jb-yaoyai" style="text-decoration:none;color:inherit;"><img width="798" height="340" src="ds-jamesbond.jpg" alt="James Bond &amp; Yao Yai Island"><span class="tag2">Speedboat</span><div class="prog-body"><h3>James Bond &amp; Yao Yai Island</h3><div class="dur">Full day</div><div class="pp"><div><b>3,700</b><small>THB per adult</small></div><div class="kid"><b>2,700</b><small>Child 4–11</small></div></div></div></a>
         <a class="prog" href="#seacanoe" style="text-decoration:none;color:inherit;"><img width="983" height="700" src="jg-hong.jpg" alt="Sea kayaking in a hong, Phang Nga Bay" style="object-position:center 70%;"><span class="tag2">Sea kayak</span><div class="prog-body"><h3>Hong by Starlight</h3><div class="dur">Afternoon &amp; evening</div><div class="pp"><div><b>3,950</b><small>THB per adult</small></div><div class="kid"><b>1,975</b><small>Child 7–12</small></div></div></div></a>
         <a class="prog" href="#longtail" style="text-decoration:none;color:inherit;"><img width="900" height="1200" src="lt-boat.jpg" alt="Private long-tail boat" style="object-position:center 60%;"><span class="tag2">Private</span><div class="prog-body"><h3>Private Long-tail Boat</h3><div class="dur">Whole boat &middot; up to 6 guests</div><div class="pp"><div><b>4,000</b><small>THB per boat</small></div></div></div></a>
+        <a class="prog" href="#phangnga-private" style="text-decoration:none;color:inherit;"><img width="800" height="730" src="pn-props.jpg" alt="Private luxury longtail boat in Phang Nga Bay"><span class="tag2">Private</span><div class="prog-body"><h3>Phang Nga Bay Private Longtail</h3><div class="dur">Whole boat &middot; 1&ndash;10 guests &middot; 4 routes</div><div class="pp"><div><b>4,300</b><small>THB per boat, from</small></div></div></div></a>
       </div>
     </div>
   </section>
@@ -594,6 +615,38 @@
     </div>
   </section>
 
+  <section class="sec sec-sky" id="phangnga-private">
+    <div class="wrap">
+      <div class="sec-title"><span class="prog-label">Private charter &middot; Phang Nga Bay</span><h2 class="prog-name" style="color:#0E6E8C;">Private Luxury Longtail Boat</h2><div class="prog-sub">Your own boat &middot; 1&ndash;10 guests &middot; photo-ready moments in Phang Nga Bay</div></div>
+      <div class="strip" style="margin-bottom:24px;"><img width="800" height="730" src="pn-props.jpg" alt="Photo props on the bow of the private longtail boat" loading="lazy"><img width="800" height="690" src="pn-jamesbond.jpg" alt="James Bond Island (Khao Tapu)" loading="lazy"><img width="800" height="730" src="pn-cruise.jpg" alt="Cruising through Phang Nga Bay on a luxury longtail boat" loading="lazy"><img width="800" height="730" src="pn-phingkan.jpg" alt="Khao Phing Kan leaning rock" loading="lazy"><img width="800" height="730" src="pn-panak.jpg" alt="Hidden lagoon at Koh Phanak" loading="lazy"><img width="800" height="730" src="pn-hong.jpg" alt="Canoeing at Koh Hong, Phang Nga" loading="lazy"><img width="800" height="730" src="pn-thamlod.jpg" alt="Canoeing through Tham Lod sea cave" loading="lazy"><img width="800" height="640" src="pn-panyee.jpg" alt="Floating football pitch at Koh Panyee village" loading="lazy"><img width="900" height="1200" src="pn-couple.jpg" alt="Couple looking at James Bond Island" loading="lazy"></div>
+      <span class="season">&#9728;&#65039; High-season prices &middot; 1 Nov &ndash; 30 Apr &middot; per boat, not per person</span>
+      <div class="pkgs">
+        <div class="pkg"><span class="no">ROUTE 01</span><h3>James Bond Highlights</h3><div class="dur">1.5&ndash;2.5 hours</div><ul><li>Khao Phing Kan</li><li>James Bond Island (Khao Tapu)</li></ul><div class="amt">4,300<small>THB per boat &middot; 1&ndash;10 guests</small></div><a class="btn-book" href="#book" data-p="Phang Nga Private Longtail 01">Book route 01</a></div>
+        <div class="pkg"><span class="no">ROUTE 02</span><h3>Islands &amp; Lagoons</h3><div class="dur">2.5&ndash;4 hours</div><ul><li>Khao Phing Kan</li><li>James Bond Island (Khao Tapu)</li><li>Koh Phanak</li><li>Koh Hong</li></ul><div class="amt">5,700<small>THB per boat &middot; 1&ndash;10 guests</small></div><a class="btn-book" href="#book" data-p="Phang Nga Private Longtail 02">Book route 02</a></div>
+        <div class="pkg"><span class="no">ROUTE 03</span><h3>James Bond &amp; Panyee</h3><div class="dur">3&ndash;5 hours</div><ul><li>James Bond Island (Khao Tapu)</li><li>Khao Phing Kan</li><li>Tham Lod sea cave</li><li>Koh Panyee floating village</li></ul><div class="amt">6,400<small>THB per boat &middot; 1&ndash;10 guests</small></div><a class="btn-book" href="#book" data-p="Phang Nga Private Longtail 03">Book route 03</a></div>
+        <div class="pkg best"><span class="no">ROUTE 04</span><h3>The Complete Bay</h3><div class="dur">4&ndash;6 hours</div><ul><li>James Bond Island (Khao Tapu)</li><li>Khao Phing Kan</li><li>Koh Phanak</li><li>Koh Hong</li><li>Koh Panyee floating village</li><li>Tham Lod sea cave</li></ul><div class="amt">7,100<small>THB per boat &middot; 1&ndash;10 guests</small></div><a class="btn-book" href="#book" data-p="Phang Nga Private Longtail 04">Book route 04</a></div>
+      </div>
+      <p class="note2" style="margin-top:14px;">Meeting point: Ban Khlong Khian Pier, Phang Nga. Activity times and the route may change with the tide and weather.</p>
+
+      <div class="infos" style="margin-top:28px;">
+        <div class="info"><h3><i>&#9989;</i>Included in your charter</h3><ul>
+          <li>Luxury longtail boat just for your group (1&ndash;10 guests)</li><li>Experienced captain and tour assistant for the whole trip</li><li>Accident insurance and life jackets</li><li>Drinking water, ice and cold towels</li><li>Bow photo props and help taking photos</li></ul></div>
+        <div class="info warn"><h3><i>&#10133;</i>Not included</h3><ul>
+          <li>Canoeing: 300 THB per person</li><li>National park fee: 300 THB per foreign guest (60 THB Thai guests)</li><li>Lunch on the island</li><li>Hotel transfers (see rates below)</li><li>Tips for the captain and assistant (optional)</li></ul></div>
+        <div class="info"><h3><i>&#8505;&#65039;</i>Good to know</h3><ul>
+          <li>All prices are per boat, not per person</li><li>Meet at Ban Khlong Khian Pier &mdash; confirm your departure time in advance</li><li>Times and stops depend on tide levels and weather</li><li>Low-season rates (May&ndash;Oct): ask us on WhatsApp</li></ul></div>
+      </div>
+
+      <h3 class="sub-h">Hotel transfers</h3>
+      <p class="sub-p">Round-trip transport from your hotel to Ban Khlong Khian Pier. Your driver waits during the boat trip and takes you back. Prices in THB per vehicle, charged separately from the boat.</p>
+      <table class="xfer">
+        <thead><tr><th>Hotel area</th><th class="n">Sedan</th><th class="n">Van</th></tr></thead>
+        <tbody><tr><td>Natai / Mai Khao / Nai Yang / Nai Thon</td><td class="n">2,300</td><td class="n">3,000</td></tr><tr><td>Pasak / Layan</td><td class="n">2,500</td><td class="n">3,200</td></tr><tr><td>Bang Tao / Surin / Kamala / Patong</td><td class="n">3,000</td><td class="n">3,700</td></tr><tr><td>Kata / Karon / Rawai / Ao Chalong</td><td class="n">3,300</td><td class="n">4,200</td></tr><tr><td>Phuket Town</td><td class="n">3,000</td><td class="n">3,700</td></tr><tr><td>Khao Lak</td><td class="n">3,000</td><td class="n">3,700</td></tr></tbody>
+      </table>
+      <p class="note2">Please tell us your hotel, pickup time and number of guests when booking so we can send the right vehicle.</p>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="wrap">
       <div class="sec-title"><span class="eyebrow">Sawanu day trips</span><h2>What&#8217;s included</h2></div>
@@ -629,7 +682,11 @@
               <option>James Bond &amp; Yao Yai Island (speedboat) &middot; 3,700 / 2,700 THB</option>
               <option>Hong by Starlight (sea kayak) &middot; 3,950 / 1,975 THB</option>
               <option>A Day in the Islands (private sea kayak) &middot; from 29,000 THB</option>
-              <option>Private Long-tail Boat &middot; 4,000 THB per boat (up to 6)</option></select></div>
+              <option>Private Long-tail Boat &middot; 4,000 THB per boat (up to 6)</option>
+              <option>Phang Nga Private Longtail 01 &middot; James Bond Highlights &middot; 4,300 THB per boat</option>
+              <option>Phang Nga Private Longtail 02 &middot; Islands &amp; Lagoons &middot; 5,700 THB per boat</option>
+              <option>Phang Nga Private Longtail 03 &middot; James Bond &amp; Panyee &middot; 6,400 THB per boat</option>
+              <option>Phang Nga Private Longtail 04 &middot; The Complete Bay &middot; 7,100 THB per boat</option></select></div>
             <div><label for="f-name">Full name</label><input id="f-name" type="text" required placeholder="Your name"></div>
             <div><label for="f-contact">WhatsApp / LINE</label><input id="f-contact" type="text" required placeholder="+66..."></div>
             <div><label for="f-date">Date</label><input id="f-date" type="date" required></div>
