@@ -138,3 +138,9 @@ body.rdm-open{overflow:hidden}
 .rd-fgrid.two{grid-template-columns:minmax(0,1fr) auto}
 @media (max-width:560px){.rd-fgrid.two{grid-template-columns:1fr}.rd-fgrid.two .rd-btn{grid-column:auto}}
 @media (max-width:560px){.rd-svc{grid-template-columns:1fr 1fr;gap:12px}.rd-svc .b{padding:12px 12px 14px}.rd-svc h3{font-size:15px}.rd-svc p{font-size:12.5px}.rd-svc .go{font-size:13px}}
+.rdm-send{display:flex;gap:14px;align-items:flex-start;background:#FFF4E5;border:2px solid var(--orange);border-radius:12px;padding:16px}
+.rdm-send-i{flex:0 0 48px;height:48px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;animation:rdm-pulse 1.6s ease-in-out infinite}
+.rdm-send h3{font-family:var(--font-head);color:var(--navy);font-size:18px;margin:0}
+.rdm-send p{margin:6px 0 0;font-size:14.5px;color:var(--navy)}
+@keyframes rdm-pulse{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}50%{box-shadow:0 0 0 10px rgba(37,211,102,0)}}
+@media (prefers-reduced-motion:reduce){.rdm-send-i{animation:none}}
