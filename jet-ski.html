@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap">
 <link rel="stylesheet" href="styles.css?v=20261018">
+<link rel="stylesheet" href="ir-rd.css?v=5">
 <style>
   body { background:#fff; }
   .wrap { max-width:1120px; margin:0 auto; padding:0 20px; }
@@ -150,7 +151,6 @@
   .gal-title { text-align:center; font-size:20px; margin-bottom:18px; }
   @media (max-width:900px) { .langs-wrap, .route { grid-template-columns:1fr; } .langs-copy { text-align:center; } }
   @media (max-width:600px) { .lang { width:88px; padding:12px 8px 10px; } .lang img { width:46px; height:46px; } .langs-copy h2 { font-size:25px; } }
-  .mbar { display:none; }
   @media (max-width:900px) {
     .facts { grid-template-columns:repeat(2,1fr); margin:-28px 16px 0; row-gap:14px; }
     .fact:nth-child(2) { border-right:none; }
@@ -167,9 +167,6 @@
     .stop figcaption span { display:none; }
     .stop figcaption b { font-size:13.5px; }
     .fgrid { grid-template-columns:1fr; }
-    .mbar { display:flex; position:fixed; left:12px; right:12px; bottom:12px; z-index:200; justify-content:center; }
-    .mbar .btn-wa { width:100%; justify-content:center; }
-    footer.site { padding-bottom:90px; }
   }
 </style>
 <script type="application/ld+json">
@@ -238,8 +235,9 @@
   </div>
 
   <div class="intro">
+    <div class="td-dur" style="display:flex;gap:10px;align-items:flex-start;background:#fff;color:#0F2A47;border-radius:12px;padding:10px 12px;margin:0 auto 14px;font-weight:700;font-size:15px;max-width:560px;text-align:left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div>09:00–13:00 or 13:30–17:30<small style="display:block;font-weight:500;color:#56677A;font-size:13px;margin-top:2px">Tour time on the water. Hotel pickup and drop-off included; our team confirms the pickup time when you book.</small></div></div>
     <h1>Phuket Jet Ski Tour &mdash; <span>9 Islands in 4 Hours</span></h1>
-    <p>Ride your own jet ski through Phang Nga Bay with a licensed guide. Swim, snorkel, meet the monkeys and have lunch on the beach at Naka Noi. Private trips and group bookings available.</p>
+    <p>Ride your own jet ski through Phang Nga Bay with a licensed guide. Swim, snorkel, meet the monkeys and have lunch on the beach at Naka Noi. Private trips and group bookings available.</p><p style="margin-top:12px"><button type="button" class="rd-share" data-share="/jet-ski" data-title="Jet Ski Tour — 9 Islands" aria-label="Share Jet Ski Tour — 9 Islands"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg><span>Share</span></button></p>
     <a class="back" href="/tours">&larr; All tours &amp; activities</a>
   </div>
 
@@ -390,27 +388,11 @@
       </div>
       <div class="form-card">
         <h3>Book your jet ski tour</h3>
-        <form id="inquiry-form">
-          <div class="fgrid">
-            <div class="full"><label for="f-tour">Jet ski</label><select id="f-tour" required>
-              <option value="Yamaha 1100cc (7,900 THB)">Yamaha 1100cc &middot; 7,900 THB</option>
-              <option value="Sea-Doo GTX Pro 1630cc (9,500 THB)">Sea-Doo GTX Pro 1630cc &middot; 9,500 THB</option>
-              <option value="Yamaha FX 1900cc (13,500 THB)">Yamaha FX 1900cc &middot; 13,500 THB</option></select></div>
-            <div><label for="f-name">Full name</label><input id="f-name" type="text" required placeholder="Your name"></div>
-            <div><label for="f-contact">WhatsApp / LINE</label><input id="f-contact" type="text" required placeholder="+66..."></div>
-            <div><label for="f-date">Date</label><input id="f-date" type="date" required></div>
-            <div><label for="f-time">Trip</label><select id="f-time"><option>Morning 09:00&ndash;13:00</option><option>Afternoon 13:30&ndash;17:30</option></select></div>
-            <div><label for="f-pax">Number of people</label><input id="f-pax" type="text" required placeholder="e.g. 2 adults"></div>
-            <div><label for="f-pickup">Hotel / pickup</label><input id="f-pickup" type="text" placeholder="Hotel name or area"></div>
-          </div>
-          <button type="submit" class="btn-wa send"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Send via WhatsApp</button>
-          <p class="fnote">Opens WhatsApp with your details filled in. Nothing is charged until we confirm.</p>
-        </form>
+        <div class="bk-start"><p style="margin:0 0 14px;color:#56677A;font-size:15px">Choose your jet ski, how many jet skis and how many people. You see the total before you send it on WhatsApp.</p><button type="button" class="btn-wa send" data-prog="jetski" style="border:0;cursor:pointer;font:inherit;font-weight:700"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Start booking</button><p class="fnote">Nothing is charged until we confirm.</p></div>
       </div>
     </div>
   </section>
 
-  <div class="mbar"><a class="btn-wa" href="#book"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.1-4.7-4-4.9-4.2-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.7-.2 1.2z"/></svg> Book this tour</a></div>
 
   </main>
 
@@ -439,19 +421,15 @@
 
 <script src="nav.js?v=2" defer></script>
 <script>
-  var MAP = {"TOUR-004":0,"TOUR-007":1,"TOUR-006":2};
-  document.querySelectorAll('.btn-book').forEach(function (a) {
-    a.addEventListener('click', function () { document.getElementById('f-tour').selectedIndex = MAP[a.dataset.tour]; });
-  });
-  document.getElementById('inquiry-form').addEventListener('submit', function (e) {
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.btn-book[data-tour], [data-prog]'); if (!b || !window.IRBook) return;
     e.preventDefault();
-    var v = function (id) { return document.getElementById(id).value; };
-    var msg = "Hi Island Rides Phuket! I'd like to book the jet ski tour.\n" +
-      "Jet ski: " + v('f-tour') + "\nName: " + v('f-name') + "\nContact: " + v('f-contact') +
-      "\nDate: " + IRdmy(v('f-date')) + "\nTrip: " + v('f-time') + "\nPeople: " + v('f-pax') + "\nPickup: " + (v('f-pickup') || "-");
-    window.open("https://wa.me/66803140043?text=" + encodeURIComponent(msg), "_blank");
+    IRBook.openProg('jetski', b.getAttribute('data-tour') || null);
   });
 </script>
 <script src="ir-date.js?v=1"></script>
+<script src="ir-booking.js?v=8"></script>
+<script src="ir-progs.js?v=2"></script>
+<script src="ir-tour.js?v=1"></script>
 </body>
 </html>
