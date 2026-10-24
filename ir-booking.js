@@ -82,6 +82,8 @@
       return y;
     });
   }
+  var PROGORDER = ['sea', 'eleph', 'jetski', 'atv'];
+  var PROGNAMES = { sea: 'Island trips & boats', eleph: 'Bukit Elephant Park', jetski: 'Jet ski tour', atv: 'ATV, buggy & go kart' };
   function curDur() { var o = optOf(); if (!o.durations) return null; return o.durations[Math.min(pv().dur || 0, o.durations.length - 1)]; }
   function gval(g) { var v = pv()[g.k]; return v == null ? (g.min ? (g.k === 'adults' ? 2 : 1) : 0) : v; }
   function kidsIn() { return groupsOf().some(function (g) { return g.kid && gval(g) > 0; }); }
@@ -172,6 +174,15 @@
         if (!opts.length || (f.type === 'dyn' && opts.length === 1 && false)) return;
         if (f.type === 'dyn' && !optOf()[f.from]) return;
         var cur = Math.min(v[f.k] || 0, opts.length - 1);
+        if (f.k === 'opt') {
+          /* one list with every tour program, so a customer can switch to any tour from any booking form */
+          var all = '';
+          PROGORDER.forEach(function (pk) {
+            var pc = window.IRPROGS && window.IRPROGS[pk]; if (!pc) return;
+            all += '<optgroup label="' + esc(PROGNAMES[pk]) + '">' + pc.fields[0].options.map(function (o, i) { var sel = pk === prog.key && i === cur; return '<option value="' + pk + ':' + i + '"' + (sel ? ' selected' : '') + '>' + esc(o.text) + '</option>'; }).join('') + '</optgroup>';
+          });
+          h += '<label class="rd-fld' + (e ? ' bad' : '') + '"><span>' + esc(f.label) + '</span><select id="rdm-opt" data-k="opt">' + all + '</select>' + (e ? '<span class="err">' + esc(e) + '</span>' : '') + '</label>';
+        } else
         h += '<label class="rd-fld' + (e ? ' bad' : '') + '"><span>' + esc(f.label) + '</span><select id="rdm-' + f.k + '" data-k="' + f.k + '"' + (opts.length === 1 ? ' disabled' : '') + '>' + opts.map(function (o, i) { return '<option value="' + i + '"' + (i === cur ? ' selected' : '') + '>' + esc(o.text) + '</option>'; }).join('') + '</select>' + (e ? '<span class="err">' + esc(e) + '</span>' : '') + '</label>';
         if (f.k === 'opt') {
           var o = f.options[cur];
@@ -372,6 +383,11 @@
   function onChange(e) {
     var k = e.target.dataset && e.target.dataset.k; if (!k) return;
     if (k === 'tid') { st.tour.id = e.target.value; render(); return; }
+    if (st.kind === 'prog' && k === 'opt' && /:/.test(e.target.value)) {
+      var pv2 = e.target.value.split(':'), nk = pv2[0];
+      if (nk !== prog.key && window.IRPROGS[nk]) { prog = window.IRPROGS[nk]; prog.key = nk; st.err = {}; }
+      pv().opt = +pv2[1]; pv().dur = 0; delete st.err.opt; render(); var so = back.querySelector('#rdm-opt'); if (so) so.focus(); return;
+    }
     if (st.kind === 'prog' && e.target.tagName === 'SELECT') { pv()[k] = +e.target.value; if (k === 'opt') pv().dur = 0; delete st.err[k]; render(); var se = back.querySelector('#rdm-' + k); if (se) se.focus(); return; }
     if (k === 'pick' || k === 'ret' || k === 'variant') { setVal(k, e.target.value); delete st.err[k]; render(); var el = back.querySelector('#rdm-' + k); if (el) el.focus(); }
   }
