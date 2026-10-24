@@ -187,3 +187,20 @@ body.rdm-open{overflow:hidden}
 .rdm-ref b{font-family:var(--font-head);letter-spacing:.04em}
 .rdm-cnt .c button:disabled{opacity:.35}
 .trip>*{min-width:0}.tl li>div{min-width:0;overflow-wrap:anywhere}
+/* tours page: one toolbar above the tour cards (no sidebar) */
+.rd-listing.rd-one{display:block}
+.rd-tbar{background:#fff;border:1px solid var(--rd-line);border-radius:var(--rd-r);padding:12px 14px;margin-bottom:16px;display:grid;gap:10px;box-shadow:var(--rd-shadow)}
+.rd-cats{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:2px 4px}
+.rd-cats::-webkit-scrollbar{display:none}
+.rd-cats .rd-chip{flex:0 0 auto;white-space:nowrap}
+.rd-chip small{font-weight:600;opacity:.7;margin-left:2px}
+.rd-tbar-r{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.rd-count{font-size:14px;color:var(--rd-muted);margin-right:auto}
+.rd-count b{color:var(--navy)}
+.rd-sort{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--rd-muted)}
+.rd-sort select{font:inherit;font-size:15px;padding:8px 10px;min-height:40px;border-radius:8px;border:1.5px solid var(--rd-line);background:#fff;color:var(--navy)}
+.rd-more{display:grid;gap:12px;border-top:1px solid var(--rd-line);padding-top:12px}
+.rd-more[hidden]{display:none}
+.rd-more>div>b{display:block;font-size:13px;margin-bottom:6px}
+.rd-more>.rd-chip{justify-self:start}
+@media(max-width:600px){.rd-tbar-r{flex-wrap:nowrap;gap:8px}.rd-sort>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.rd-sort select{max-width:150px;font-size:14px;padding:8px 6px}.rd-tbar-r .rd-chip,.rd-count{white-space:nowrap}}
